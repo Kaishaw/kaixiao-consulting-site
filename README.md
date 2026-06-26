@@ -385,10 +385,11 @@ site/styles.css
 
 Visual direction:
 
-- Warm senior consultant personal site
-- Light, calm, readable pages
-- Human portrait-led first impression
-- Some modern technology signal, but not a dark SaaS-style landing page
+- Portify-inspired personal portfolio direction
+- Lemon-green high-energy background
+- Strong black typography, rounded cards, pill navigation, and visible outline treatment
+- Human portrait-led first impression with a circular portrait frame
+- Portfolio feel with more personality than a standard resume page
 - No employer logos
 - No Microsoft logos
 - No fake client logos
@@ -397,13 +398,12 @@ Visual direction:
 Palette variables:
 
 ```css
---page: #f7f3ea;
---paper: #fffdf8;
---ink: #24302d;
---muted: #66736f;
---accent: #2f7d73;
---clay: #b56b44;
---gold: #d7a34b;
+--lemon: #dfff35;
+--lemon-soft: #ecff8a;
+--lemon-pale: #f6ffd6;
+--ink: #11140f;
+--muted: #4c5547;
+--paper: rgba(255, 255, 238, 0.78);
 ```
 
 Reusable layout classes:
@@ -414,6 +414,7 @@ Reusable layout classes:
 - `.section`
 - `.profile-card`
 - `.life-band`
+- `.topic-strip`
 - `.route-grid`
 - `.route-card`
 - `.detail-grid`
