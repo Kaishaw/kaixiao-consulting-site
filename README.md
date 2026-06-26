@@ -117,32 +117,24 @@ Current domain plan:
 | `kaixiao-consulting-site.pages.dev` | Cloudflare Pages fallback URL | `kaixiao-consulting-site` | Active |
 | `ai.kaixiao.ca` | AI project directory and demos | `career-prep-platform` | Active |
 | `career-prep-platform.pages.dev` | AI project fallback URL | `career-prep-platform` | Active |
-| `kaixiao.ca` | Desired root/apex personal site | `kaixiao-consulting-site` | Needs final DNS strategy |
+| `kaixiao.ca` | Root/apex personal site | `kaixiao-consulting-site` | Cloudflare zone created; waiting NS propagation |
 
-Current GoDaddy DNS intent:
+Current Cloudflare DNS records:
 
 ```text
+kaixiao.ca     CNAME -> kaixiao-consulting-site.pages.dev
 www.kaixiao.ca CNAME -> kaixiao-consulting-site.pages.dev
 ai.kaixiao.ca  CNAME -> career-prep-platform.pages.dev
 ```
 
-The root/apex domain `kaixiao.ca` is more complicated because many DNS providers, including GoDaddy, do not allow a normal CNAME record at `@`. Cloudflare Pages reports the root domain as pending unless it can verify the expected record.
+Current Cloudflare nameservers for `kaixiao.ca`:
 
-Recommended final root-domain options:
+```text
+jillian.ns.cloudflare.com
+nash.ns.cloudflare.com
+```
 
-1. Move DNS hosting for `kaixiao.ca` to Cloudflare.
-   - Add `kaixiao.ca` as a Cloudflare zone.
-   - Change nameservers at GoDaddy to Cloudflare nameservers.
-   - Configure `kaixiao.ca` and `www.kaixiao.ca` in Cloudflare DNS.
-   - Keep `ai.kaixiao.ca` pointing to `career-prep-platform.pages.dev`.
-
-2. Keep GoDaddy DNS and use `www.kaixiao.ca` as the canonical personal website.
-   - This is the current working state.
-   - Root `kaixiao.ca` may need GoDaddy forwarding to `https://www.kaixiao.ca/`.
-
-3. Use a Cloudflare API token with `zone.create` permission.
-   - Previous token did not have this permission.
-   - Required permission: create/manage zones for the Cloudflare account.
+GoDaddy nameservers were updated to the Cloudflare nameservers through the GoDaddy API. Cloudflare may still show the zone as `pending` until public DNS observes the new delegation. During that window, `www.kaixiao.ca` may resolve correctly while `kaixiao.ca` root/apex activation is still finishing.
 
 ## Cloudflare Projects
 
@@ -617,7 +609,7 @@ Important: API tokens were used during initial setup. Any token pasted into chat
 
 ## Current Known Limitations
 
-1. `kaixiao.ca` root/apex is not fully finalized.
+1. `kaixiao.ca` root/apex is waiting for Cloudflare nameserver propagation.
 
 Current stable domain:
 
@@ -625,9 +617,11 @@ Current stable domain:
 https://www.kaixiao.ca/
 ```
 
-Recommended next action:
+Current expected final state:
 
-- Add `kaixiao.ca` as a Cloudflare zone and move DNS hosting from GoDaddy to Cloudflare, or set root forwarding in GoDaddy to `https://www.kaixiao.ca/`.
+- `kaixiao.ca` and `www.kaixiao.ca` resolve through Cloudflare to `kaixiao-consulting-site`.
+- `ai.kaixiao.ca` resolves through Cloudflare to `career-prep-platform`.
+- Cloudflare zone status changes from `pending` to `active` after public nameserver propagation.
 
 2. The site does not yet include a real headshot.
 
