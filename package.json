@@ -1,0 +1,13 @@
+{
+  "name": "kaixiao-consulting-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler pages dev site --port 8790",
+    "deploy": "wrangler pages deploy site --project-name kaixiao-consulting-site --branch main --commit-dirty=true"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
