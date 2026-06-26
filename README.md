@@ -43,7 +43,7 @@ Because public LinkedIn data may be limited, this site intentionally avoids inve
 | `/ai-projects/` | `site/ai-projects/index.html` | Applied AI project portfolio and links to `ai.kaixiao.ca` |
 | `/contact/` | `site/contact/index.html` | LinkedIn/contact page |
 | `/styles.css` | `site/styles.css` | Global visual system and responsive layout |
-| `/site.js` | `site/site.js` | Scroll progress behavior |
+| `/site.js` | `site/site.js` | Scroll progress behavior and persisted theme switching |
 
 ## Directory Structure
 
@@ -389,6 +389,7 @@ Visual direction:
 - Lemon-green high-energy background
 - Strong black typography, rounded cards, pill navigation, and visible outline treatment
 - Human portrait-led first impression with a circular portrait frame
+- Optional Chatfolio-inspired dark theme with charcoal background, amber accents, and bottom chat-style navigation
 - Portfolio feel with more personality than a standard resume page
 - No employer logos
 - No Microsoft logos
@@ -406,6 +407,14 @@ Palette variables:
 --paper: rgba(255, 255, 238, 0.78);
 ```
 
+Theme behavior:
+
+- Default theme: `lemon`
+- Alternate theme: `chatfolio`
+- Theme state is stored in browser `localStorage` under `kaixiao-site-theme`
+- The theme switcher is injected by `site/site.js` on every page
+- Dark theme styles are scoped under `html[data-theme="chatfolio"]`
+
 Reusable layout classes:
 
 - `.site-nav`
@@ -421,6 +430,7 @@ Reusable layout classes:
 - `.story-card`
 - `.note-list`
 - `.featured-case`
+- `.theme-switcher`
 - `.site-footer`
 
 Responsive behavior:

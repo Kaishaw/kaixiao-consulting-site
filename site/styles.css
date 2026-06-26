@@ -558,6 +558,260 @@ h3 {
   font-weight: 850;
 }
 
+.theme-switcher {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 60;
+  display: flex;
+  gap: 7px;
+  padding: 7px;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  background: rgba(255, 255, 238, 0.78);
+  box-shadow: 5px 5px 0 rgba(17, 20, 15, 0.16);
+  backdrop-filter: blur(14px);
+}
+
+.theme-switcher button {
+  min-height: 32px;
+  border: 0;
+  border-radius: 999px;
+  padding: 7px 12px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.theme-switcher button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--lemon);
+}
+
+html[data-theme="chatfolio"] {
+  color-scheme: dark;
+  --lemon: #ffb400;
+  --lemon-soft: #f59e0b;
+  --lemon-pale: #2c2c2c;
+  --ink: #f1f5f9;
+  --muted: #a7a7a7;
+  --line: rgba(255, 255, 255, 0.14);
+  --paper: rgba(32, 32, 32, 0.88);
+  --paper-strong: #181818;
+  --accent: #ffb400;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+}
+
+html[data-theme="chatfolio"] body {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 180, 0, 0.11), transparent 23%),
+    linear-gradient(90deg, #202020 0 10.5%, #252525 10.5% 89.5%, #202020 89.5% 100%);
+}
+
+html[data-theme="chatfolio"] body::before,
+html[data-theme="chatfolio"] body::after {
+  position: fixed;
+  top: 50%;
+  z-index: -1;
+  color: rgba(255, 180, 0, 0.11);
+  font-size: 42px;
+  font-weight: 950;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: translateY(-50%);
+}
+
+html[data-theme="chatfolio"] body::before {
+  content: "Kaixiao Can";
+  left: 7vw;
+}
+
+html[data-theme="chatfolio"] body::after {
+  content: "CRM Consultant";
+  right: 7vw;
+}
+
+html[data-theme="chatfolio"] .progress {
+  background: var(--accent);
+}
+
+html[data-theme="chatfolio"] .brand {
+  color: var(--ink);
+}
+
+html[data-theme="chatfolio"] .brand::before {
+  border-color: var(--accent);
+  background: transparent;
+}
+
+html[data-theme="chatfolio"] .site-nav nav {
+  top: auto;
+  right: auto;
+  bottom: 44px;
+  left: 50%;
+  display: flex;
+  gap: 10px;
+  padding: 16px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 32px;
+  background: rgba(42, 42, 42, 0.92);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.34);
+  transform: translateX(-50%);
+  backdrop-filter: blur(18px);
+}
+
+html[data-theme="chatfolio"] .site-nav nav::before {
+  content: "Try about, skills, or projects...";
+  position: absolute;
+  left: 26px;
+  right: 64px;
+  top: 15px;
+  color: rgba(255, 255, 255, 0.34);
+  font-size: 13px;
+  pointer-events: none;
+}
+
+html[data-theme="chatfolio"] .site-nav nav a {
+  min-width: 116px;
+  margin-top: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #171717;
+  color: var(--muted);
+  box-shadow: none;
+}
+
+html[data-theme="chatfolio"] .site-nav nav a::before {
+  display: none;
+}
+
+html[data-theme="chatfolio"] .site-nav nav a:hover {
+  border-color: var(--accent);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+html[data-theme="chatfolio"] .home-hero {
+  min-height: 100vh;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  width: min(1080px, calc(100% - 360px));
+  padding-bottom: 138px;
+}
+
+html[data-theme="chatfolio"] .eyebrow {
+  color: var(--accent);
+}
+
+html[data-theme="chatfolio"] h1,
+html[data-theme="chatfolio"] h2,
+html[data-theme="chatfolio"] h3 {
+  color: var(--ink);
+}
+
+html[data-theme="chatfolio"] h1 {
+  font-size: clamp(48px, 6vw, 74px);
+  line-height: 1.04;
+}
+
+html[data-theme="chatfolio"] .hero-lede,
+html[data-theme="chatfolio"] p,
+html[data-theme="chatfolio"] ul {
+  color: var(--muted);
+}
+
+html[data-theme="chatfolio"] .primary-link {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #151515;
+  box-shadow: none;
+}
+
+html[data-theme="chatfolio"] .secondary-link {
+  border-color: var(--accent);
+  background: transparent;
+  color: var(--accent);
+  box-shadow: none;
+}
+
+html[data-theme="chatfolio"] .profile-card {
+  border-color: transparent;
+  border-radius: 36px;
+  background: transparent;
+  box-shadow: none;
+}
+
+html[data-theme="chatfolio"] .profile-card::before {
+  inset: 120px 22px 96px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+html[data-theme="chatfolio"] .profile-card::after {
+  display: none;
+}
+
+html[data-theme="chatfolio"] .profile-card img {
+  position: relative;
+  border-color: rgba(255, 255, 255, 0.08);
+  border-radius: 36px;
+  background: #303030;
+}
+
+html[data-theme="chatfolio"] .profile-card strong {
+  color: var(--ink);
+}
+
+html[data-theme="chatfolio"] .topic-strip span,
+html[data-theme="chatfolio"] .life-band,
+html[data-theme="chatfolio"] .page-hero,
+html[data-theme="chatfolio"] .contact-hero,
+html[data-theme="chatfolio"] .story-card,
+html[data-theme="chatfolio"] .note-list article,
+html[data-theme="chatfolio"] .route-card,
+html[data-theme="chatfolio"] .soft-card-grid article,
+html[data-theme="chatfolio"] .detail-grid article,
+html[data-theme="chatfolio"] .source-grid a,
+html[data-theme="chatfolio"] .featured-case {
+  border-color: var(--line);
+  background: var(--paper);
+  box-shadow: none;
+}
+
+html[data-theme="chatfolio"] .story-outcome {
+  border-color: rgba(255, 180, 0, 0.55);
+  background: rgba(255, 180, 0, 0.08);
+  color: var(--ink);
+}
+
+html[data-theme="chatfolio"] .route-card p,
+html[data-theme="chatfolio"] .soft-card-grid p,
+html[data-theme="chatfolio"] .detail-grid p {
+  color: var(--muted);
+}
+
+html[data-theme="chatfolio"] .quote-section p {
+  color: var(--ink);
+}
+
+html[data-theme="chatfolio"] .theme-switcher {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(42, 42, 42, 0.88);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.32);
+}
+
+html[data-theme="chatfolio"] .theme-switcher button {
+  color: var(--muted);
+}
+
+html[data-theme="chatfolio"] .theme-switcher button[aria-pressed="true"] {
+  background: var(--accent);
+  color: #151515;
+}
+
 @media (max-width: 1120px) {
   .home-hero,
   .section,
@@ -618,6 +872,20 @@ h3 {
     display: none;
   }
 
+  html[data-theme="chatfolio"] .site-nav nav {
+    display: none;
+  }
+
+  html[data-theme="chatfolio"] body::before,
+  html[data-theme="chatfolio"] body::after {
+    display: none;
+  }
+
+  html[data-theme="chatfolio"] .home-hero {
+    width: min(720px, calc(100% - 28px));
+    padding-bottom: 34px;
+  }
+
   .home-hero,
   .section,
   .life-band,
@@ -658,8 +926,15 @@ h3 {
   }
 
   .profile-card {
+    width: min(320px, 100%);
     max-width: 320px;
     margin: 16px auto 0;
+    justify-self: center;
+  }
+
+  html[data-theme="chatfolio"] .profile-card {
+    width: min(300px, calc(100vw - 72px));
+    max-width: min(300px, calc(100vw - 72px));
   }
 
   .life-band img {
@@ -704,5 +979,10 @@ h3 {
 
   .site-footer {
     display: grid;
+  }
+
+  .theme-switcher {
+    right: 12px;
+    bottom: 12px;
   }
 }
