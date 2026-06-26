@@ -16,11 +16,11 @@ Related AI project hub:
 
 ## Project Purpose
 
-This site is designed as a professional personal website and portfolio hub. It is not just a resume page. It organizes the profile into several reader-friendly sections:
+This site is designed as a warm professional personal website and portfolio hub. It is not just a resume page, and it intentionally avoids feeling like a generic technology landing page. It organizes the profile into several reader-friendly sections:
 
 - Professional positioning
 - Portfolio and capability map
-- Representative work project patterns
+- Representative work project stories
 - Industry insights
 - Applied AI project portfolio
 - Contact and LinkedIn entry point
@@ -30,7 +30,7 @@ The current positioning is based on publicly visible LinkedIn information provid
 - LinkedIn: `https://www.linkedin.com/in/kaixiaocan/`
 - Public positioning themes: Dynamics 365 CE, CRM modernization, Sales/Service workflows, Power Platform, CRM operations, AI-ready digital workflows
 
-Because public LinkedIn data may be limited, this site intentionally avoids invented employer names, private client details, dates, revenue claims, or unverifiable metrics. The `Work Projects` page uses representative project patterns instead of confidential case studies.
+Because public LinkedIn data may be limited, this site intentionally avoids invented employer names, private client details, dates, revenue claims, or unverifiable metrics. The `Projects` page uses privacy-safe project storytelling and anonymized client descriptions instead of confidential case studies.
 
 ## Current Site Map
 
@@ -38,7 +38,7 @@ Because public LinkedIn data may be limited, this site intentionally avoids inve
 | --- | --- | --- |
 | `/` | `site/index.html` | Homepage and high-level navigation into the portfolio |
 | `/portfolio/` | `site/portfolio/index.html` | Skills, consulting capability map, working style, toolkit |
-| `/work/` | `site/work/index.html` | Representative CRM and Power Platform project patterns |
+| `/work/` | `site/work/index.html` | Privacy-safe CRM, ERP, Power Platform, and transformation project stories |
 | `/insights/` | `site/insights/index.html` | Industry trends and source-backed market context |
 | `/ai-projects/` | `site/ai-projects/index.html` | Applied AI project portfolio and links to `ai.kaixiao.ca` |
 | `/contact/` | `site/contact/index.html` | LinkedIn/contact page |
@@ -59,6 +59,8 @@ KaixiaoConsultingSite/
    ├─ styles.css
    ├─ site.js
    ├─ assets/
+   │  ├─ headshot-professional.jpg
+   │  ├─ headshot-casual.jpg
    │  ├─ consulting-hero.png
    │  ├─ portfolio-visual.png
    │  ├─ industry-insights-visual.png
@@ -88,7 +90,7 @@ Technology choices:
 - A tiny JavaScript file for the top scroll progress indicator
 - Cloudflare Pages for static hosting
 - GitHub for source control
-- GoDaddy DNS currently manages `kaixiao.ca`
+- Cloudflare DNS manages the target records after the GoDaddy nameserver migration finishes propagating
 
 Deployment model:
 
@@ -238,10 +240,11 @@ site/index.html
 
 Role:
 
-- First impression
+- First impression with a more human, readable tone
 - High-level professional positioning
+- Real professional and casual portraits
 - Navigation into deeper sections
-- Quick capability signals
+- Quick explanation of CRM, Dynamics 365, Power Platform, and AI workflow focus
 
 Update when:
 
@@ -281,16 +284,16 @@ site/work/index.html
 
 Role:
 
-- Representative project patterns
-- Responsibilities and deliverables
-- Privacy-safe project storytelling
+- Representative project stories
+- Responsibilities, decisions, and outcomes
+- Privacy-safe storytelling for public viewing
 
-Current project patterns:
+Current project stories:
 
-- CRM modernization
-- Dynamics 365 CE functional design
-- Power Platform automation opportunity mapping
-- AI readiness
+- Public-sector Dynamics 365 cloud migration
+- Canadian food manufacturer CRM and ERP transformation
+- Top-three Chinese baijiu group enterprise Dynamics 365 rollout
+- Lead scoring and marketing automation workflow
 
 Use this page for work experience without exposing confidential employer/client information. A good project card should answer:
 
@@ -382,9 +385,10 @@ site/styles.css
 
 Visual direction:
 
-- Professional senior consultant tone
-- Dark enterprise technology palette
-- CRM/data/process visual language
+- Warm senior consultant personal site
+- Light, calm, readable pages
+- Human portrait-led first impression
+- Some modern technology signal, but not a dark SaaS-style landing page
 - No employer logos
 - No Microsoft logos
 - No fake client logos
@@ -393,36 +397,37 @@ Visual direction:
 Palette variables:
 
 ```css
---page: #0d1113;
---ink: #f7fbf9;
---muted: #adc1bd;
---teal: #62d6c7;
---blue: #75a7ff;
---amber: #f0bd6c;
+--page: #f7f3ea;
+--paper: #fffdf8;
+--ink: #24302d;
+--muted: #66736f;
+--accent: #2f7d73;
+--clay: #b56b44;
+--gold: #d7a34b;
 ```
 
 Reusable layout classes:
 
 - `.site-nav`
-- `.hero`
-- `.subhero`
+- `.home-hero`
+- `.page-hero`
 - `.section`
-- `.signal-strip`
+- `.profile-card`
+- `.life-band`
 - `.route-grid`
 - `.route-card`
-- `.capability-grid`
-- `.project-story`
-- `.insight-list`
+- `.detail-grid`
+- `.story-card`
+- `.note-list`
 - `.featured-case`
-- `.contact-band`
 - `.site-footer`
 
 Responsive behavior:
 
-- Desktop uses wide, structured grids.
+- Desktop uses restrained, readable grids.
 - Mobile hides the top nav links and keeps the brand visible.
-- Content stacks into single-column layouts below `1080px`.
-- Typography stays fixed with responsive clamps, not viewport-only scaling.
+- Content stacks into single-column layouts below `960px`.
+- Typography uses moderate clamps and avoids oversized homepage text.
 
 ## Image Assets
 
@@ -436,18 +441,20 @@ Current images:
 
 | File | Used by | Purpose |
 | --- | --- | --- |
-| `consulting-hero.png` | Homepage | Main hero image |
-| `portfolio-visual.png` | Portfolio page | CRM modernization visual |
-| `industry-insights-visual.png` | Insights page | AI-enabled CRM/contact center visual |
-| `ai-projects-visual.png` | AI Projects page | Applied AI prototype visual |
+| `headshot-professional.jpg` | Homepage, Portfolio, Contact | Main professional portrait |
+| `headshot-casual.jpg` | Homepage | Casual personal portrait for a warmer tone |
+| `consulting-hero.png` | Legacy/available | Earlier generated CRM hero image |
+| `portfolio-visual.png` | Legacy/available | Earlier generated CRM modernization visual |
+| `industry-insights-visual.png` | Legacy/available | Earlier generated AI-enabled CRM/contact center visual |
+| `ai-projects-visual.png` | Legacy/available | Earlier generated applied AI prototype visual |
 
 Image generation guidance:
 
-- Use abstract enterprise/CRM visuals.
-- Avoid humans unless a real approved headshot is provided.
+- Prefer real approved portraits for personal pages.
+- Use abstract enterprise/CRM visuals only as supporting material.
 - Avoid brand marks and logos.
 - Avoid readable fake UI text.
-- Keep images wide landscape for page banners.
+- Keep portrait crops stable at `4 / 5` or `1 / 1`; keep generated visuals wide landscape if reused for banners.
 - Copy generated images into `site/assets/`; do not reference temporary generation paths.
 
 ## Adding A New Page
@@ -489,13 +496,15 @@ Edit:
 site/work/index.html
 ```
 
-Duplicate a `.project-story` block:
+Duplicate a `.story-card` block:
 
 ```html
-<article class="project-story">
-  <div class="story-number">05</div>
+<article class="story-card">
+  <div class="story-meta">
+    <span>Project theme</span>
+    <strong>Client or industry type</strong>
+  </div>
   <div>
-    <p class="eyebrow">Project theme</p>
     <h2>Project title</h2>
     <p>One-sentence summary.</p>
     <ul>
@@ -623,15 +632,11 @@ Current expected final state:
 - `ai.kaixiao.ca` resolves through Cloudflare to `career-prep-platform`.
 - Cloudflare zone status changes from `pending` to `active` after public nameserver propagation.
 
-2. The site does not yet include a real headshot.
-
-Current visuals are generated abstract consulting images. If an approved professional headshot is available, add it to `site/assets/` and create an About section.
-
-3. Work project details are intentionally generalized.
+2. Work project details are intentionally generalized.
 
 This protects confidentiality but can be expanded if the site owner provides approved public project details.
 
-4. No contact form is implemented.
+3. No contact form is implemented.
 
 Current contact path is LinkedIn-only. A future contact form would require a backend, form service, or Cloudflare Pages Function.
 
@@ -639,10 +644,9 @@ Current contact path is LinkedIn-only. A future contact form would require a bac
 
 High-value next improvements:
 
-- Add a concise About page with a professional headshot.
 - Add downloadable PDF resume or one-page capability statement.
 - Add a case-study template for each work project.
-- Add a "Certifications" section if public certification details are available.
+- Expand the "Certifications" section if public certification details are available.
 - Add root-domain redirect from `kaixiao.ca` to `www.kaixiao.ca`.
 - Connect Cloudflare Pages to GitHub for automatic deploys.
 - Add analytics, such as Cloudflare Web Analytics.
