@@ -1,22 +1,22 @@
 {
-  "eyebrow": "CRM consultant · Business analyst · AI workflow builder",
-  "headline": "Hi, I am Kaixiao. I design CRM workflows that people can actually use.",
-  "lede": "My work sits between business teams and technical delivery: understanding the real process, shaping Dynamics 365 and Power Platform solutions, and turning messy operational needs into systems people can actually use.",
-  "primaryAction": { "label": "Read project stories", "href": "/work/" },
-  "secondaryAction": { "label": "View portfolio", "href": "/portfolio/" },
-  "capabilities": ["Dynamics 365 CE", "Power Platform", "Business Analysis", "CRM Modernization", "AI Workflows"],
-  "aboutTitle": "I like the practical side of digital transformation.",
+  "eyebrow": "Kai Xiao · CRM, ERP & applied AI",
+  "headline": "I make complex work feel clearer, more useful, and more human.",
+  "lede": "I work between business strategy, enterprise systems, and emerging AI — helping organizations modernize the way people sell, serve, operate, and make decisions.",
+  "primaryAction": { "label": "Explore projects", "href": "/work/" },
+  "secondaryAction": { "label": "Read latest insights", "href": "/blog/" },
+  "capabilities": ["Dynamics 365", "Copilot & AI", "Power Platform", "Business Analysis", "CRM & ERP Transformation"],
+  "aboutTitle": "A systems person who still starts with people.",
   "aboutParagraphs": [
-    "I started from business and systems analysis, and over time moved deeper into CRM, customer service, sales process design, and Power Platform. What I enjoy most is helping people describe what they need clearly enough that a solution can be designed, built, tested, and adopted.",
-    "My background includes CRM modernization, public-sector cloud migration, enterprise-wide Dynamics 365 rollouts, lead scoring automation, and BI-enabled operations. Recently, I have also been building AI workflow projects that connect career preparation, structured prompting, and product-style delivery."
+    "I started from business and systems analysis, and over time moved deeper into CRM, customer service, sales process design, Dynamics 365, and Power Platform. What I enjoy most is helping people describe what they need clearly enough that a solution can be designed, built, tested, and adopted.",
+    "My background includes CRM modernization, public-sector cloud migration, enterprise-wide Dynamics 365 rollouts, lead scoring automation, and BI-enabled operations. I am now especially interested in how Copilot, agents, and applied AI can become useful inside real business processes rather than remain isolated technology experiments."
   ],
   "personalNoteTitle": "Not just systems. Also people, habits, and adoption.",
   "personalNote": "The most successful CRM projects I have seen were not only about choosing the right platform. They worked because users understood the purpose, managers trusted the data, and the new process made daily work easier instead of heavier.",
   "quote": "I see CRM as a shared operating system for customer-facing teams. If the workflow is unclear, AI will only make the confusion faster. If the workflow is clear, AI can become genuinely useful.",
   "routes": [
-    { "number": "01", "title": "Portfolio", "href": "/portfolio/", "description": "Background, certifications, tools, and how I work across CRM and Power Platform projects." },
+    { "number": "01", "title": "Portfolio", "href": "/portfolio/", "description": "A concise career timeline, working style, and the experiences that shaped how I approach business systems." },
     { "number": "02", "title": "Project stories", "href": "/work/", "description": "Readable stories from public-sector, food distribution, manufacturing, and marketing automation work." },
-    { "number": "03", "title": "Industry insights", "href": "/insights/", "description": "My notes on CRM, Dynamics 365, Power Platform, contact centers, and AI-enabled operations." },
-    { "number": "04", "title": "AI projects", "href": "/ai-projects/", "description": "Small product experiments where I turn AI ideas into usable workflows and public demos." }
+    { "number": "03", "title": "Industry insights", "href": "/insights/", "description": "Fast access to my views on Dynamics 365, Copilot, AI agents, business operations, and the future of work." },
+    { "number": "04", "title": "Labs & demos", "href": "/ai-projects/", "description": "Small experiments, prototypes, and public demos exploring useful applications of AI and automation." }
   ]
 }

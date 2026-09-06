@@ -18,6 +18,10 @@ const blog = defineCollection({
   schema: z.object({
     ...sharedFields,
     category: z.string().default("Insight"),
+    contentType: z.enum(["article", "opinion", "case-note", "tutorial"]).default("article"),
+    featuredInsight: z.boolean().default(false),
+    insightSummary: z.string().optional(),
+    insightTopic: z.string().optional(),
     readingTime: z.string().optional(),
   }),
 });
@@ -29,7 +33,14 @@ const projects = defineCollection({
     type: z.enum(["work", "ai"]).default("work"),
     label: z.string(),
     clientType: z.string(),
+    sector: z.string().optional(),
+    scale: z.string().optional(),
+    businessContext: z.string().optional(),
+    executiveSummary: z.string().optional(),
+    rolePerspective: z.string().optional(),
     outcome: z.string(),
+    demoType: z.string().optional(),
+    videoUrl: z.string().url().optional(),
   }),
 });
 

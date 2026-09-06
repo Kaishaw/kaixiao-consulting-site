@@ -1,18 +1,20 @@
 {
-  "siteName": "Kaixiao Can",
+  "siteName": "Kai Xiao",
   "siteUrl": "https://www.kaixiao.ca",
-  "siteDescription": "A personal portfolio about CRM modernization, business analysis, Dynamics 365, Power Platform, and applied AI workflows.",
-  "defaultOgImage": "/assets/headshot-professional.jpg",
+  "siteDescription": "Kai Xiao is a CRM, ERP, business systems, and applied AI practitioner sharing the work, ideas, and experiments behind useful digital change.",
+  "showSiteStatus": true,
+  "siteStatusNote": "This site is evolving — new project stories, insights, and demos are being added.",
+  "defaultOgImage": "/assets/hero-ribbons.png",
   "favicon": "",
   "email": "",
   "linkedinUrl": "https://www.linkedin.com/in/kaixiaocan/",
   "aiDirectoryUrl": "https://ai.kaixiao.ca/",
-  "footerLine": "CRM · Dynamics 365 · Power Platform · AI Workflows",
+  "footerLine": "CRM · ERP · Power Platform · AI · Business Systems",
   "navigation": [
     { "label": "Portfolio", "href": "/portfolio/" },
     { "label": "Projects", "href": "/work/" },
     { "label": "Insights", "href": "/insights/" },
-    { "label": "AI Work", "href": "/ai-projects/" },
+    { "label": "Labs", "href": "/ai-projects/" },
     { "label": "Blog", "href": "/blog/" },
     { "label": "Contact", "href": "/contact/" }
   ]

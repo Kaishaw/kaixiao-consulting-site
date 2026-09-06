@@ -12,6 +12,10 @@ const {
   description = site.siteDescription,
   ogImage = site.defaultOgImage,
 } = Astro.props;
+
+const brandWords = site.siteName.trim().split(/\s+/);
+const brandFirst = brandWords.slice(0, -1).join(" ") || site.siteName;
+const brandLast = brandWords.length > 1 ? brandWords.at(-1) : "";
 ---
 
 <!doctype html>
@@ -24,18 +28,30 @@ const {
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#120b1f" />
     <title>{title}</title>
     {site.favicon && <link rel="icon" href={site.favicon} />}
-    <link rel="stylesheet" href="/styles.css?v=20260905" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css?v=20260906" />
   </head>
   <body>
     <div class="progress" id="progress"></div>
     <header class="site-nav">
-      <a class="brand" href="/">{site.siteName}</a>
+      <a class="brand" href="/" aria-label={site.siteName}>
+        <span>{brandFirst}</span>{brandLast && <em>{brandLast}</em>}
+      </a>
       <nav aria-label="Primary navigation">
         {site.navigation.map((item) => <a href={item.href}>{item.label}</a>)}
       </nav>
     </header>
+
+    {site.showSiteStatus && site.siteStatusNote && (
+      <div class="site-status" role="status">
+        <span>{site.siteStatusNote}</span>
+      </div>
+    )}
 
     <slot />
 

@@ -22,6 +22,12 @@ content:
         label: Default site description
         type: text
         required: true
+      - name: showSiteStatus
+        label: Show site status note
+        type: boolean
+      - name: siteStatusNote
+        label: Site status note
+        type: string
       - name: defaultOgImage
         label: Default social sharing image
         type: image
@@ -108,6 +114,52 @@ content:
           - name: description
             type: text
 
+  - name: timeline
+    label: Career timeline
+    type: file
+    path: src/data/timeline.json
+    fields:
+      - name: entries
+        label: Timeline entries
+        type: object
+        list: true
+        fields:
+          - name: period
+            type: string
+          - name: title
+            type: string
+          - name: location
+            type: string
+          - name: summary
+            type: text
+          - name: themes
+            type: string
+            list: true
+
+  - name: insights-settings
+    label: Insights settings
+    type: file
+    path: src/data/insights.json
+    fields:
+      - name: eyebrow
+        type: string
+      - name: title
+        type: text
+      - name: lede
+        type: text
+      - name: pillars
+        type: object
+        list: true
+        fields:
+          - name: label
+            type: string
+          - name: title
+            type: string
+          - name: description
+            type: text
+      - name: sourceNote
+        type: text
+
   - name: blog
     label: Blog posts
     type: collection
@@ -115,7 +167,7 @@ content:
     filename: "{slug}.md"
     view:
       primary: title
-      fields: [title, category, date, published]
+      fields: [title, category, contentType, featuredInsight, date, published]
       sort: [date, title]
       default:
         sort: date
@@ -133,6 +185,20 @@ content:
         type: date
         required: true
       - name: category
+        type: string
+      - name: contentType
+        label: Content type
+        type: select
+        options:
+          values: [article, opinion, case-note, tutorial]
+      - name: featuredInsight
+        label: Feature in Insights
+        type: boolean
+      - name: insightSummary
+        label: Insight summary
+        type: text
+      - name: insightTopic
+        label: Insight topic
         type: string
       - name: coverImage
         type: image
@@ -152,7 +218,7 @@ content:
     filename: "{slug}.md"
     view:
       primary: title
-      fields: [title, type, label, date, published]
+      fields: [title, type, sector, label, date, published]
       sort: [date, title]
       default:
         sort: date
@@ -177,6 +243,21 @@ content:
         type: string
       - name: clientType
         type: string
+      - name: sector
+        label: Sector
+        type: string
+      - name: scale
+        label: Organization or program scale
+        type: text
+      - name: businessContext
+        label: Business context
+        type: text
+      - name: executiveSummary
+        label: Executive summary
+        type: text
+      - name: rolePerspective
+        label: Role perspective
+        type: text
       - name: outcome
         type: text
       - name: coverImage
@@ -185,6 +266,12 @@ content:
           media: site-assets
           path: assets
       - name: externalUrl
+        type: string
+      - name: demoType
+        label: Demo format
+        type: string
+      - name: videoUrl
+        label: Demo video URL
         type: string
       - name: githubUrl
         type: string

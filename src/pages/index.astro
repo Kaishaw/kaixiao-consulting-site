@@ -2,9 +2,16 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import site from "../data/site.json";
 import home from "../data/home.json";
+import { getCollection } from "astro:content";
+
+const featuredProjects = (await getCollection("projects", ({ data }) => data.published && data.type === "work"))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 2);
+const latestPost = (await getCollection("blog", ({ data }) => data.published))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())[0];
 ---
 
-<BaseLayout title={`${site.siteName} | CRM, Power Platform & AI Workflow Portfolio`}>
+<BaseLayout title={`${site.siteName} | CRM, ERP & Applied AI`}>
   <main>
     <section class="home-hero">
       <div class="hero-text">
@@ -17,16 +24,51 @@ import home from "../data/home.json";
         </div>
       </div>
       <aside class="profile-card" aria-label={`${site.siteName} profile`}>
-        <img src="/assets/headshot-professional.jpg" alt={`${site.siteName} professional portrait`} />
-        <div>
+        <img class="hero-ribbon-art" src="/assets/hero-ribbons.png" alt="" aria-hidden="true" />
+        <div class="profile-monogram" aria-hidden="true">
+          <span>CRM</span>
+          <span>AI</span>
+        </div>
+        <div class="profile-caption">
           <strong>{site.siteName}</strong>
-          <span>Dynamics 365 CE · Power Platform · CRM modernization</span>
+          <span>Dynamics 365 · Copilot · Power Platform · CRM modernization</span>
         </div>
       </aside>
     </section>
 
     <section class="topic-strip" aria-label="Core capabilities">
       {home.capabilities.map((capability) => <span>{capability}</span>)}
+    </section>
+
+    <section class="section selected-work">
+      <div class="section-heading">
+        <p class="eyebrow">Selected project stories</p>
+        <a class="secondary-link" href="/work/">View all projects</a>
+      </div>
+      <div class="selected-work-grid">
+        <div class="selected-projects">
+          {featuredProjects.map((project) => (
+            <article class="selected-project-card">
+              <div class="selected-project-meta">
+                <span>{project.data.label}</span>
+                <strong>{project.data.clientType}</strong>
+              </div>
+              <div>
+                <h3>{project.data.title}</h3>
+                <p>{project.data.summary}</p>
+                <a class="secondary-link" href={`/projects/${project.id}/`}>Read story</a>
+              </div>
+            </article>
+          ))}
+        </div>
+        <aside class="blog-teaser">
+          <p class="eyebrow">Ideas, lessons, and field notes</p>
+          <h2>Thoughts from the journey.</h2>
+          <p>Notes on CRM strategy, Power Platform, applied AI, and making digital change useful in real teams.</p>
+          {latestPost && <a class="secondary-link" href={`/blog/${latestPost.id}/`}>Read the latest note</a>}
+          <img class="teaser-art" src="/assets/hero-ribbons.png" alt="" aria-hidden="true" />
+        </aside>
+      </div>
     </section>
 
     <section class="section personal-intro">
@@ -40,7 +82,10 @@ import home from "../data/home.json";
     </section>
 
     <section class="life-band">
-      <img src="/assets/headshot-casual.jpg" alt={`${site.siteName} casual portrait`} />
+      <div class="life-art" aria-hidden="true">
+        <img src="/assets/hero-ribbons.png" alt="" />
+        <span>People<br />Process<br />Adoption</span>
+      </div>
       <div>
         <p class="eyebrow">Personal note</p>
         <h2>{home.personalNoteTitle}</h2>

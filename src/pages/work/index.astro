@@ -7,26 +7,27 @@ const projects = (await getCollection("projects", ({ data }) => data.published &
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<BaseLayout title={`Project Stories | ${site.siteName}`} description={`${site.siteName}'s CRM, Dynamics 365, Business Central, Power Platform, and digital transformation project stories.`}>
+<BaseLayout title={`Project Stories | ${site.siteName}`} description={`${site.siteName}'s Dynamics 365, Copilot, Power Platform, ERP, and business transformation project stories.`}>
   <main>
     <section class="page-hero text-only">
       <p class="eyebrow">Project stories</p>
       <h1>Selected project experience.</h1>
-      <p>Short, privacy-safe summaries of the business problems, my role, and the kind of outcomes the work supported.</p>
+      <p>Business-facing views of the organizations, operating context, transformation goals, and outcomes behind selected work. Open a project for the fuller story.</p>
     </section>
 
     <section class="story-list">
       {projects.map((project) => (
         <article class="story-card">
           <div class="story-meta">
-            <span>{project.data.label}</span>
+            <span>{project.data.sector || project.data.label}</span>
             <strong>{project.data.clientType}</strong>
           </div>
           <div>
             <h2>{project.data.title}</h2>
-            <p>{project.data.summary}</p>
+            <p>{project.data.executiveSummary || project.data.summary}</p>
+            {project.data.scale && <p class="story-scale">{project.data.scale}</p>}
             <p><a href={`/projects/${project.id}/`}>Read project details</a></p>
-            <p class="story-outcome">Outcome: {project.data.outcome}</p>
+            <p class="story-outcome">Business outcome: {project.data.outcome}</p>
           </div>
         </article>
       ))}

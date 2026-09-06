@@ -1,24 +1,49 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import site from "../../data/site.json";
+import timeline from "../../data/timeline.json";
 ---
 
-<BaseLayout title={`Portfolio | ${site.siteName}`} description={`${site.siteName}'s portfolio: CRM consulting, Dynamics 365 CE, Power Platform, certifications, education, and project strengths.`}>
+<BaseLayout title={`Portfolio | ${site.siteName}`} description={`${site.siteName}'s career timeline, business systems experience, CRM and ERP transformation work, and applied AI focus.`}>
   <main>
     <section class="page-hero portrait-hero">
       <div>
         <p class="eyebrow">Portfolio</p>
-        <h1>CRM, Power Platform, and business analysis in one practical profile.</h1>
-        <p>I help teams turn business needs into clear CRM workflows, delivery-ready requirements, and systems that people can use every day.</p>
+        <h1>A working life built around people, process, and systems.</h1>
+        <p>I work between business teams and technology delivery, helping organizations make complex operations clearer and more useful.</p>
       </div>
-      <img src="/assets/headshot-professional.jpg" alt={`${site.siteName} professional portrait`} />
+      <div class="page-hero-art" aria-label={`${site.siteName} CRM and AI focus`}>
+        <img src="/assets/hero-ribbons.png" alt="" aria-hidden="true" />
+        <strong>CRM<br />+ AI</strong>
+      </div>
+    </section>
+
+    <section class="section timeline-section">
+      <div class="section-heading">
+        <div><p class="eyebrow">Career timeline</p><h2>How the work evolved.</h2></div>
+        <p class="timeline-note">A concise working timeline — from graduation to CRM, ERP, and applied AI.</p>
+      </div>
+      <ol class="career-timeline">
+        {timeline.entries.map((entry) => (
+          <li>
+            <div class="timeline-period">{entry.period}</div>
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <p class="eyebrow">{entry.location}</p>
+              <h3>{entry.title}</h3>
+              <p>{entry.summary}</p>
+              <div class="tag-list">{entry.themes.map((theme) => <span>{theme}</span>)}</div>
+            </div>
+          </li>
+        ))}
+      </ol>
     </section>
 
     <section class="section detail-grid">
-      <article><span>Current focus</span><h3>Dynamics 365 CE and Power Platform</h3><p>CRM modernization, service workflows, sales operations, automation, reporting, and adoption.</p></article>
+      <article><span>Current focus</span><h3>Dynamics 365, Copilot, and Power Platform</h3><p>CRM modernization, intelligent service workflows, sales operations, automation, reporting, and adoption.</p></article>
       <article><span>Education</span><h3>Southwest Jiaotong University</h3><p>Founded in 1896, SWJTU is known for engineering and transportation disciplines. That background shaped how I think about systems, process, and scale.</p></article>
       <article><span>Professional setting</span><h3>Canadian business systems work</h3><p>My recent work is centered on CRM, customer operations, and system modernization in Canadian business contexts.</p></article>
-      <article><span>Certifications</span><h3>Microsoft business applications path</h3><p>Dynamics 365 CE, Customer Service, Power Platform, Dataverse, Power Automate, and solution delivery practices.</p></article>
+      <article><span>Certifications</span><h3>Microsoft business applications path</h3><p>Dynamics 365, Power Platform, Dataverse, Power Automate, Copilot, and solution delivery practices.</p></article>
     </section>
 
     <section class="section split-section">

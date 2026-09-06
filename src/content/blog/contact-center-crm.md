@@ -4,6 +4,7 @@ summary: "Service work is no longer only about answering cases. It is about conn
 published: true
 date: 2026-06-12
 category: "Industry insight"
+contentType: "article"
 tags: ["Customer service", "Contact center", "Dynamics 365"]
 ---
 

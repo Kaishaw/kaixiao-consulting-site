@@ -1,6 +1,6 @@
 const progress = document.getElementById("progress");
 const themeKey = "kaixiao-site-theme";
-const themes = ["lemon", "chatfolio"];
+const themes = ["studio", "contrast"];
 
 function updateProgress() {
   const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -13,11 +13,12 @@ function updateProgress() {
 
 function getSavedTheme() {
   const saved = window.localStorage.getItem(themeKey);
-  return themes.includes(saved) ? saved : "lemon";
+  if (saved === "lemon" || saved === "chatfolio") return "studio";
+  return themes.includes(saved) ? saved : "studio";
 }
 
 function applyTheme(theme) {
-  const nextTheme = themes.includes(theme) ? theme : "lemon";
+  const nextTheme = themes.includes(theme) ? theme : "studio";
   document.documentElement.dataset.theme = nextTheme;
   window.localStorage.setItem(themeKey, nextTheme);
   document.querySelectorAll("[data-theme-choice]").forEach((button) => {
@@ -32,8 +33,8 @@ function buildThemeSwitcher() {
   switcher.setAttribute("aria-label", "Theme switcher");
 
   const options = [
-    { id: "lemon", label: "Lemon" },
-    { id: "chatfolio", label: "Dark" },
+    { id: "studio", label: "Studio" },
+    { id: "contrast", label: "Contrast" },
   ];
 
   options.forEach((option) => {

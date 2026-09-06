@@ -4,6 +4,7 @@ summary: "Low-code tools are useful when they sit close to a real business pain,
 published: true
 date: 2026-06-05
 category: "Technology perspective"
+contentType: "article"
 tags: ["Power Platform", "Governance", "Automation"]
 ---
 

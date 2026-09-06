@@ -6,12 +6,12 @@ import site from "../../data/site.json";
 const projects = await getCollection("projects", ({ data }) => data.published && data.type === "ai");
 ---
 
-<BaseLayout title={`AI Work | ${site.siteName}`} description={`${site.siteName}'s AI workflow experiments and applied AI projects.`}>
+<BaseLayout title={`Labs & Demos | ${site.siteName}`} description={`${site.siteName}'s prototypes, demos, and applied experiments across AI, automation, CRM, and business systems.`}>
   <main>
     <section class="page-hero text-only">
-      <p class="eyebrow">AI work</p>
-      <h1>Small AI projects, built around real workflow problems.</h1>
-      <p>I use AI projects to practice the same thinking I use in CRM work: understand the user task, structure the input, control the process, and deliver something people can actually use.</p>
+      <p class="eyebrow">Labs & demos</p>
+      <h1>A place for prototypes, experiments, and useful things I am testing.</h1>
+      <p>This is broader than a dedicated AI page. It can include AI demos, CRM experiments, automation concepts, product sketches, videos, and small tools that make an idea easier to understand.</p>
     </section>
 
     {projects.map((project) => (
@@ -20,11 +20,13 @@ const projects = await getCollection("projects", ({ data }) => data.published &&
           <div>
             <p class="eyebrow">{project.data.label}</p>
             <h2>{project.data.title}</h2>
-            <p>{project.data.summary}</p>
+            <p>{project.data.executiveSummary || project.data.summary}</p>
+            {project.data.demoType && <p class="story-scale">Format: {project.data.demoType}</p>}
             <p class="story-outcome">Outcome: {project.data.outcome}</p>
           </div>
           <div class="case-actions">
             {project.data.externalUrl && <a class="primary-link" href={project.data.externalUrl} rel="noopener noreferrer">Project overview</a>}
+            {project.data.videoUrl && <a class="secondary-link" href={project.data.videoUrl} rel="noopener noreferrer">Watch demo</a>}
             <a class="secondary-link" href={`/projects/${project.id}/`}>Project details</a>
           </div>
         </article>

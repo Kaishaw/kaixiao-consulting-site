@@ -2,31 +2,45 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import site from "../../data/site.json";
+import insights from "../../data/insights.json";
 
 const posts = (await getCollection("blog", ({ data }) => data.published))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const featuredPosts = posts.filter((post) => post.data.featuredInsight);
+const insightPosts = featuredPosts.length ? featuredPosts : posts.slice(0, 3);
 ---
 
-<BaseLayout title={`Industry Notes | ${site.siteName}`} description={`${site.siteName}'s personal notes on CRM, Dynamics 365, Power Platform, contact centers, and AI-enabled business operations.`}>
+<BaseLayout title={`Insights | ${site.siteName}`} description={`${site.siteName}'s perspective on CRM, ERP, Power Platform, contact centers, and applied AI.`}>
   <main>
     <section class="page-hero text-only">
-      <p class="eyebrow">Industry notes</p>
-      <h1>Industry notes on CRM, Power Platform, and AI.</h1>
-      <p>A short, practical view of what is changing in customer operations and what still needs good process design.</p>
+      <p class="eyebrow">{insights.eyebrow}</p>
+      <h1>{insights.title}</h1>
+      <p>{insights.lede}</p>
+    </section>
+
+    <section class="section detail-grid insight-pillars">
+      {insights.pillars.map((pillar) => (
+        <article>
+          <span>{pillar.label}</span>
+          <h3>{pillar.title}</h3>
+          <p>{pillar.description}</p>
+        </article>
+      ))}
     </section>
 
     <section class="note-list">
-      {posts.map((post, index) => (
+      <div class="section-heading"><p class="eyebrow">Latest notes</p><a class="secondary-link" href="/blog/">Open the Blog</a></div>
+      {insightPosts.map((post, index) => (
         <article>
-          <span>{String(index + 1).padStart(2, "0")}</span>
+          <span>{post.data.insightTopic || post.data.category} · {String(index + 1).padStart(2, "0")}</span>
           <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
-          <p>{post.data.summary}</p>
+          <p>{post.data.insightSummary || post.data.summary}</p>
         </article>
       ))}
     </section>
 
     <section class="section source-section">
-      <div><p class="eyebrow">Reading list</p><h2>Public sources I am watching.</h2></div>
+      <div><p class="eyebrow">Reading list</p><h2>Public sources I am watching.</h2><p class="source-note">{insights.sourceNote}</p></div>
       <div class="source-grid">
         <a href="https://www.microsoft.com/en-us/dynamics-365/products/contact-center" rel="noopener noreferrer">Dynamics 365 Contact Center</a>
         <a href="https://www.microsoft.com/en-us/power-platform" rel="noopener noreferrer">Microsoft Power Platform</a>

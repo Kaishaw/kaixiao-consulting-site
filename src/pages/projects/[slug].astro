@@ -17,11 +17,14 @@ const { project } = Astro.props;
     <section class="page-hero text-only">
       <p class="eyebrow">{project.data.label} · {project.data.clientType}</p>
       <h1>{project.data.title}</h1>
-      <p>{project.data.summary}</p>
+      <p>{project.data.executiveSummary || project.data.summary}</p>
     </section>
     <section class="section article-layout">
       <MarkdownContent entry={project} />
       <aside class="article-aside">
+        {project.data.businessContext && <><strong>Business context</strong><p>{project.data.businessContext}</p></>}
+        {project.data.scale && <><strong>Scale</strong><p>{project.data.scale}</p></>}
+        {project.data.rolePerspective && <><strong>Role perspective</strong><p>{project.data.rolePerspective}</p></>}
         <strong>Outcome</strong>
         <p>{project.data.outcome}</p>
         {project.data.externalUrl && <a class="secondary-link" href={project.data.externalUrl}>Open demo</a>}

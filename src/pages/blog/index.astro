@@ -11,8 +11,8 @@ const posts = (await getCollection("blog", ({ data }) => data.published))
   <main>
     <section class="page-hero text-only">
       <p class="eyebrow">Blog</p>
-      <h1>Projects, demos, industry notes, and technology perspectives.</h1>
-      <p>A working space for sharing what I build, what I learn, and how I think about CRM, AI, and modern business systems.</p>
+      <h1>Things I build, learn, test, and want to explain clearly.</h1>
+      <p>The Blog is the detailed layer: project notes, demos, tutorials, case notes, and longer-form writing. For shorter directional thinking, visit Insights.</p>
     </section>
 
     <section class="section blog-grid">
@@ -21,7 +21,7 @@ const posts = (await getCollection("blog", ({ data }) => data.published))
           <span>{post.data.category}</span>
           <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
           <p>{post.data.summary}</p>
-          <small>{post.data.date.toLocaleDateString("en-CA")}</small>
+          <small>{post.data.contentType || "article"} · {post.data.date.toLocaleDateString("en-CA")}</small>
         </article>
       ))}
     </section>

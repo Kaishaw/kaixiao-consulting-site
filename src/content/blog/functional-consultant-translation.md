@@ -4,6 +4,7 @@ summary: "A lot of value comes from making translation visible and testable acro
 published: true
 date: 2026-05-28
 category: "Professional practice"
+contentType: "opinion"
 tags: ["Business analysis", "Consulting", "Delivery"]
 ---
 
