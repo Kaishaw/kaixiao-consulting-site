@@ -25,6 +25,9 @@ content:
       - name: showSiteStatus
         label: Show site status note
         type: boolean
+      - name: showSiteStatusEverywhere
+        label: Show status note on every page
+        type: boolean
       - name: siteStatusNote
         label: Site status note
         type: string
@@ -95,6 +98,12 @@ content:
       - name: aboutParagraphs
         type: text
         list: true
+      - name: nowTitle
+        label: Now title
+        type: string
+      - name: nowText
+        label: Now text
+        type: text
       - name: personalNoteTitle
         type: string
       - name: personalNote

@@ -3,6 +3,7 @@
   "siteUrl": "https://www.kaixiao.ca",
   "siteDescription": "Kai Xiao is a CRM, ERP, business systems, and applied AI practitioner sharing the work, ideas, and experiments behind useful digital change.",
   "showSiteStatus": true,
+  "showSiteStatusEverywhere": false,
   "siteStatusNote": "This site is evolving — new project stories, insights, and demos are being added.",
   "defaultOgImage": "/assets/hero-ribbons.png",
   "favicon": "",

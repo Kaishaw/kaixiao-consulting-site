@@ -16,6 +16,7 @@ const {
 const brandWords = site.siteName.trim().split(/\s+/);
 const brandFirst = brandWords.slice(0, -1).join(" ") || site.siteName;
 const brandLast = brandWords.length > 1 ? brandWords.at(-1) : "";
+const showStatus = site.showSiteStatus && site.siteStatusNote && (Astro.url.pathname === "/" || site.showSiteStatusEverywhere);
 ---
 
 <!doctype html>
@@ -47,7 +48,7 @@ const brandLast = brandWords.length > 1 ? brandWords.at(-1) : "";
       </nav>
     </header>
 
-    {site.showSiteStatus && site.siteStatusNote && (
+    {showStatus && (
       <div class="site-status" role="status">
         <span>{site.siteStatusNote}</span>
       </div>
@@ -57,7 +58,10 @@ const brandLast = brandWords.length > 1 ? brandWords.at(-1) : "";
 
     <footer class="site-footer">
       <span>{site.siteName}</span>
-      <span>{site.footerLine}</span>
+      <div class="site-footer-meta">
+        <span>{site.footerLine}</span>
+        <div class="theme-switcher-slot"></div>
+      </div>
     </footer>
     <script src="/site.js" is:inline></script>
   </body>

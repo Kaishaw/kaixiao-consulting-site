@@ -81,6 +81,16 @@ const latestPost = (await getCollection("blog", ({ data }) => data.published))
       </div>
     </section>
 
+    <section class="section now-section">
+      <div>
+        <p class="eyebrow">Now</p>
+        <h2>{home.nowTitle}</h2>
+      </div>
+      <div class="copy-block">
+        <p>{home.nowText}</p>
+      </div>
+    </section>
+
     <section class="life-band">
       <div class="life-art" aria-hidden="true">
         <img src="/assets/hero-ribbons.png" alt="" />

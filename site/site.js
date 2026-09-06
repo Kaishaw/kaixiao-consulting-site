@@ -46,7 +46,8 @@ function buildThemeSwitcher() {
     switcher.appendChild(button);
   });
 
-  document.body.appendChild(switcher);
+  const target = document.querySelector(".theme-switcher-slot") || document.body;
+  target.appendChild(switcher);
   applyTheme(getSavedTheme());
 }
 

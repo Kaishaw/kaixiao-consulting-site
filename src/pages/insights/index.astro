@@ -8,15 +8,33 @@ const posts = (await getCollection("blog", ({ data }) => data.published))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const featuredPosts = posts.filter((post) => post.data.featuredInsight);
 const insightPosts = featuredPosts.length ? featuredPosts : posts.slice(0, 3);
+const featuredInsight = insightPosts[0];
 ---
 
 <BaseLayout title={`Insights | ${site.siteName}`} description={`${site.siteName}'s perspective on CRM, ERP, Power Platform, contact centers, and applied AI.`}>
   <main>
-    <section class="page-hero text-only">
+    <section class="page-hero text-only insights-hero">
       <p class="eyebrow">{insights.eyebrow}</p>
       <h1>{insights.title}</h1>
       <p>{insights.lede}</p>
     </section>
+
+    {featuredInsight && (
+      <section class="section featured-insight-section">
+        <article class="featured-case featured-insight">
+          <div>
+            <p class="eyebrow">Featured insight · {featuredInsight.data.insightTopic || featuredInsight.data.category}</p>
+            <h2>{featuredInsight.data.title}</h2>
+            <p>{featuredInsight.data.summary}</p>
+          </div>
+          <div class="featured-insight-side">
+            <span>My view</span>
+            <p>{featuredInsight.data.insightSummary || featuredInsight.data.summary}</p>
+            <a class="primary-link" href={`/blog/${featuredInsight.id}/`}>Read the full insight</a>
+          </div>
+        </article>
+      </section>
+    )}
 
     <section class="section detail-grid insight-pillars">
       {insights.pillars.map((pillar) => (

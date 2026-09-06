@@ -5,6 +5,12 @@ import site from "../../data/site.json";
 
 const posts = (await getCollection("blog", ({ data }) => data.published))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const contentTypeLabel = (contentType?: string) => {
+  if (!contentType) return "Article";
+  if (contentType === "case-note") return "Case note";
+  return contentType.charAt(0).toUpperCase() + contentType.slice(1);
+};
 ---
 
 <BaseLayout title={`Blog | ${site.siteName}`} description={`Projects, demos, industry insights, and technology perspectives from ${site.siteName}.`}>
@@ -18,10 +24,10 @@ const posts = (await getCollection("blog", ({ data }) => data.published))
     <section class="section blog-grid">
       {posts.map((post) => (
         <article class="route-card blog-card">
-          <span>{post.data.category}</span>
+          <span>{contentTypeLabel(post.data.contentType)}</span>
           <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
           <p>{post.data.summary}</p>
-          <small>{post.data.contentType || "article"} · {post.data.date.toLocaleDateString("en-CA")}</small>
+          <small>{post.data.category} · {post.data.date.toLocaleDateString("en-CA")}</small>
         </article>
       ))}
     </section>
