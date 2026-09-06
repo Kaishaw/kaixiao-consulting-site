@@ -26,7 +26,7 @@ html[data-theme="contrast"] {
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; background: var(--bg-deep); }
-body { margin: 0; color: var(--ink); background: var(--bg); font-family: var(--display); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+body { position: relative; margin: 0; color: var(--ink); background: var(--bg); font-family: var(--display); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 body::selection { color: var(--bg-deep); background: var(--orange); }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
@@ -35,6 +35,8 @@ h1, h2, h3 { color: var(--ink); line-height: 1.02; letter-spacing: -0.055em; }
 h1 { font-size: clamp(3.6rem, 5.8vw, 6.6rem); max-width: 900px; margin-bottom: 1.8rem; }
 h2 { font-size: clamp(2.4rem, 4.2vw, 5rem); }
 h3 { font-size: clamp(1.25rem, 1.7vw, 1.75rem); }
+
+.ambient-background { position: fixed; inset: -6vh -4vw; z-index: 0; pointer-events: none; background-image: linear-gradient(180deg, rgba(12, 7, 21, 0.3), rgba(12, 7, 21, 0.58)), url("/assets/hero-ribbons.png"); background-position: center top; background-size: cover; opacity: 0.58; filter: blur(16px) saturate(0.78); transform: scale(1.04); }
 
 .progress { position: fixed; inset: 0 auto auto 0; z-index: 30; width: 0; height: 3px; background: var(--orange); }
 
@@ -48,6 +50,7 @@ h3 { font-size: clamp(1.25rem, 1.7vw, 1.75rem); }
 .site-nav nav a:last-child::before { content: "→"; font-size: 1.35rem; }
 .site-status { display: flex; align-items: center; justify-content: center; gap: 0.55rem; max-width: var(--max); margin: 0 auto; padding: 0.7rem clamp(1.25rem, 4vw, 4.5rem); color: var(--muted); border-bottom: 1px solid var(--line); font-size: 0.76rem; letter-spacing: 0.04em; text-align: center; }
 .site-status::before { content: ""; display: inline-block; width: 0.45rem; height: 0.45rem; flex: 0 0 auto; background: var(--orange); border-radius: 50%; }
+main, .site-nav, .site-status, .site-footer { position: relative; z-index: 1; }
 main { overflow: hidden; }
 
 .home-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr); gap: clamp(2rem, 5vw, 7rem); align-items: center; max-width: var(--max); min-height: min(770px, calc(100vh - 84px)); margin: 0 auto; padding: clamp(4rem, 9vw, 8rem) clamp(1.25rem, 4vw, 4.5rem) 5rem; }
