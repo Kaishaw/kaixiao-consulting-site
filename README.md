@@ -725,3 +725,14 @@ The CMS manages global site settings, homepage copy, blog posts, projects, demos
 A CMS save creates a GitHub commit. To deploy those commits automatically, connect the Cloudflare Pages project to the GitHub repository in the Cloudflare dashboard. Until that connection is made, the manual deployment command remains:
 
     npm run deploy
+
+## Automated Deployment
+
+The repository includes `.github/workflows/pages-deployment.yml`. Every push to `main` runs the Astro build and deploys the generated `site` directory to the `kaixiao-consulting-site` Cloudflare Pages project through Wrangler.
+
+The GitHub repository must contain these Actions secrets:
+
+    CLOUDFLARE_ACCOUNT_ID
+    CLOUDFLARE_API_TOKEN
+
+The API token should be limited to Account → Cloudflare Pages → Edit. The local `npm run deploy` command remains available for manual emergency deployments.
