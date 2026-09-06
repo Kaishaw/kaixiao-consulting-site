@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import site from "../../data/site.json";
+
+const projects = (await getCollection("projects", ({ data }) => data.published && data.type === "work"))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title={`Project Stories | ${site.siteName}`} description={`${site.siteName}'s CRM, Dynamics 365, Business Central, Power Platform, and digital transformation project stories.`}>
+  <main>
+    <section class="page-hero text-only">
+      <p class="eyebrow">Project stories</p>
+      <h1>Selected project experience.</h1>
+      <p>Short, privacy-safe summaries of the business problems, my role, and the kind of outcomes the work supported.</p>
+    </section>
+
+    <section class="story-list">
+      {projects.map((project) => (
+        <article class="story-card">
+          <div class="story-meta">
+            <span>{project.data.label}</span>
+            <strong>{project.data.clientType}</strong>
+          </div>
+          <div>
+            <h2>{project.data.title}</h2>
+            <p>{project.data.summary}</p>
+            <p><a href={`/projects/${project.id}/`}>Read project details</a></p>
+            <p class="story-outcome">Outcome: {project.data.outcome}</p>
+          </div>
+        </article>
+      ))}
+    </section>
+  </main>
+</BaseLayout>

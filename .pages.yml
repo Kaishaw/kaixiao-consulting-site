@@ -1,0 +1,204 @@
+media:
+  - name: site-assets
+    input: public/assets
+    output: /assets
+    categories: [image]
+
+content:
+  - name: site-settings
+    label: Site settings
+    type: file
+    path: src/data/site.json
+    fields:
+      - name: siteName
+        label: Site name
+        type: string
+        required: true
+      - name: siteUrl
+        label: Site URL
+        type: string
+        required: true
+      - name: siteDescription
+        label: Default site description
+        type: text
+        required: true
+      - name: defaultOgImage
+        label: Default social sharing image
+        type: image
+        options:
+          media: site-assets
+          path: assets
+      - name: favicon
+        label: Favicon
+        type: image
+        options:
+          media: site-assets
+          path: assets
+      - name: email
+        label: Contact email
+        type: string
+      - name: linkedinUrl
+        label: LinkedIn URL
+        type: string
+      - name: aiDirectoryUrl
+        label: AI directory URL
+        type: string
+      - name: footerLine
+        label: Footer line
+        type: string
+      - name: navigation
+        label: Navigation
+        type: object
+        list: true
+        fields:
+          - name: label
+            type: string
+          - name: href
+            type: string
+
+  - name: home-content
+    label: Homepage content
+    type: file
+    path: src/data/home.json
+    fields:
+      - name: eyebrow
+        type: string
+      - name: headline
+        type: text
+      - name: lede
+        type: text
+      - name: primaryAction
+        type: object
+        fields:
+          - name: label
+            type: string
+          - name: href
+            type: string
+      - name: secondaryAction
+        type: object
+        fields:
+          - name: label
+            type: string
+          - name: href
+            type: string
+      - name: capabilities
+        type: string
+        list: true
+      - name: aboutTitle
+        type: string
+      - name: aboutParagraphs
+        type: text
+        list: true
+      - name: personalNoteTitle
+        type: string
+      - name: personalNote
+        type: text
+      - name: quote
+        type: text
+      - name: routes
+        type: object
+        list: true
+        fields:
+          - name: number
+            type: string
+          - name: title
+            type: string
+          - name: href
+            type: string
+          - name: description
+            type: text
+
+  - name: blog
+    label: Blog posts
+    type: collection
+    path: src/content/blog
+    filename: "{slug}.md"
+    view:
+      primary: title
+      fields: [title, category, date, published]
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: summary
+        type: text
+        required: true
+      - name: published
+        type: boolean
+      - name: date
+        type: date
+        required: true
+      - name: category
+        type: string
+      - name: coverImage
+        type: image
+        options:
+          media: site-assets
+          path: assets
+      - name: tags
+        type: string
+        list: true
+      - name: body
+        type: rich-text
+
+  - name: projects
+    label: Projects and demos
+    type: collection
+    path: src/content/projects
+    filename: "{slug}.md"
+    view:
+      primary: title
+      fields: [title, type, label, date, published]
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: summary
+        type: text
+        required: true
+      - name: published
+        type: boolean
+      - name: date
+        type: date
+        required: true
+      - name: type
+        type: select
+        options:
+          values: [work, ai]
+      - name: label
+        type: string
+      - name: clientType
+        type: string
+      - name: outcome
+        type: text
+      - name: coverImage
+        type: image
+        options:
+          media: site-assets
+          path: assets
+      - name: externalUrl
+        type: string
+      - name: githubUrl
+        type: string
+      - name: tags
+        type: string
+        list: true
+      - name: body
+        type: rich-text
+
+settings:
+  content: true
+  commit:
+    templates:
+      create: "content(create): {path}"
+      update: "content(update): {path}"
+      delete: "content(delete): {path}"
+      rename: "content(rename): {oldPath} -> {newPath}"

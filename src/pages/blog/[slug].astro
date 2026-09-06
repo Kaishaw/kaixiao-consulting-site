@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import MarkdownContent from "../../components/MarkdownContent.astro";
+import site from "../../data/site.json";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => data.published);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+---
+
+<BaseLayout title={`${post.data.title} | ${site.siteName}`} description={post.data.summary} ogImage={post.data.coverImage || site.defaultOgImage}>
+  <main>
+    <article>
+      <section class="page-hero text-only">
+        <p class="eyebrow">{post.data.category} · {post.data.date.toLocaleDateString("en-CA")}</p>
+        <h1>{post.data.title}</h1>
+        <p>{post.data.summary}</p>
+      </section>
+      <section class="section article-layout">
+        <MarkdownContent entry={post} />
+        <aside class="article-aside">
+          <strong>Topics</strong>
+          <div class="tag-list">
+            {post.data.tags.map((tag) => <span>{tag}</span>)}
+          </div>
+          <a class="secondary-link" href="/blog/">Back to Blog</a>
+        </aside>
+      </section>
+    </article>
+  </main>
+</BaseLayout>

@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import site from "../../data/site.json";
+---
+
+<BaseLayout title={`Contact | ${site.siteName}`} description={`Contact ${site.siteName} for CRM, Dynamics 365, Power Platform, and AI workflow conversations.`}>
+  <main>
+    <section class="contact-hero">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h1>Let us connect if you care about CRM, operations, and practical AI.</h1>
+        <p>I am happy to connect with people working around Dynamics 365, Power Platform, CRM modernization, customer service operations, business analysis, or applied AI workflow ideas.</p>
+        <div class="hero-actions">
+          <a class="primary-link" href={site.linkedinUrl} rel="noopener noreferrer">Connect on LinkedIn</a>
+          <a class="secondary-link" href="/work/">Read project stories</a>
+        </div>
+        {site.email && <p><a href={`mailto:${site.email}`}>{site.email}</a></p>}
+      </div>
+      <img src="/assets/headshot-professional.jpg" alt={`${site.siteName} professional portrait`} />
+    </section>
+  </main>
+</BaseLayout>

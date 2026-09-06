@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import site from "../../data/site.json";
+
+const posts = (await getCollection("blog", ({ data }) => data.published))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title={`Blog | ${site.siteName}`} description={`Projects, demos, industry insights, and technology perspectives from ${site.siteName}.`}>
+  <main>
+    <section class="page-hero text-only">
+      <p class="eyebrow">Blog</p>
+      <h1>Projects, demos, industry notes, and technology perspectives.</h1>
+      <p>A working space for sharing what I build, what I learn, and how I think about CRM, AI, and modern business systems.</p>
+    </section>
+
+    <section class="section blog-grid">
+      {posts.map((post) => (
+        <article class="route-card blog-card">
+          <span>{post.data.category}</span>
+          <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+          <p>{post.data.summary}</p>
+          <small>{post.data.date.toLocaleDateString("en-CA")}</small>
+        </article>
+      ))}
+    </section>
+  </main>
+</BaseLayout>

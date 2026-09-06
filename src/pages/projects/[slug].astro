@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import MarkdownContent from "../../components/MarkdownContent.astro";
+import site from "../../data/site.json";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects", ({ data }) => data.published);
+  return projects.map((project) => ({ params: { slug: project.id }, props: { project } }));
+}
+
+const { project } = Astro.props;
+---
+
+<BaseLayout title={`${project.data.title} | ${site.siteName}`} description={project.data.summary}>
+  <main>
+    <section class="page-hero text-only">
+      <p class="eyebrow">{project.data.label} · {project.data.clientType}</p>
+      <h1>{project.data.title}</h1>
+      <p>{project.data.summary}</p>
+    </section>
+    <section class="section article-layout">
+      <MarkdownContent entry={project} />
+      <aside class="article-aside">
+        <strong>Outcome</strong>
+        <p>{project.data.outcome}</p>
+        {project.data.externalUrl && <a class="secondary-link" href={project.data.externalUrl}>Open demo</a>}
+      </aside>
+    </section>
+  </main>
+</BaseLayout>

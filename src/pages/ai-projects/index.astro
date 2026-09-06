@@ -1,0 +1,34 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import site from "../../data/site.json";
+
+const projects = await getCollection("projects", ({ data }) => data.published && data.type === "ai");
+---
+
+<BaseLayout title={`AI Work | ${site.siteName}`} description={`${site.siteName}'s AI workflow experiments and applied AI projects.`}>
+  <main>
+    <section class="page-hero text-only">
+      <p class="eyebrow">AI work</p>
+      <h1>Small AI projects, built around real workflow problems.</h1>
+      <p>I use AI projects to practice the same thinking I use in CRM work: understand the user task, structure the input, control the process, and deliver something people can actually use.</p>
+    </section>
+
+    {projects.map((project) => (
+      <section class="section">
+        <article class="featured-case">
+          <div>
+            <p class="eyebrow">{project.data.label}</p>
+            <h2>{project.data.title}</h2>
+            <p>{project.data.summary}</p>
+            <p class="story-outcome">Outcome: {project.data.outcome}</p>
+          </div>
+          <div class="case-actions">
+            {project.data.externalUrl && <a class="primary-link" href={project.data.externalUrl} rel="noopener noreferrer">Project overview</a>}
+            <a class="secondary-link" href={`/projects/${project.id}/`}>Project details</a>
+          </div>
+        </article>
+      </section>
+    ))}
+  </main>
+</BaseLayout>

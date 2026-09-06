@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import site from "../data/site.json";
+import home from "../data/home.json";
+---
+
+<BaseLayout title={`${site.siteName} | CRM, Power Platform & AI Workflow Portfolio`}>
+  <main>
+    <section class="home-hero">
+      <div class="hero-text">
+        <p class="eyebrow">{home.eyebrow}</p>
+        <h1>{home.headline}</h1>
+        <p class="hero-lede">{home.lede}</p>
+        <div class="hero-actions">
+          <a class="primary-link" href={home.primaryAction.href}>{home.primaryAction.label}</a>
+          <a class="secondary-link" href={home.secondaryAction.href}>{home.secondaryAction.label}</a>
+        </div>
+      </div>
+      <aside class="profile-card" aria-label={`${site.siteName} profile`}>
+        <img src="/assets/headshot-professional.jpg" alt={`${site.siteName} professional portrait`} />
+        <div>
+          <strong>{site.siteName}</strong>
+          <span>Dynamics 365 CE · Power Platform · CRM modernization</span>
+        </div>
+      </aside>
+    </section>
+
+    <section class="topic-strip" aria-label="Core capabilities">
+      {home.capabilities.map((capability) => <span>{capability}</span>)}
+    </section>
+
+    <section class="section personal-intro">
+      <div>
+        <p class="eyebrow">About me</p>
+        <h2>{home.aboutTitle}</h2>
+      </div>
+      <div class="copy-block">
+        {home.aboutParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </section>
+
+    <section class="life-band">
+      <img src="/assets/headshot-casual.jpg" alt={`${site.siteName} casual portrait`} />
+      <div>
+        <p class="eyebrow">Personal note</p>
+        <h2>{home.personalNoteTitle}</h2>
+        <p>{home.personalNote}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Explore</p>
+        <h2>What you can find here.</h2>
+      </div>
+      <div class="route-grid">
+        {home.routes.map((route) => (
+          <a class="route-card" href={route.href}>
+            <span>{route.number}</span>
+            <h3>{route.title}</h3>
+            <p>{route.description}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="section quote-section">
+      <p>“{home.quote}”</p>
+    </section>
+  </main>
+</BaseLayout>

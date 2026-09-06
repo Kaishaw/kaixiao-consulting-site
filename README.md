@@ -705,3 +705,23 @@ https://ai.kaixiao.ca/
 LinkedIn:
 https://www.linkedin.com/in/kaixiaocan/
 ```
+## Pages CMS Integration
+
+The repository now uses Astro as a lightweight static build layer. It has no database or runtime API. Content lives in JSON and Markdown files so Pages CMS can edit it, while Astro generates the final static HTML deployed to Cloudflare Pages.
+
+Pages CMS configuration is stored in `.pages.yml`. The hosted editor is available at:
+
+    https://app.pagescms.org/
+
+After signing in with GitHub, install the Pages CMS GitHub App for the repository and open this project. The editable content is organized as:
+
+    src/data/site.json
+    src/data/home.json
+    src/content/blog/*.md
+    src/content/projects/*.md
+
+The CMS manages global site settings, homepage copy, blog posts, projects, demos, tags, dates, publish status, and media.
+
+A CMS save creates a GitHub commit. To deploy those commits automatically, connect the Cloudflare Pages project to the GitHub repository in the Cloudflare dashboard. Until that connection is made, the manual deployment command remains:
+
+    npm run deploy
