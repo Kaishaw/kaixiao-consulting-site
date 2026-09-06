@@ -9,10 +9,16 @@ const projects = (await getCollection("projects", ({ data }) => data.published &
 
 <BaseLayout title={`Project Stories | ${site.siteName}`} description={`${site.siteName}'s Dynamics 365, Copilot, Power Platform, ERP, and business transformation project stories.`}>
   <main>
-    <section class="page-hero text-only">
-      <p class="eyebrow">Project stories</p>
-      <h1>Selected project experience.</h1>
-      <p>Business-facing views of the organizations, operating context, transformation goals, and outcomes behind selected work. Open a project for the fuller story.</p>
+    <section class="page-hero media-hero">
+      <div>
+        <p class="eyebrow">Project stories</p>
+        <h1>Selected project experience.</h1>
+        <p>Business-facing views of the organizations, operating context, transformation goals, and outcomes behind selected work. Open a project for the fuller story.</p>
+      </div>
+      <figure class="page-hero-visual">
+        <img src={site.visuals.projects} alt="Abstract layered enterprise operating model with connected business signals" />
+        <figcaption>Connected operating models</figcaption>
+      </figure>
     </section>
 
     <section class="story-list">

@@ -24,7 +24,7 @@ const latestPost = (await getCollection("blog", ({ data }) => data.published))
         </div>
       </div>
       <aside class="profile-card" aria-label={`${site.siteName} profile`}>
-        <img class="hero-ribbon-art" src="/assets/hero-ribbons.png" alt="" aria-hidden="true" />
+        <img class="hero-ribbon-art" src={site.visuals.home} alt="Abstract connected operating model with glowing pathways between business systems" />
         <div class="profile-monogram" aria-hidden="true">
           <span>CRM</span>
           <span>AI</span>
@@ -66,7 +66,7 @@ const latestPost = (await getCollection("blog", ({ data }) => data.published))
           <h2>Thoughts from the journey.</h2>
           <p>Notes on CRM strategy, Power Platform, applied AI, and making digital change useful in real teams.</p>
           {latestPost && <a class="secondary-link" href={`/blog/${latestPost.id}/`}>Read the latest note</a>}
-          <img class="teaser-art" src="/assets/hero-ribbons.png" alt="" aria-hidden="true" />
+          <img class="teaser-art" src={site.visuals.insights} alt="" aria-hidden="true" />
         </aside>
       </div>
     </section>

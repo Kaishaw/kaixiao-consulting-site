@@ -8,10 +8,16 @@ const projects = await getCollection("projects", ({ data }) => data.published &&
 
 <BaseLayout title={`Labs & Demos | ${site.siteName}`} description={`${site.siteName}'s prototypes, demos, and applied experiments across AI, automation, CRM, and business systems.`}>
   <main>
-    <section class="page-hero text-only">
-      <p class="eyebrow">Labs & demos</p>
-      <h1>A place for prototypes, experiments, and useful things I am testing.</h1>
-      <p>This is broader than a dedicated AI page. It can include AI demos, CRM experiments, automation concepts, product sketches, videos, and small tools that make an idea easier to understand.</p>
+    <section class="page-hero media-hero">
+      <div>
+        <p class="eyebrow">Labs & demos</p>
+        <h1>A place for prototypes, experiments, and useful things I am testing.</h1>
+        <p>This is broader than a dedicated AI page. It can include AI demos, CRM experiments, automation concepts, product sketches, videos, and small tools that make an idea easier to understand.</p>
+      </div>
+      <figure class="page-hero-visual">
+        <img src={site.visuals.labs} alt="Abstract agentic workflow with connected nodes, feedback loops, and actions" />
+        <figcaption>Context → reasoning → action</figcaption>
+      </figure>
     </section>
 
     {projects.map((project) => (

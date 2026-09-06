@@ -15,15 +15,22 @@ const contentTypeLabel = (contentType?: string) => {
 
 <BaseLayout title={`Blog | ${site.siteName}`} description={`Projects, demos, industry insights, and technology perspectives from ${site.siteName}.`}>
   <main>
-    <section class="page-hero text-only">
-      <p class="eyebrow">Blog</p>
-      <h1>Things I build, learn, test, and want to explain clearly.</h1>
-      <p>The Blog is the detailed layer: project notes, demos, tutorials, case notes, and longer-form writing. For shorter directional thinking, visit Insights.</p>
+    <section class="page-hero media-hero">
+      <div>
+        <p class="eyebrow">Blog</p>
+        <h1>Things I build, learn, test, and want to explain clearly.</h1>
+        <p>The Blog is the detailed layer: project notes, demos, tutorials, case notes, and longer-form writing. For shorter directional thinking, visit Insights.</p>
+      </div>
+      <figure class="page-hero-visual">
+        <img src={site.visuals.insights} alt="Abstract field of technology signals resolving into a clear constellation" />
+        <figcaption>Signals, translated into practice</figcaption>
+      </figure>
     </section>
 
     <section class="section blog-grid">
       {posts.map((post) => (
-        <article class="route-card blog-card">
+        <article class={`route-card blog-card${post.data.featuredInsight ? " featured-blog-card" : ""}`}>
+          {post.data.featuredInsight && <img class="blog-card-art" src={post.data.coverImage || site.visuals.insights} alt="Abstract field of technology signals resolving into a clear constellation" />}
           <span>{contentTypeLabel(post.data.contentType)}</span>
           <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
           <p>{post.data.summary}</p>

@@ -10,15 +10,23 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
+const postVisual = post.data.coverImage || site.visuals.insights;
+const postVisualAlt = post.data.coverImage ? `${post.data.title} cover image` : "Abstract field of technology signals resolving into a clear constellation";
 ---
 
-<BaseLayout title={`${post.data.title} | ${site.siteName}`} description={post.data.summary} ogImage={post.data.coverImage || site.defaultOgImage}>
+<BaseLayout title={`${post.data.title} | ${site.siteName}`} description={post.data.summary} ogImage={post.data.coverImage || site.visuals.insights}>
   <main>
     <article>
-      <section class="page-hero text-only">
-        <p class="eyebrow">{post.data.category} · {post.data.date.toLocaleDateString("en-CA")}</p>
-        <h1>{post.data.title}</h1>
-        <p>{post.data.summary}</p>
+      <section class="page-hero media-hero">
+        <div>
+          <p class="eyebrow">{post.data.category} · {post.data.date.toLocaleDateString("en-CA")}</p>
+          <h1>{post.data.title}</h1>
+          <p>{post.data.summary}</p>
+        </div>
+        <figure class="page-hero-visual">
+          <img src={postVisual} alt={postVisualAlt} />
+          <figcaption>{post.data.featuredInsight ? "Featured point of view" : "Field notes and practice"}</figcaption>
+        </figure>
       </section>
       <section class="section article-layout">
         <MarkdownContent entry={post} />

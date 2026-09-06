@@ -37,6 +37,34 @@ content:
         options:
           media: site-assets
           path: assets
+      - name: visuals
+        label: Section visuals
+        type: object
+        fields:
+          - name: home
+            label: Homepage visual
+            type: image
+            options:
+              media: site-assets
+              path: assets
+          - name: projects
+            label: Project stories visual
+            type: image
+            options:
+              media: site-assets
+              path: assets
+          - name: insights
+            label: Insights and Blog visual
+            type: image
+            options:
+              media: site-assets
+              path: assets
+          - name: labs
+            label: Labs and demos visual
+            type: image
+            options:
+              media: site-assets
+              path: assets
       - name: favicon
         label: Favicon
         type: image

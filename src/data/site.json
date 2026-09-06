@@ -5,7 +5,13 @@
   "showSiteStatus": true,
   "showSiteStatusEverywhere": false,
   "siteStatusNote": "This site is evolving — new project stories, insights, and demos are being added.",
-  "defaultOgImage": "/assets/hero-ribbons.png",
+  "defaultOgImage": "/assets/home-systems.png",
+  "visuals": {
+    "home": "/assets/home-systems.png",
+    "projects": "/assets/projects-operations.png",
+    "insights": "/assets/insights-signal.png",
+    "labs": "/assets/labs-agentic.png"
+  },
   "favicon": "",
   "email": "kaixiaocan@gmail.com",
   "linkedinUrl": "https://www.linkedin.com/in/kaixiaocan/",

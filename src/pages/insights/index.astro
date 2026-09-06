@@ -13,10 +13,16 @@ const featuredInsight = insightPosts[0];
 
 <BaseLayout title={`Insights | ${site.siteName}`} description={`${site.siteName}'s perspective on CRM, ERP, Power Platform, contact centers, and applied AI.`}>
   <main>
-    <section class="page-hero text-only insights-hero">
-      <p class="eyebrow">{insights.eyebrow}</p>
-      <h1>{insights.title}</h1>
-      <p>{insights.lede}</p>
+    <section class="page-hero media-hero insights-hero">
+      <div>
+        <p class="eyebrow">{insights.eyebrow}</p>
+        <h1>{insights.title}</h1>
+        <p>{insights.lede}</p>
+      </div>
+      <figure class="page-hero-visual">
+        <img src={site.visuals.insights} alt="Abstract field of technology signals resolving into a clear constellation" />
+        <figcaption>From signal to point of view</figcaption>
+      </figure>
     </section>
 
     {featuredInsight && (

@@ -10,14 +10,22 @@ export async function getStaticPaths() {
 }
 
 const { project } = Astro.props;
+const projectVisual = project.data.coverImage || (project.data.type === "ai" ? site.visuals.labs : site.visuals.projects);
+const projectVisualAlt = project.data.coverImage ? `${project.data.title} cover image` : (project.data.type === "ai" ? "Abstract agentic workflow with connected nodes, feedback loops, and actions" : "Abstract layered enterprise operating model with connected business signals");
 ---
 
 <BaseLayout title={`${project.data.title} | ${site.siteName}`} description={project.data.summary}>
   <main>
-    <section class="page-hero text-only">
-      <p class="eyebrow">{project.data.label} · {project.data.clientType}</p>
-      <h1>{project.data.title}</h1>
-      <p>{project.data.executiveSummary || project.data.summary}</p>
+    <section class="page-hero media-hero">
+      <div>
+        <p class="eyebrow">{project.data.label} · {project.data.clientType}</p>
+        <h1>{project.data.title}</h1>
+        <p>{project.data.executiveSummary || project.data.summary}</p>
+      </div>
+      <figure class="page-hero-visual">
+        <img src={projectVisual} alt={projectVisualAlt} />
+        <figcaption>{project.data.type === "ai" ? "Applied workflow experiment" : "Business transformation in context"}</figcaption>
+      </figure>
     </section>
     <section class="section article-layout">
       <MarkdownContent entry={project} />
