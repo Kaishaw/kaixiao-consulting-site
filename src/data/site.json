@@ -3,17 +3,34 @@
   "siteUrl": "https://www.kaixiao.ca",
   "siteDescription": "A personal portfolio about CRM modernization, business analysis, Dynamics 365, Power Platform, and applied AI workflows.",
   "defaultOgImage": "/assets/headshot-professional.jpg",
-  "favicon": "",
-  "email": "",
+  "email": "kaixiaocan@gmail.com",
   "linkedinUrl": "https://www.linkedin.com/in/kaixiaocan/",
   "aiDirectoryUrl": "https://ai.kaixiao.ca/",
   "footerLine": "CRM · Dynamics 365 · Power Platform · AI Workflows",
   "navigation": [
-    { "label": "Portfolio", "href": "/portfolio/" },
-    { "label": "Projects", "href": "/work/" },
-    { "label": "Insights", "href": "/insights/" },
-    { "label": "AI Work", "href": "/ai-projects/" },
-    { "label": "Blog", "href": "/blog/" },
-    { "label": "Contact", "href": "/contact/" }
+    {
+      "label": "Portfolio",
+      "href": "/portfolio/"
+    },
+    {
+      "label": "Projects",
+      "href": "/work/"
+    },
+    {
+      "label": "Insights",
+      "href": "/insights/"
+    },
+    {
+      "label": "AI Work",
+      "href": "/ai-projects/"
+    },
+    {
+      "label": "Blog",
+      "href": "/blog/"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact/"
+    }
   ]
 }
