@@ -1,6 +1,6 @@
 ---
-title: "Consolidating fragmented systems for a national consumer brand"
-summary: "A top-three Chinese baijiu group needed a clearer enterprise operating model across production bases, distributors, customer operations, finance, and data."
+title: "Consolidating systems for a national consumer brand"
+summary: "A top-three Chinese baijiu group needed a clearer operating model across production, distribution, customer operations, finance, and data."
 published: true
 date: 2026-04-20
 tags: ["Dynamics 365", "ERP", "Copilot readiness", "Data", "Adoption"]
@@ -10,9 +10,58 @@ clientType: "Large-scale D365 rollout"
 sector: "Consumer goods and manufacturing"
 scale: "Top-three national brand · multiple production bases · thousands of distributors · millions of online customers"
 businessContext: "Growth had created overlapping systems, fragmented ownership, and inconsistent visibility across customer, product, supply chain, finance, and marketing activities."
-executiveSummary: "An enterprise business applications program designed to reduce fragmentation and create a shared operating picture across the value chain."
+executiveSummary: "An enterprise program to reduce fragmentation and create a shared view across the value chain."
 rolePerspective: "Requirements and operating-model coordination across Dynamics 365, ERP, data warehouse, BI, product, customer service, marketing, procurement, finance, and adoption."
 outcome: "Fewer legacy systems, better supply-chain visibility, faster reporting, and stronger adoption through pilot sessions and role-based training."
+storyHook: "At national scale, the challenge was not one CRM or one ERP feature. It was making channels, customers, warehouses, campaigns, and operations behave like one business."
+storySetting: "A top-three Chinese baijiu group was growing across production bases, distributor networks, e-commerce channels, customer operations, finance, and data. The operating picture included thousands of distributors, millions of online customers, multiple distribution centers, and a business that could not afford to treat every channel as a separate world."
+storyTrigger: "Growth had created overlapping systems, fragmented ownership, and inconsistent visibility across production, distribution, customer relationships, marketing, finance, and supply-chain activity."
+storyTension: "The organization needed enterprise consistency without flattening the differences between B2B distribution, B2C commerce, customer insight, warehouse fulfillment, and equipment operations. Speed mattered, but so did inventory control, consent, traceability, and recoverability."
+storyPeople:
+  - role: "Distributor and channel teams"
+    need: "Reliable order, price, credit, availability, and fulfillment information for a wide network of partners."
+  - role: "E-commerce, marketing, and customer service"
+    need: "A usable customer view across channels, with consent and campaign context that could support better decisions."
+  - role: "Warehouse and fulfillment teams"
+    need: "Clear allocation, routing, reservation, batch, shipment, and exception handling across distribution centers."
+  - role: "Finance, asset, and technology teams"
+    need: "Stable system boundaries, auditable data, controlled integration, and a platform that could be supported after go-live."
+storyJourney:
+  - title: "Create one enterprise picture"
+    body: "The program brought the business landscape into one conversation: customer and channel operations, Customer Insights, F&O, Power BI, warehouse fulfillment, finance, and equipment-related work."
+  - title: "Make the order path resilient"
+    body: "B2B, B2C, and external-channel demand needed a common intake, validation, routing, reservation, status, and reconciliation story instead of a different interpretation in every channel."
+  - title: "Turn customer data into a decision asset"
+    body: "Identity, consent, segmentation, activation, and campaign results needed to remain connected so marketing could act on a customer view that was explainable rather than merely large."
+  - title: "Connect fulfillment to the real operation"
+    body: "Warehouse availability, safety stock, reservation, batch genealogy, shipment status, and exceptions had to stay grounded in the system of record rather than being solved by manual inventory edits."
+  - title: "Design for adoption at scale"
+    body: "UAT, role-based training, phased rollout, operational support, and hypercare connected the enterprise design to the people who had to use it every day."
+storyDecisions:
+  - title: "Keep source-of-truth boundaries visible"
+    body: "Customer context, customer insight, inventory, fulfillment, finance, and analytics each needed a clear responsibility so integration did not become a second hidden database."
+  - title: "Treat recovery as part of the customer experience"
+    body: "Duplicate orders, delayed messages, reservation failures, and status disagreements needed idempotency, correlation, reconciliation, and controlled replay so the business could recover without guessing."
+  - title: "Use AI and automation as governed assistance"
+    body: "Recommendations could accelerate matching, segmentation, service, and exception handling, but high-impact identity, consent, inventory, budget, and release decisions still needed ownership and review."
+storyEvidence:
+  - label: "Enterprise scale"
+    body: "The story spans a national consumer brand, multiple production bases, large distributor and customer populations, multiple fulfillment locations, and both B2B and B2C operating models."
+  - label: "End-to-end view"
+    body: "The narrative connects order orchestration, customer identity, activation, warehouse fulfillment, data migration, testing, training, rollout, and hypercare."
+  - label: "Business outcome"
+    body: "Fewer fragmented systems, better supply-chain visibility, faster reporting, and a stronger foundation for coordinated customer and operational decisions."
+storyLenses:
+  - label: "Business lens"
+    title: "Turn scale into a coordinated operating model"
+    body: "The project is about helping a large consumer business grow without allowing every channel, warehouse, or team to invent its own version of the customer and the order."
+  - label: "Delivery lens"
+    title: "Sequence the change so the enterprise can absorb it"
+    body: "The value came from linking discovery, design, data, testing, training, rollout, and hypercare into one delivery rhythm rather than treating go-live as the finish line."
+  - label: "Systems lens"
+    title: "Make complexity observable and recoverable"
+    body: "The architecture story is about boundaries, states, source-of-truth rules, traceability, and recovery paths that remain understandable when channels and volumes are moving at the same time."
+storyReflection: "High-level transformation becomes believable when it can explain both the big picture and the moment an individual order, customer, batch, or alert needs attention."
 ---
 
 I helped bring different business functions into one transformation conversation: product, customer service, marketing, procurement, finance, supply chain, data, and adoption. The important work was making the enterprise visible as one connected operating system rather than a collection of departments and legacy tools.

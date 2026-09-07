@@ -1,13 +1,13 @@
 ---
-title: "Copilot in Dynamics 365 is only useful when the business process is clear"
-summary: "Copilot and AI agents can accelerate work inside Dynamics 365, but only when ownership, data, and operating rules are clear enough to trust."
+title: "Copilot works when the business process is clear"
+summary: "Copilot and AI agents help most when ownership, data, and operating rules are clear."
 published: true
 date: 2026-06-20
 category: "Industry insight"
 contentType: "opinion"
 featuredInsight: true
 insightTopic: "Dynamics 365 + Copilot"
-insightSummary: "My view: Copilot should be introduced as part of a clear operating model — not used as a shortcut around unclear ownership, duplicate data, or messy escalation rules."
+insightSummary: "My view: Copilot should strengthen a clear operating model — not cover for unclear ownership or messy data."
 tags: ["Dynamics 365", "Copilot", "AI", "Operations"]
 ---
 

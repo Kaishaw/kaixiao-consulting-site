@@ -11,6 +11,16 @@ const contentTypeLabel = (contentType?: string) => {
   if (contentType === "case-note") return "Case note";
   return contentType.charAt(0).toUpperCase() + contentType.slice(1);
 };
+
+const contentTypeArt = (contentType?: string) => {
+  const art = {
+    opinion: { visual: site.visuals.insights, mark: "↗" },
+    article: { visual: site.visuals.home, mark: "＋" },
+    "case-note": { visual: site.visuals.projects, mark: "◇" },
+    tutorial: { visual: site.visuals.labs, mark: "→" },
+  };
+  return art[contentType as keyof typeof art] || art.article;
+};
 ---
 
 <BaseLayout title={`Blog | ${site.siteName}`} description={`Projects, demos, industry insights, and technology perspectives from ${site.siteName}.`}>
@@ -18,8 +28,8 @@ const contentTypeLabel = (contentType?: string) => {
     <section class="page-hero media-hero">
       <div>
         <p class="eyebrow">Blog</p>
-        <h1>Things I build, learn, test, and want to explain clearly.</h1>
-        <p>The Blog is the detailed layer: project notes, demos, tutorials, case notes, and longer-form writing. For shorter directional thinking, visit Insights.</p>
+        <h1>Notes on systems, AI, and the work between them.</h1>
+        <p>Longer posts on projects, demos, industry signals, and practical delivery. Start with Insights for shorter opinions.</p>
       </div>
       <figure class="page-hero-visual">
         <img src={site.visuals.insights} alt="Abstract field of technology signals resolving into a clear constellation" />
@@ -29,9 +39,12 @@ const contentTypeLabel = (contentType?: string) => {
 
     <section class="section blog-grid">
       {posts.map((post) => (
-        <article class={`route-card blog-card${post.data.featuredInsight ? " featured-blog-card" : ""}`}>
-          {post.data.featuredInsight && <img class="blog-card-art" src={post.data.coverImage || site.visuals.insights} alt="Abstract field of technology signals resolving into a clear constellation" />}
-          <span>{contentTypeLabel(post.data.contentType)}</span>
+        <article class={`route-card blog-card${post.data.featuredInsight ? " featured-blog-card" : ""}`} data-content-type={post.data.contentType || "article"}>
+          <div class="blog-card-art">
+            <img src={post.data.coverImage || contentTypeArt(post.data.contentType).visual} alt="" />
+            <span>{contentTypeLabel(post.data.contentType)}</span>
+            <strong aria-hidden="true">{contentTypeArt(post.data.contentType).mark}</strong>
+          </div>
           <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
           <p>{post.data.summary}</p>
           <small>{post.data.category} · {post.data.date.toLocaleDateString("en-CA")}</small>

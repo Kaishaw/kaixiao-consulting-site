@@ -297,6 +297,70 @@ content:
         type: text
       - name: outcome
         type: text
+      - name: storyHook
+        label: Story hook
+        type: text
+      - name: storySetting
+        label: Story setting
+        type: text
+      - name: storyTrigger
+        label: Why now
+        type: text
+      - name: storyTension
+        label: Story tension
+        type: text
+      - name: storyPeople
+        label: People in the system
+        type: object
+        list: true
+        fields:
+          - name: role
+            label: Role or group
+            type: string
+          - name: need
+            label: Need or concern
+            type: text
+      - name: storyJourney
+        label: Story journey
+        type: object
+        list: true
+        fields:
+          - name: title
+            type: string
+          - name: body
+            type: text
+      - name: storyDecisions
+        label: Decisions that shaped it
+        type: object
+        list: true
+        fields:
+          - name: title
+            type: string
+          - name: body
+            type: text
+      - name: storyEvidence
+        label: Outcome evidence
+        type: object
+        list: true
+        fields:
+          - name: label
+            type: string
+          - name: body
+            type: text
+      - name: storyLenses
+        label: Story lenses
+        type: object
+        list: true
+        fields:
+          - name: label
+            type: string
+          - name: title
+            type: string
+          - name: body
+            type: text
+      - name: storyReflection
+        label: Story reflection
+        type: text
       - name: coverImage
         type: image
         options:

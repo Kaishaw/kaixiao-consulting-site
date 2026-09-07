@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import MarkdownContent from "../../components/MarkdownContent.astro";
+import ProjectStory from "../../components/ProjectStory.astro";
 import site from "../../data/site.json";
 
 export async function getStaticPaths() {
@@ -27,8 +28,15 @@ const projectVisualAlt = project.data.coverImage ? `${project.data.title} cover 
         <figcaption>{project.data.type === "ai" ? "Applied workflow experiment" : "Business transformation in context"}</figcaption>
       </figure>
     </section>
+    <ProjectStory project={project} />
     <section class="section article-layout">
-      <MarkdownContent entry={project} />
+      <div>
+        <div class="article-section-heading">
+          <p class="eyebrow">Project notes</p>
+          <h2>Details behind the story.</h2>
+        </div>
+        <MarkdownContent entry={project} />
+      </div>
       <aside class="article-aside">
         {project.data.businessContext && <><strong>Business context</strong><p>{project.data.businessContext}</p></>}
         {project.data.scale && <><strong>Scale</strong><p>{project.data.scale}</p></>}

@@ -4,28 +4,28 @@
     "period": "Now",
     "title": "CRM, ERP, and applied AI",
     "location": "Canada · consulting and independent work",
-    "summary": "I help organizations connect business direction with practical systems: CRM modernization, ERP-adjacent operations, Power Platform, data, and AI-enabled workflows.",
+    "summary": "I connect business direction with practical systems across CRM modernization, ERP-adjacent operations, Power Platform, data, and AI workflows.",
     "themes": ["CRM modernization", "Business systems", "Applied AI"]
   },
   {
     "period": "2018–Present",
     "title": "Enterprise business applications and transformation",
     "location": "Dynamics 365 · Power Platform · ERP · data",
-    "summary": "My work moved deeper into enterprise-scale customer operations, cloud migration, process redesign, automation, reporting, and the adoption work required after a system goes live.",
+    "summary": "Enterprise customer operations, cloud migration, process redesign, automation, reporting, and adoption.",
     "themes": ["Dynamics 365", "Power Platform", "Transformation"]
   },
   {
     "period": "2010s",
     "title": "Business analysis across people, process, and technology",
     "location": "China · cross-functional delivery",
-    "summary": "I learned to translate between business teams, delivery teams, and leadership: making needs visible, turning ambiguity into decisions, and keeping the operating context in view.",
+    "summary": "Translating between business teams, delivery teams, and leadership; making ambiguity visible and decisions practical.",
     "themes": ["Business analysis", "Process design", "Delivery"]
   },
   {
     "period": "2005–2009",
     "title": "Graduation and the start of the journey",
     "location": "China · systems and operations foundation",
-    "summary": "After graduating in 2005, I began building the practical foundation that later shaped my work in business systems: understanding how organizations operate and how technology changes daily work.",
+    "summary": "After graduating in 2005, I built the operations and systems foundation that shaped the work that followed.",
     "themes": ["Foundation", "Operations", "Learning"]
   }
   ]

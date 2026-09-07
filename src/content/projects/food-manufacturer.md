@@ -1,6 +1,6 @@
 ---
-title: "Building a connected operating model for a growing food business"
-summary: "A Canadian food manufacturer needed clearer coordination across inventory, import, repack, sales, and customer relationships as the business grew."
+title: "Connecting operations for a growing food business"
+summary: "A Canadian food manufacturer needed one clearer view across inventory, import, repack, sales, and customer relationships."
 published: true
 date: 2026-05-15
 tags: ["Dynamics 365", "ERP", "Power Apps", "BI"]
@@ -10,9 +10,56 @@ clientType: "CRM + ERP transformation"
 sector: "Food manufacturing and distribution"
 scale: "Growing Canadian operation · many SKUs · import, repack, grocery, and hospitality channels"
 businessContext: "Perishable products, multiple sales channels, and manual handoffs made it difficult for teams to see the same operational picture at the same time."
-executiveSummary: "A connected business applications program that brought customer operations, ERP processes, lightweight apps, and reporting closer together."
+executiveSummary: "A connected operating model bringing customer work, ERP processes, lightweight apps, and reporting closer together."
 rolePerspective: "Process discovery and business requirements across Dynamics 365, ERP, Power Apps, data, reporting, and adoption."
 outcome: "Less manual entry, better stock visibility, faster forecasting, and more time for sales teams to focus on key grocery and hospitality accounts."
+storyHook: "The project was not about adding another application. It was about helping a growing food business see the same operation from import to delivery."
+storySetting: "A Calgary-based food import, repackaging, and distribution business operated across distribution centers in Vancouver, Calgary, and Toronto. The operation connected procurement, warehouses, sales, customer service, finance, and management across many SKUs, suppliers, channels, batches, and shelf-life constraints."
+storyTrigger: "A third-party legacy ERP and a growing collection of Excel workbooks made it difficult to keep inventory, procurement, repackaging, sales, and reporting aligned across locations."
+storyTension: "The business needed a more connected operating model without losing the practical detail of food operations: units of measure, expiry, batches, import costs, intercompany movement, and the exceptions that appear on a warehouse floor."
+storyPeople:
+  - role: "Procurement and import teams"
+    need: "A reliable view of what was ordered, where it was in transit, what it would cost, and when it could be received."
+  - role: "Warehouse and quality teams"
+    need: "Control over batches, expiry, repackaging, damaged goods, stock movement, and what could safely be shipped."
+  - role: "Sales and customer service"
+    need: "A current view of availability, customer commitments, deliveries, and the reason behind an exception."
+  - role: "Finance and leadership"
+    need: "Numbers they could reconcile across inventory, cost, orders, and operational performance rather than rebuild in separate spreadsheets."
+storyJourney:
+  - title: "Map the chain, not just the screens"
+    body: "The work followed the business chain from overseas purchase and goods in transit through receiving, batch control, repackaging, inventory, sales, delivery, and reporting."
+  - title: "Give each system a job"
+    body: "The solution brought Dynamics 365 Finance & Operations, customer operations, lightweight apps, and reporting closer together while keeping ownership of each record and decision visible."
+  - title: "Make exceptions part of the design"
+    body: "Near-expiry stock, damaged goods, unit conversion, late import charges, intercompany movement, and mismatched balances were treated as normal operating stories to be controlled, not edge cases to ignore."
+  - title: "Rehearse the operation with the people who run it"
+    body: "Validation and UAT connected process owners from procurement, warehouse, sales, customer service, finance, and management to the new way of working before release."
+storyDecisions:
+  - title: "Use the operational system as the source of truth"
+    body: "Inventory, procurement, fulfillment, and financial movement needed a shared backbone. Reporting could explain the business, but it could not become a second unofficial inventory system."
+  - title: "Prefer traceability over manual correction"
+    body: "Batch, expiry, repackaging, and scrap decisions needed a visible chain from input to output so a person could explain what happened later."
+  - title: "Design for the exception queue"
+    body: "When data, cost, stock, or an order did not reconcile, the better answer was to show the exception, its owner, and its next action rather than hide the discrepancy in another spreadsheet."
+storyEvidence:
+  - label: "Operating scale"
+    body: "Three distribution centers, approximately 300 users, 2,000+ SKUs, roughly 800–1,000 suppliers, and approximately 2,000 daily orders created a real coordination problem rather than a single-department software exercise."
+  - label: "Process evidence"
+    body: "The story connects import, landed cost, inventory, batch and expiry, repackaging, order fulfillment, customer relationships, finance, and reporting."
+  - label: "Business outcome"
+    body: "Less manual entry, clearer stock visibility, faster forecasting, and more time for sales teams to focus on important grocery and hospitality relationships."
+storyLenses:
+  - label: "Business lens"
+    title: "One operating picture"
+    body: "The value was giving different teams a shared view of the business while respecting the realities of perishable products, multiple locations, and multiple channels."
+  - label: "Delivery lens"
+    title: "Translate handoffs into working journeys"
+    body: "The project moved through discovery, fit-gap, requirements, configuration, migration, testing, UAT, training, and cutover around the way work actually moved between teams."
+  - label: "Systems lens"
+    title: "Connect detail without losing control"
+    body: "The design connected CRM, ERP, apps, data, and reporting while keeping data ownership, reconciliation, traceability, and exception handling explicit."
+storyReflection: "A connected business system earns its place when a warehouse, a salesperson, and a finance manager can look at the same event and make a better next decision."
 ---
 
 I helped shape the future operating model across customer relationships, inventory, replenishment, and management visibility. The goal was not to add another tool, but to give sales, operations, and leadership a more shared view of the business.

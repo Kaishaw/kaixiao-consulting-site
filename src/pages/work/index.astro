@@ -12,12 +12,12 @@ const projects = (await getCollection("projects", ({ data }) => data.published &
     <section class="page-hero media-hero">
       <div>
         <p class="eyebrow">Project stories</p>
-        <h1>Selected project experience.</h1>
-        <p>Business-facing views of the organizations, operating context, transformation goals, and outcomes behind selected work. Open a project for the fuller story.</p>
+        <h1>Work across people, process, and platforms.</h1>
+        <p>Business-facing stories from CRM modernization, cloud migration, enterprise operations, and automation. Each one opens with the setting, then goes deeper into the people, decisions, and outcomes.</p>
       </div>
       <figure class="page-hero-visual">
         <img src={site.visuals.projects} alt="Abstract layered enterprise operating model with connected business signals" />
-        <figcaption>Connected operating models</figcaption>
+        <figcaption>Business systems in context</figcaption>
       </figure>
     </section>
 
@@ -29,10 +29,12 @@ const projects = (await getCollection("projects", ({ data }) => data.published &
             <strong>{project.data.clientType}</strong>
           </div>
           <div>
+            <p class="story-card-kicker">Project story</p>
             <h2>{project.data.title}</h2>
-            <p>{project.data.executiveSummary || project.data.summary}</p>
+            <p class="story-card-hook">{project.data.storyHook || project.data.executiveSummary || project.data.summary}</p>
+            {project.data.storySetting && <p class="story-card-context">{project.data.storySetting}</p>}
             {project.data.scale && <p class="story-scale">{project.data.scale}</p>}
-            <p><a href={`/projects/${project.id}/`}>Read project details</a></p>
+            <p class="story-card-actions"><a href={`/projects/${project.id}/`}>Read full project story</a></p>
             <p class="story-outcome">Business outcome: {project.data.outcome}</p>
           </div>
         </article>

@@ -1,0 +1,120 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { data } = project;
+const hasStory = Boolean(
+  data.storyHook ||
+  data.storySetting ||
+  data.storyTrigger ||
+  data.storyTension ||
+  data.storyPeople.length ||
+  data.storyJourney.length ||
+  data.storyDecisions.length ||
+  data.storyEvidence.length ||
+  data.storyLenses.length ||
+  data.storyReflection,
+);
+---
+
+{hasStory && (
+  <section class="project-story" aria-labelledby="project-story-title">
+    <div class="project-story-intro">
+      <p class="eyebrow">Project story</p>
+      {data.storyHook && <h2 class="project-story-hook" id="project-story-title">{data.storyHook}</h2>}
+    </div>
+
+    <div class="project-scene-grid">
+      {data.storySetting && <article><span>The setting</span><p>{data.storySetting}</p></article>}
+      {data.storyTrigger && <article><span>Why now</span><p>{data.storyTrigger}</p></article>}
+      {data.storyTension && <article><span>The tension</span><p>{data.storyTension}</p></article>}
+    </div>
+
+    {data.storyPeople.length > 0 && (
+      <section class="project-story-section project-people">
+        <div class="project-story-heading">
+          <p class="eyebrow">People in the system</p>
+          <h2>Every project has more than one point of view.</h2>
+        </div>
+        <div class="project-people-grid">
+          {data.storyPeople.map((person) => (
+            <article>
+              <h3>{person.role}</h3>
+              <p>{person.need}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {data.storyJourney.length > 0 && (
+      <section class="project-story-section">
+        <div class="project-story-heading">
+          <p class="eyebrow">The journey</p>
+          <h2>How the work moved from problem to practice.</h2>
+        </div>
+        <ol class="project-journey">
+          {data.storyJourney.map((step, index) => (
+            <li>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <div><h3>{step.title}</h3><p>{step.body}</p></div>
+            </li>
+          ))}
+        </ol>
+      </section>
+    )}
+
+    {data.storyDecisions.length > 0 && (
+      <section class="project-story-section">
+        <div class="project-story-heading">
+          <p class="eyebrow">Decisions that shaped it</p>
+          <h2>The turning points were business decisions as much as system decisions.</h2>
+        </div>
+        <div class="project-decision-grid">
+          {data.storyDecisions.map((decision) => (
+            <article><h3>{decision.title}</h3><p>{decision.body}</p></article>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {data.storyLenses.length > 0 && (
+      <section class="project-story-section">
+        <div class="project-story-heading">
+          <p class="eyebrow">Ways to read the work</p>
+          <h2>The same project can reveal different kinds of value.</h2>
+        </div>
+        <div class="project-lens-grid">
+          {data.storyLenses.map((lens) => (
+            <article><span>{lens.label}</span><h3>{lens.title}</h3><p>{lens.body}</p></article>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {data.storyEvidence.length > 0 && (
+      <section class="project-story-section project-evidence">
+        <div class="project-story-heading">
+          <p class="eyebrow">What changed</p>
+          <h2>Outcomes are easier to trust when the evidence is visible.</h2>
+        </div>
+        <div class="project-evidence-grid">
+          {data.storyEvidence.map((item) => (
+            <article><span>{item.label}</span><p>{item.body}</p></article>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {data.storyReflection && (
+      <section class="project-reflection">
+        <p class="eyebrow">Reflection</p>
+        <p>{data.storyReflection}</p>
+      </section>
+    )}
+  </section>
+)}

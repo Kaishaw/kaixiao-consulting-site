@@ -1,23 +1,23 @@
 {
   "eyebrow": "Perspective",
-  "title": "What Dynamics 365, Copilot, and applied AI mean for people doing the work.",
-  "lede": "Insights are the fast point-of-view layer of this site: a way to see what I think about Dynamics 365, Copilot, AI agents, CRM, ERP, and the operating models around them without reading every Blog post.",
+  "title": "Signals worth thinking about.",
+  "lede": "Short takes on Dynamics 365, Copilot, AI agents, Power Platform, and the work around them.",
   "pillars": [
     {
       "label": "Signals",
-      "title": "What is moving now",
-      "description": "Track meaningful changes in Dynamics 365, Copilot, AI agents, CRM, ERP, data platforms, customer service, and the business software landscape."
+      "title": "What changed",
+      "description": "Platform news, product shifts, and useful signals across business systems and AI."
     },
     {
       "label": "Interpretation",
-      "title": "What the change means",
-      "description": "Translate product launches and industry movements into implications for operating models, governance, investment, and leadership."
+      "title": "Why it matters",
+      "description": "What a change means for operating models, governance, investment, and leadership."
     },
     {
       "label": "Practice",
-      "title": "How to make it useful",
-      "description": "Connect emerging technology to process clarity, adoption, measurement, and the small decisions that determine whether transformation sticks."
+      "title": "What to try",
+      "description": "A practical path from a new capability to a trusted workflow."
     }
   ],
-  "sourceNote": "The reading list is a starting point. Over time, this space can combine public sources, your own field notes, and selected reference cases."
+  "sourceNote": "A starting list of public sources, field notes, and reference cases."
 }

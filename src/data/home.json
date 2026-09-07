@@ -1,24 +1,24 @@
 {
   "eyebrow": "Kai Xiao · CRM, ERP & applied AI",
-  "headline": "I make complex work feel clearer, more useful, and more human.",
-  "lede": "I work between business strategy, enterprise systems, and emerging AI — helping organizations modernize the way people sell, serve, operate, and make decisions.",
+  "headline": "Business systems, made clearer.",
+  "lede": "I connect business teams, enterprise systems, and applied AI to make everyday work easier to run.",
   "primaryAction": { "label": "Explore projects", "href": "/work/" },
   "secondaryAction": { "label": "Read latest insights", "href": "/blog/" },
   "capabilities": ["Dynamics 365", "Copilot & AI", "Power Platform", "Business Analysis", "CRM & ERP Transformation"],
-  "aboutTitle": "A systems person who still starts with people.",
+  "aboutTitle": "A human view of business systems.",
   "aboutParagraphs": [
-    "I started from business and systems analysis, and over time moved deeper into CRM, customer service, sales process design, Dynamics 365, and Power Platform. What I enjoy most is helping people describe what they need clearly enough that a solution can be designed, built, tested, and adopted.",
-    "My background includes CRM modernization, public-sector cloud migration, enterprise-wide Dynamics 365 rollouts, lead scoring automation, and BI-enabled operations. I am now especially interested in how Copilot, agents, and applied AI can become useful inside real business processes rather than remain isolated technology experiments."
+    "I work between business teams and delivery teams, turning real operating problems into clearer processes, systems, and decisions.",
+    "My work spans CRM modernization, Dynamics 365, Power Platform, ERP-adjacent operations, cloud migration, and AI-enabled workflows."
   ],
-  "nowTitle": "Exploring what useful AI looks like in real operations.",
-  "nowText": "Right now I am interested in how Copilot and AI agents can work with Dynamics 365, Power Platform, and clearer business processes — without making systems harder to trust.",
-  "personalNoteTitle": "Not just systems. Also people, habits, and adoption.",
-  "personalNote": "The most successful CRM projects I have seen were not only about choosing the right platform. They worked because users understood the purpose, managers trusted the data, and the new process made daily work easier instead of heavier.",
-  "quote": "I see CRM as a shared operating system for customer-facing teams. If the workflow is unclear, AI will only make the confusion faster. If the workflow is clear, AI can become genuinely useful.",
+  "nowTitle": "Building practical AI for real work.",
+  "nowText": "I am exploring how Copilot and AI agents can work with Dynamics 365 and Power Platform without making systems harder to trust.",
+  "personalNoteTitle": "Good systems fit the way people work.",
+  "personalNote": "The best CRM work balances clean data, useful workflows, and the habits that help teams adopt them.",
+  "quote": "Clear process first. Useful AI second.",
   "routes": [
-    { "number": "01", "title": "Portfolio", "href": "/portfolio/", "description": "A concise career timeline, working style, and the experiences that shaped how I approach business systems." },
-    { "number": "02", "title": "Project stories", "href": "/work/", "description": "Readable stories from public-sector, food distribution, manufacturing, and marketing automation work." },
-    { "number": "03", "title": "Industry insights", "href": "/insights/", "description": "Fast access to my views on Dynamics 365, Copilot, AI agents, business operations, and the future of work." },
-    { "number": "04", "title": "Labs & demos", "href": "/ai-projects/", "description": "Small experiments, prototypes, and public demos exploring useful applications of AI and automation." }
+    { "number": "01", "title": "Portfolio", "href": "/portfolio/", "description": "Career timeline, working style, and the experiences behind the work." },
+    { "number": "02", "title": "Project stories", "href": "/work/", "description": "Business-facing stories from CRM, ERP, migration, and automation work." },
+    { "number": "03", "title": "Industry insights", "href": "/insights/", "description": "Short views on Dynamics 365, Copilot, AI agents, and business change." },
+    { "number": "04", "title": "Labs & demos", "href": "/ai-projects/", "description": "Small experiments that make an idea easier to try and discuss." }
   ]
 }

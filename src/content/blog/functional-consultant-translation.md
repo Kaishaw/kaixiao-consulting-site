@@ -1,6 +1,6 @@
 ---
-title: "The best functional consultants translate between people"
-summary: "A lot of value comes from making translation visible and testable across business, delivery, testing, and leadership."
+title: "Functional consultants translate between teams"
+summary: "The value is making translation visible and testable across business, delivery, testing, and leadership."
 published: true
 date: 2026-05-28
 category: "Professional practice"

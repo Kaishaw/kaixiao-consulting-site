@@ -1,5 +1,5 @@
 ---
-title: "Power Platform is becoming the business team's extension layer"
+title: "Power Platform as the business extension layer"
 summary: "Low-code tools are useful when they sit close to a real business pain, but governance and simple design standards still matter."
 published: true
 date: 2026-06-05

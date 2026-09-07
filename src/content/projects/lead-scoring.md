@@ -1,6 +1,6 @@
 ---
-title: "Turning fragmented demand into a more disciplined revenue pipeline"
-summary: "A sales and marketing organization wanted a more consistent way to recognize, prioritize, and route demand without adding more manual management overhead."
+title: "Making the revenue pipeline easier to act on"
+summary: "A sales and marketing organization wanted a more consistent way to prioritize, route, and follow up on demand."
 published: true
 date: 2026-03-10
 tags: ["Power Automate", "Lead scoring", "Sales operations"]
@@ -10,9 +10,56 @@ clientType: "Lead scoring automation"
 sector: "Revenue operations"
 scale: "Sales and marketing teams · multi-stage lead pipeline · campaign-driven demand"
 businessContext: "Manual triage slowed response time, created inconsistent ownership, and made it harder for managers to understand where campaign investment was becoming real opportunity."
-executiveSummary: "A revenue operations improvement that connected prioritization, ownership, follow-up, and management visibility into one repeatable motion."
+executiveSummary: "A revenue-operations improvement connecting prioritization, ownership, follow-up, and management visibility."
 rolePerspective: "Workshop facilitation, segmentation logic, process design, automation rules, and alignment between sales managers and delivery teams."
 outcome: "Faster follow-up, higher sales team efficiency, better customer satisfaction, and more time for managers to focus on planning instead of manual triage."
+storyHook: "The real project was not putting a number on every lead. It was helping a sales organization decide what deserved attention next without making the people doing the selling distrust the system."
+storySetting: "Demand arrived through marketing activity, web forms, imports, partners, and conversations already happening in the sales organization. Marketing needed to understand whether investment was becoming opportunity; sales needed a clear next action; managers needed visibility into capacity and follow-up."
+storyTrigger: "Manual triage slowed response time, created inconsistent ownership, and made it hard to see which signals represented meaningful opportunity."
+storyTension: "A score could create speed, but it could also create false confidence. The design had to make the signal explainable, leave room for sales judgment, and measure business movement rather than celebrate a model metric in isolation."
+storyPeople:
+  - role: "Marketing operations"
+    need: "A consistent way to understand lead quality and whether campaign signals were becoming useful demand."
+  - role: "Sales representatives"
+    need: "A prioritized queue with enough context to decide what to do next, not another unexplained field to ignore."
+  - role: "Sales managers"
+    need: "Visibility into ownership, follow-up, capacity, and whether the process was improving pipeline quality."
+  - role: "Delivery and business analysis teams"
+    need: "Shared definitions, acceptance criteria, automation rules, and feedback loops that could be tested and changed safely."
+storyJourney:
+  - title: "Define what a meaningful lead means"
+    body: "The work started by aligning sales and marketing on the difference between activity, fit, intent, and a lead that was genuinely ready for attention."
+  - title: "Make the input usable"
+    body: "Source, industry, company size, geography, consent, and interaction signals needed enough consistency that the score was not simply rewarding missing or duplicated data."
+  - title: "Turn a score into a conversation"
+    body: "The workflow paired a score with a band, reason, and recommended action so a sales user could accept it, override it, or explain why the signal did not fit the situation."
+  - title: "Close the loop"
+    body: "Follow-up, qualification, opportunity progression, and won/lost outcomes created the evidence needed to improve the process rather than leaving the model isolated from the business result."
+storyDecisions:
+  - title: "Explainability before automation"
+    body: "A number without a reason was not enough. The user needed to see why a lead was prioritized and what action the process expected next."
+  - title: "Human override is a control"
+    body: "Sales judgment was part of the design. Accept, override, and feedback paths made the workflow collaborative instead of pretending the model could replace the people closest to the customer."
+  - title: "Measure conversion, not only accuracy"
+    body: "The meaningful question was whether the process improved response, qualification, pipeline quality, and customer experience—not whether a model looked impressive in a test set."
+storyEvidence:
+  - label: "Operating problem"
+    body: "Manual triage created slow response, inconsistent ownership, and limited management visibility across marketing and sales."
+  - label: "Control model"
+    body: "Score, band, reason, recommended action, user feedback, versioning, and review created a visible path from signal to decision."
+  - label: "Business outcome"
+    body: "Faster follow-up, better sales-team efficiency, improved customer responsiveness, and more planning time for managers."
+storyLenses:
+  - label: "Business lens"
+    title: "Make attention a business choice"
+    body: "The value was helping the organization invest its limited sales capacity where the signal, context, and customer need made the next conversation more worthwhile."
+  - label: "Delivery lens"
+    title: "Turn disagreement into a testable process"
+    body: "Discovery, segmentation rules, acceptance criteria, automation, UAT, and feedback gave sales and marketing a way to improve the process together."
+  - label: "Systems lens"
+    title: "Keep the model bounded"
+    body: "The workflow made scoring, assignment, feedback, monitoring, and version changes explicit so the system could be adjusted without becoming a black box."
+storyReflection: "The strongest automation does not remove judgment. It gives people a clearer starting point and makes the reasons behind a decision easier to discuss."
 ---
 
 I helped the team agree on what made an opportunity meaningful, how ownership should work, and which signals deserved attention first. The resulting operating rhythm gave managers a clearer way to balance customer responsiveness, campaign investment, and sales capacity.

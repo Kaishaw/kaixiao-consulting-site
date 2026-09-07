@@ -39,6 +39,32 @@ const projects = defineCollection({
     executiveSummary: z.string().optional(),
     rolePerspective: z.string().optional(),
     outcome: z.string(),
+    storyHook: z.string().optional(),
+    storySetting: z.string().optional(),
+    storyTrigger: z.string().optional(),
+    storyTension: z.string().optional(),
+    storyPeople: z.array(z.object({
+      role: z.string(),
+      need: z.string(),
+    })).default([]),
+    storyJourney: z.array(z.object({
+      title: z.string(),
+      body: z.string(),
+    })).default([]),
+    storyDecisions: z.array(z.object({
+      title: z.string(),
+      body: z.string(),
+    })).default([]),
+    storyEvidence: z.array(z.object({
+      label: z.string(),
+      body: z.string(),
+    })).default([]),
+    storyLenses: z.array(z.object({
+      label: z.string(),
+      title: z.string(),
+      body: z.string(),
+    })).default([]),
+    storyReflection: z.string().optional(),
     demoType: z.string().optional(),
     videoUrl: z.string().url().optional(),
   }),
