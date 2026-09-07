@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import site from "../../data/site.json";
+import { Mail } from "@lucide/astro";
 ---
 
 <BaseLayout title={`Contact | ${site.siteName}`} description={`Contact ${site.siteName} for CRM, Dynamics 365, Power Platform, and AI workflow conversations.`}>
@@ -16,7 +17,7 @@ import site from "../../data/site.json";
         </div>
         {site.email && (
           <a class="contact-email-card" href={`mailto:${site.email}`} aria-label={`Email ${site.email}`}>
-            <span class="contact-email-label">Email</span>
+            <span class="contact-email-label"><Mail size={18} strokeWidth={1.6} aria-hidden="true" /> Email</span>
             <strong>{site.email}</strong>
             <span class="contact-email-arrow" aria-hidden="true">→</span>
           </a>

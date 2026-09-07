@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import site from "../../data/site.json";
 import ai from "../../data/ai.json";
+import { BrainCircuit, ChartBar, Database, Factory, FileCheck, RefreshCw, Route, ShieldCheck, UserRoundCheck, UsersRound, Workflow } from "@lucide/astro";
 
 const projects = await getCollection("projects", ({ data }) => data.published && data.type === "ai");
 
@@ -30,6 +31,25 @@ const labNotes = (project: (typeof projects)[number]) => [
 const visualAlt = (project: (typeof projects)[number]) => project.data.coverImage
   ? `${project.data.title} cover image`
   : "Abstract agentic workflow with connected nodes, feedback loops, and actions";
+
+const principleIcons = {
+  workflow: Workflow,
+  data: Database,
+  control: ShieldCheck,
+  adoption: UsersRound,
+};
+
+const caseIcons = {
+  recruiting: UserRoundCheck,
+  finance: Database,
+  legal: FileCheck,
+  crm: UsersRound,
+  manufacturing: Factory,
+  "decision support": Route,
+};
+
+const sequenceIcons = [Workflow, Database, Route, ChartBar, RefreshCw];
+const watchoutIcons = [BrainCircuit, Database, ShieldCheck];
 ---
 
 <BaseLayout title={`AI Practice | ${site.siteName}`} description={ai.lede}>
@@ -52,13 +72,20 @@ const visualAlt = (project: (typeof projects)[number]) => project.data.coverImag
         <h2>Four ideas worth carrying into enterprise work.</h2>
       </div>
       <div class="detail-grid ai-principles">
-        {ai.principles.map((principle) => (
-          <a class="banner-panel ai-principle-card" href={principle.href} data-banner="labs" data-banner-label={principle.label}>
-            <span>{principle.number}</span>
-            <h3>{principle.title}</h3>
-            <p>{principle.body}</p>
-          </a>
-        ))}
+        {ai.principles.map((principle) => {
+          const Icon = principleIcons[principle.label.toLowerCase() as keyof typeof principleIcons];
+          return (
+            <a class="ai-principle-card" href={principle.href}>
+              <div class="ai-card-top">
+                <Icon class="ai-card-icon" size={28} strokeWidth={1.5} aria-hidden="true" />
+                <span>{principle.number}</span>
+              </div>
+              <p class="eyebrow">{principle.label}</p>
+              <h3>{principle.title}</h3>
+              <p>{principle.body}</p>
+            </a>
+          );
+        })}
       </div>
     </section>
 
@@ -68,18 +95,24 @@ const visualAlt = (project: (typeof projects)[number]) => project.data.coverImag
         <h2>What these patterns make concrete.</h2>
       </div>
       <div class="ai-case-grid">
-        {ai.cases.map((item) => (
-          <a class="ai-case-card banner-panel" href={item.href} data-banner="labs" data-banner-label={item.label}>
-            <span class="ai-case-number">{item.number}</span>
-            <div>
-              <p class="eyebrow">{item.label}</p>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-              <p class="ai-case-evidence">{item.evidence}</p>
-              <p class="ai-case-takeaway">{item.takeaway}</p>
-            </div>
-          </a>
-        ))}
+        {ai.cases.map((item) => {
+          const Icon = caseIcons[item.label.toLowerCase() as keyof typeof caseIcons];
+          return (
+            <a class="ai-case-card" href={item.href}>
+              <div class="ai-case-number">
+                <Icon class="ai-case-icon" size={28} strokeWidth={1.5} aria-hidden="true" />
+                <span>{item.number}</span>
+              </div>
+              <div>
+                <p class="eyebrow">{item.label}</p>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+                <p class="ai-case-evidence">{item.evidence}</p>
+                <p class="ai-case-takeaway">{item.takeaway}</p>
+              </div>
+            </a>
+          );
+        })}
       </div>
     </section>
 
@@ -89,13 +122,19 @@ const visualAlt = (project: (typeof projects)[number]) => project.data.coverImag
         <h2>A sequence you can use on a real program.</h2>
       </div>
       <ol class="ai-sequence-list">
-        {ai.sequence.map((step) => (
-          <li class="banner-panel banner-panel--compact" data-banner="labs" data-banner-label={`Step ${step.number}`}>
-            <span>{step.number}</span>
-            <h3>{step.title}</h3>
-            <p>{step.body}</p>
-          </li>
-        ))}
+        {ai.sequence.map((step, index) => {
+          const Icon = sequenceIcons[index];
+          return (
+            <li>
+              <div class="ai-sequence-top">
+                <Icon class="ai-sequence-icon" size={25} strokeWidth={1.5} aria-hidden="true" />
+                <span>{step.number}</span>
+              </div>
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </li>
+          );
+        })}
       </ol>
     </section>
 
@@ -105,13 +144,20 @@ const visualAlt = (project: (typeof projects)[number]) => project.data.coverImag
         <h2>What not to copy blindly.</h2>
       </div>
       <div class="detail-grid ai-watchouts">
-        {ai.watchouts.map((item) => (
-          <a class="banner-panel ai-watchout-card" href={item.href} data-banner="labs" data-banner-label={item.label}>
-            <span>{item.number}</span>
-            <h3>{item.title}</h3>
-            <p>{item.body}</p>
-          </a>
-        ))}
+        {ai.watchouts.map((item, index) => {
+          const Icon = watchoutIcons[index];
+          return (
+            <a class="ai-watchout-card" href={item.href}>
+              <div class="ai-card-top">
+                <Icon class="ai-card-icon" size={26} strokeWidth={1.5} aria-hidden="true" />
+                <span>{item.number}</span>
+              </div>
+              <p class="eyebrow">{item.label}</p>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </a>
+          );
+        })}
       </div>
     </section>
 

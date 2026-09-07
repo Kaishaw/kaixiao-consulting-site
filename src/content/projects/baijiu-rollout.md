@@ -5,6 +5,7 @@ published: true
 date: 2026-04-20
 tags: ["Dynamics 365", "ERP", "Copilot readiness", "Data", "Adoption"]
 type: "work"
+coverImage: "/assets/project-national-rollout-flow.png"
 label: "Enterprise manufacturing"
 clientType: "Large-scale D365 rollout"
 sector: "Consumer goods and manufacturing"

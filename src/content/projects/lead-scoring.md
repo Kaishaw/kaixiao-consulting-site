@@ -5,6 +5,7 @@ published: true
 date: 2026-03-10
 tags: ["Power Automate", "Lead scoring", "Sales operations"]
 type: "work"
+coverImage: "/assets/project-lead-scoring-flow.png"
 label: "Sales & marketing"
 clientType: "Lead scoring automation"
 sector: "Revenue operations"

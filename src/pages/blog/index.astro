@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import site from "../../data/site.json";
+import { ArrowUpRight, ClipboardCheck, FileText, Workflow } from "@lucide/astro";
 
 const posts = (await getCollection("blog", ({ data }) => data.published))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -14,10 +15,10 @@ const contentTypeLabel = (contentType?: string) => {
 
 const contentTypeArt = (contentType?: string) => {
   const art = {
-    opinion: { visual: site.visuals.insights, mark: "↗" },
-    article: { visual: site.visuals.home, mark: "＋" },
-    "case-note": { visual: site.visuals.projects, mark: "◇" },
-    tutorial: { visual: site.visuals.labs, mark: "→" },
+    opinion: { visual: site.visuals.insights, Icon: ArrowUpRight },
+    article: { visual: site.visuals.home, Icon: FileText },
+    "case-note": { visual: site.visuals.projects, Icon: ClipboardCheck },
+    tutorial: { visual: site.visuals.labs, Icon: Workflow },
   };
   return art[contentType as keyof typeof art] || art.article;
 };
@@ -38,18 +39,22 @@ const contentTypeArt = (contentType?: string) => {
     </section>
 
     <section class="section blog-grid">
-      {posts.map((post) => (
-        <article class={`route-card blog-card${post.data.featuredInsight ? " featured-blog-card" : ""}`} data-content-type={post.data.contentType || "article"}>
-          <div class="blog-card-art">
-            <img src={post.data.coverImage || contentTypeArt(post.data.contentType).visual} alt="" />
-            <span>{contentTypeLabel(post.data.contentType)}</span>
-            <strong aria-hidden="true">{contentTypeArt(post.data.contentType).mark}</strong>
-          </div>
-          <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
-          <p>{post.data.summary}</p>
-          <small>{post.data.category} · {post.data.date.toLocaleDateString("en-CA")}</small>
-        </article>
-      ))}
+      {posts.map((post) => {
+        const art = contentTypeArt(post.data.contentType);
+        const Icon = art.Icon;
+        return (
+          <article class={`route-card blog-card${post.data.featuredInsight ? " featured-blog-card" : ""}`} data-content-type={post.data.contentType || "article"}>
+            <div class="blog-card-art">
+              <img src={post.data.coverImage || art.visual} alt="" />
+              <span>{contentTypeLabel(post.data.contentType)}</span>
+              <Icon class="blog-card-icon" size={34} strokeWidth={1.4} aria-hidden="true" />
+            </div>
+            <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+            <p>{post.data.summary}</p>
+            <small>{post.data.category} · {post.data.date.toLocaleDateString("en-CA")}</small>
+          </article>
+        );
+      })}
     </section>
   </main>
 </BaseLayout>

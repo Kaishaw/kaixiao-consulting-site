@@ -5,6 +5,7 @@ published: true
 date: 2026-06-01
 tags: ["Dynamics 365", "Migration", "Public sector"]
 type: "work"
+coverImage: "/assets/project-public-services-flow.png"
 label: "Public sector"
 clientType: "Dynamics 365 cloud migration"
 sector: "Public services"

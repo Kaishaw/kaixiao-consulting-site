@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import site from "../data/site.json";
 import home from "../data/home.json";
 import { getCollection } from "astro:content";
+import { BrainCircuit, Boxes, ClipboardCheck, Database, UsersRound, Workflow } from "@lucide/astro";
 
 const featuredProjects = (await getCollection("projects", ({ data }) => data.published && data.type === "work"))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
@@ -18,6 +19,20 @@ const routeBanner = (href: string) => {
   if (href.includes("blog")) return "blog";
   return "contact";
 };
+
+const capabilityIcons = {
+  "Dynamics 365": Database,
+  "Copilot & AI": BrainCircuit,
+  "Power Platform": Workflow,
+  "Business Analysis": ClipboardCheck,
+  "CRM & ERP Transformation": Boxes,
+};
+
+const embeddedSystemSteps = [
+  { label: "Business record", body: "A shared source of truth for the work.", Icon: Database },
+  { label: "AI layer", body: "Assistance placed inside the real workflow.", Icon: BrainCircuit },
+  { label: "Human decision", body: "Ownership and judgment stay visible.", Icon: UsersRound },
+];
 ---
 
 <BaseLayout title={`${site.siteName} | CRM, ERP & Applied AI`}>
@@ -45,7 +60,15 @@ const routeBanner = (href: string) => {
     </section>
 
     <section class="topic-strip" aria-label="Core capabilities">
-      {home.capabilities.map((capability) => <span>{capability}</span>)}
+      {home.capabilities.map((capability) => {
+        const Icon = capabilityIcons[capability as keyof typeof capabilityIcons];
+        return (
+          <span class="capability-item">
+            <Icon class="capability-icon" size={17} strokeWidth={1.6} aria-hidden="true" />
+            {capability}
+          </span>
+        );
+      })}
     </section>
 
     <section class="section selected-work">
@@ -56,10 +79,15 @@ const routeBanner = (href: string) => {
       <div class="selected-work-grid">
         <div class="selected-projects">
           {featuredProjects.map((project) => (
-            <article class="selected-project-card banner-panel banner-panel--compact" data-banner="projects" data-banner-label="Project story">
-              <div class="selected-project-meta">
-                <span>{project.data.label}</span>
-                <strong>{project.data.clientType}</strong>
+            <article class="selected-project-card">
+              <div class="selected-project-side">
+                <figure class="selected-project-visual">
+                  <img src={project.data.coverImage || site.visuals.projects} alt={`Business process illustration for ${project.data.title}`} loading="lazy" />
+                </figure>
+                <div class="selected-project-meta">
+                  <span>{project.data.label}</span>
+                  <strong>{project.data.clientType}</strong>
+                </div>
               </div>
               <div>
                 <h3>{project.data.title}</h3>
@@ -76,6 +104,34 @@ const routeBanner = (href: string) => {
           {latestPost && <a class="secondary-link" href={`/blog/${latestPost.id}/`}>Read the latest note</a>}
           <img class="teaser-art" src={site.visuals.insights} alt="" aria-hidden="true" />
         </aside>
+      </div>
+    </section>
+
+    <section class="section embedded-system-section">
+      <div class="section-heading">
+        <p class="eyebrow">AI embedded</p>
+        <h2>Put intelligence where the work already lives.</h2>
+      </div>
+      <div class="embedded-system-grid">
+        <div class="embedded-system-copy">
+          <p>Useful AI is rarely a separate destination. It becomes valuable when it sits close to the records, handoffs, and decisions a team already understands.</p>
+          <div class="embedded-system-steps">
+            {embeddedSystemSteps.map((step) => {
+              const Icon = step.Icon;
+              return (
+                <div class="embedded-system-step">
+                  <Icon class="embedded-system-icon" size={24} strokeWidth={1.6} aria-hidden="true" />
+                  <strong>{step.label}</strong>
+                  <span>{step.body}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <figure class="embedded-system-visual">
+          <img src="/assets/ai-enterprise-workflow-diagram.png" alt="Enterprise workflow connecting context, AI assistance, human review, business action, and feedback" loading="lazy" />
+          <figcaption>Context → AI assistance → human review → action</figcaption>
+        </figure>
       </div>
     </section>
 

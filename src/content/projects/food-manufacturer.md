@@ -5,6 +5,7 @@ published: true
 date: 2026-05-15
 tags: ["Dynamics 365", "ERP", "Power Apps", "BI"]
 type: "work"
+coverImage: "/assets/project-food-operations-flow.png"
 label: "Food distribution"
 clientType: "CRM + ERP transformation"
 sector: "Food manufacturing and distribution"
