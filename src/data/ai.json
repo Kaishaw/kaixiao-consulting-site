@@ -1,0 +1,143 @@
+{
+  "eyebrow": "AI practice",
+  "title": "AI that fits the way work actually runs.",
+  "lede": "A practical synthesis of enterprise patterns from the 2025-2026 AI Annual Report: start with a real workflow, ground the model in business data, and keep people in the decisions that matter.",
+  "sourceLabel": "Field guide · 2025-2026 AI Annual Report",
+  "sourceNote": "This page is a working synthesis of the report, not a reproduction or a timeless tool ranking. Vendor names and point-in-time predictions age quickly; the operating lessons travel further.",
+  "principles": [
+    {
+      "number": "01",
+      "label": "Workflow",
+      "title": "Design a workflow, not a chatbot.",
+      "href": "/blog/ai-enterprise-patterns/",
+      "body": "The strongest cases connect input, interpretation, action, and follow-up. The model is one part of a process with an owner, an output, and a next step."
+    },
+    {
+      "number": "02",
+      "label": "Data",
+      "title": "Make business data usable first.",
+      "href": "/blog/ai-finance-automation/",
+      "body": "Standard fields, shared definitions, clean records, and a dependable knowledge base matter more than a clever prompt. Data readiness is part of the AI product."
+    },
+    {
+      "number": "03",
+      "label": "Control",
+      "title": "Automate the repeatable; keep judgment visible.",
+      "href": "/blog/ai-legal-operations/",
+      "body": "AI can handle retrieval, classification, drafting, and rule-based checks. High-impact decisions, exceptions, and uncertain outputs still need a named human owner."
+    },
+    {
+      "number": "04",
+      "label": "Adoption",
+      "title": "Let domain experts shape the system.",
+      "href": "/blog/ai-manufacturing-quality/",
+      "body": "The people closest to the work know the edge cases, the language, and the quality bar. Their participation turns AI from an imposed tool into a useful teammate."
+    }
+  ],
+  "cases": [
+    {
+      "number": "01",
+      "label": "Recruiting",
+      "href": "/blog/ai-recruiting-workflow/",
+      "title": "Close the loop from first message to human decision.",
+      "body": "The report describes an AI recruiting workflow that configures role goals, screens candidates, communicates, schedules interviews, writes back to the system, and hands off at the moments that need a person.",
+      "evidence": "Reported signal: 24/7 coverage and 70-80% interview attendance when human reminders stay in the flow.",
+      "takeaway": "Enterprise lesson: measure the whole journey, not one automated message."
+    },
+    {
+      "number": "02",
+      "label": "Finance",
+      "href": "/blog/ai-finance-automation/",
+      "title": "Standardize the source before automating the books.",
+      "body": "A finance team first unified its source table and field definitions, then used AI, formulas, code, and RPA to compare, map, and route the work. The automation was built around a clearer data model.",
+      "evidence": "Reported signal: invoice preparation moved from 3 people over 3 days to 1 person for half a day; sensitive fields were masked and outputs were checked.",
+      "takeaway": "Enterprise lesson: automation becomes safer when the input contract is explicit."
+    },
+    {
+      "number": "03",
+      "label": "Legal",
+      "href": "/blog/ai-legal-operations/",
+      "title": "Move from document review to process visibility.",
+      "body": "The legal case followed a durable sequence: put contracts online, standardize reusable clauses, then use AI for first-pass review and drafting. Workflow timing and bottlenecks became visible alongside the text.",
+      "evidence": "Reported signal: AI reduced repetitive review work while legal review remained mandatory; process data made cycle time and late signing easier to manage.",
+      "takeaway": "Enterprise lesson: the lasting value is often the operating model around the model."
+    },
+    {
+      "number": "04",
+      "label": "CRM",
+      "href": "/blog/ai-crm-follow-up/",
+      "title": "Start with the customer record people can actually use.",
+      "body": "A lightweight CRM combined a shared customer record, interaction history, voice-to-field capture, reminders, dashboards, and personalized follow-up. The design favored familiarity and adoption over technical novelty.",
+      "evidence": "Reported signal: 70-80% of routine work could be delegated, while the final customer touch and data checks stayed with people.",
+      "takeaway": "Enterprise lesson: the best AI layer is often the one users do not have to learn from scratch."
+    },
+    {
+      "number": "05",
+      "label": "Manufacturing",
+      "href": "/blog/ai-manufacturing-quality/",
+      "title": "Turn expert judgment into a feedback loop.",
+      "body": "The quality-inspection case connected consistent image capture, a labeled defect library, on-site inference, expert review, and continued model improvement. Frontline specialists became coaches rather than spectators.",
+      "evidence": "Reported signal: a shift from sampling to full inspection, with reported throughput near 50,000 parts per hour and accuracy around 95%.",
+      "takeaway": "Enterprise lesson: explainability and expert participation are adoption infrastructure."
+    },
+    {
+      "number": "06",
+      "label": "Decision support",
+      "href": "/blog/ai-decision-support/",
+      "title": "Build a data hub before a multi-agent layer.",
+      "body": "The water-management case connected multiple data sources, a domain knowledge base, small specialist workflows, and a routing layer. The architecture made it easier to know which tool was responsible for which question.",
+      "evidence": "Reported signal: routine reporting and analysis accelerated, while high-impact warnings and public-safety decisions stayed under human review.",
+      "takeaway": "Enterprise lesson: higher autonomy needs stronger routing, provenance, and escalation rules."
+    }
+  ],
+  "sequence": [
+    {
+      "number": "01",
+      "title": "Name the work",
+      "body": "Choose one painful, frequent workflow with a clear owner and a visible business outcome."
+    },
+    {
+      "number": "02",
+      "title": "Define the input",
+      "body": "Agree on fields, source systems, permissions, context, and what counts as a good result."
+    },
+    {
+      "number": "03",
+      "title": "Shape the handoffs",
+      "body": "Break the work into small steps and decide what the model may do, suggest, or never decide."
+    },
+    {
+      "number": "04",
+      "title": "Measure the outcome",
+      "body": "Track cycle time, quality, adoption, exceptions, rework, and business impact - not speed alone."
+    },
+    {
+      "number": "05",
+      "title": "Learn in the flow",
+      "body": "Use real exceptions, user feedback, and expert review to improve the workflow one iteration at a time."
+    }
+  ],
+  "watchouts": [
+    {
+      "number": "01",
+      "label": "Do not start with",
+      "href": "/blog/ai-enterprise-patterns/",
+      "title": "A giant AI program",
+      "body": "A small, high-frequency use case gives the organization evidence and trust before the scope expands."
+    },
+    {
+      "number": "02",
+      "label": "Do not assume",
+      "href": "/blog/ai-finance-automation/",
+      "title": "The model fixes bad data",
+      "body": "Inconsistent records, unclear ownership, and scattered knowledge will show up as unreliable outputs."
+    },
+    {
+      "number": "03",
+      "label": "Do not hide",
+      "href": "/blog/ai-legal-operations/",
+      "title": "The human checkpoint",
+      "body": "Make review, escalation, auditability, and responsibility explicit wherever the cost of error is high."
+    }
+  ]
+}

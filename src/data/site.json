@@ -24,7 +24,7 @@
     { "label": "Portfolio", "href": "/portfolio/" },
     { "label": "Projects", "href": "/work/" },
     { "label": "Insights", "href": "/insights/" },
-    { "label": "Labs", "href": "/ai-projects/" },
+    { "label": "AI", "href": "/ai-projects/" },
     { "label": "Blog", "href": "/blog/" },
     { "label": "Contact", "href": "/contact/" }
   ]

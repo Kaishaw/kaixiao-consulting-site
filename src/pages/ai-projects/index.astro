@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import site from "../../data/site.json";
+import ai from "../../data/ai.json";
 
 const projects = await getCollection("projects", ({ data }) => data.published && data.type === "ai");
 
@@ -31,18 +32,104 @@ const visualAlt = (project: (typeof projects)[number]) => project.data.coverImag
   : "Abstract agentic workflow with connected nodes, feedback loops, and actions";
 ---
 
-<BaseLayout title={`Labs & Demos | ${site.siteName}`} description={`${site.siteName}'s prototypes, demos, and applied experiments across AI, automation, CRM, and business systems.`}>
+<BaseLayout title={`AI Practice | ${site.siteName}`} description={ai.lede}>
   <main>
     <section class="page-hero media-hero">
       <div>
-        <p class="eyebrow">Labs & demos</p>
-        <h1>Prototypes for real work.</h1>
-        <p>Working demos and experiments across AI, CRM, automation, and business systems. Each project makes the journey from a business question to a useful next action visible.</p>
+        <p class="eyebrow">{ai.eyebrow}</p>
+        <h1>{ai.title}</h1>
+        <p>{ai.lede}</p>
+        <p class="ai-source-inline">{ai.sourceLabel}</p>
       </div>
       <figure class="page-hero-visual">
         <img src={site.visuals.labs} alt="Abstract agentic workflow with connected nodes, feedback loops, and actions" />
         <figcaption>Context → Reasoning → Action</figcaption>
       </figure>
+    </section>
+
+    <section class="section ai-practice-section">
+      <div class="section-heading">
+        <p class="eyebrow">What travels well</p>
+        <h2>Four ideas worth carrying into enterprise work.</h2>
+      </div>
+      <div class="detail-grid ai-principles">
+        {ai.principles.map((principle) => (
+          <a class="banner-panel ai-principle-card" href={principle.href} data-banner="labs" data-banner-label={principle.label}>
+            <span>{principle.number}</span>
+            <h3>{principle.title}</h3>
+            <p>{principle.body}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="section ai-cases-section">
+      <div class="section-heading">
+        <p class="eyebrow">Reference cases</p>
+        <h2>What the report makes concrete.</h2>
+      </div>
+      <div class="ai-case-grid">
+        {ai.cases.map((item) => (
+          <a class="ai-case-card banner-panel" href={item.href} data-banner="labs" data-banner-label={item.label}>
+            <span class="ai-case-number">{item.number}</span>
+            <div>
+              <p class="eyebrow">{item.label}</p>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+              <p class="ai-case-evidence">{item.evidence}</p>
+              <p class="ai-case-takeaway">{item.takeaway}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="section ai-sequence-section">
+      <div class="section-heading">
+        <p class="eyebrow">A delivery pattern</p>
+        <h2>A sequence you can use on a real program.</h2>
+      </div>
+      <ol class="ai-sequence-list">
+        {ai.sequence.map((step) => (
+          <li class="banner-panel banner-panel--compact" data-banner="labs" data-banner-label={`Step ${step.number}`}>
+            <span>{step.number}</span>
+            <h3>{step.title}</h3>
+            <p>{step.body}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="section ai-watchouts-section">
+      <div class="section-heading">
+        <p class="eyebrow">A useful filter</p>
+        <h2>What not to copy blindly.</h2>
+      </div>
+      <div class="detail-grid ai-watchouts">
+        {ai.watchouts.map((item) => (
+          <a class="banner-panel ai-watchout-card" href={item.href} data-banner="labs" data-banner-label={item.label}>
+            <span>{item.number}</span>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="section ai-source-section">
+      <div class="ai-source-card banner-panel" data-banner="labs" data-banner-label="Source note">
+        <p class="eyebrow">How I am using the report</p>
+        <h2>Patterns over hype.</h2>
+        <p>{ai.sourceNote}</p>
+      </div>
+    </section>
+
+    <section class="section ai-labs-intro">
+      <div class="section-heading">
+        <p class="eyebrow">Labs & demos</p>
+        <h2>Turn the pattern into something you can try.</h2>
+      </div>
+      <p class="ai-labs-lede">Working experiments across AI, automation, CRM, and business systems. Each project makes the journey from a business question to a useful next action visible.</p>
     </section>
 
     {projects.map((project) => (

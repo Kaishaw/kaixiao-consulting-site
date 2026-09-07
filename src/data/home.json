@@ -19,6 +19,6 @@
     { "number": "01", "title": "Portfolio", "href": "/portfolio/", "description": "Career timeline, working style, and the experiences behind the work." },
     { "number": "02", "title": "Project stories", "href": "/work/", "description": "Business-facing stories from CRM, ERP, migration, and automation work." },
     { "number": "03", "title": "Industry insights", "href": "/insights/", "description": "Short views on Dynamics 365, Copilot, AI agents, and business change." },
-    { "number": "04", "title": "Labs & demos", "href": "/ai-projects/", "description": "Small experiments that make an idea easier to try and discuss." }
+    { "number": "04", "title": "AI practice", "href": "/ai-projects/", "description": "Enterprise patterns, applied cases, and small experiments that make AI easier to trust." }
   ]
 }
