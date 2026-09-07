@@ -50,6 +50,8 @@ const caseIcons = {
 
 const sequenceIcons = [Workflow, Database, Route, ChartBar, RefreshCw];
 const watchoutIcons = [BrainCircuit, Database, ShieldCheck];
+const labNoteIcons = [Database, Route, ShieldCheck];
+const projectJourneyIcons = [Workflow, Database, RefreshCw, ShieldCheck];
 ---
 
 <BaseLayout title={`AI Practice | ${site.siteName}`} description={ai.lede}>
@@ -203,13 +205,16 @@ const watchoutIcons = [BrainCircuit, Database, ShieldCheck];
         </article>
 
         <div class="lab-notes-grid">
-          {labNotes(project).map((note, index) => (
-            <article class={`lab-note lab-note-${index + 1} banner-panel`} data-banner="labs">
-              <div class="lab-note-top"><span>{note.number}</span><span>{note.label}</span></div>
-              <h3>{note.title}</h3>
-              <p>{note.body}</p>
-            </article>
-          ))}
+          {labNotes(project).map((note, index) => {
+            const Icon = labNoteIcons[index] || BrainCircuit;
+            return (
+              <article class={`lab-note lab-note-${index + 1} icon-note-card`}>
+                <div class="lab-note-top"><div class="lab-note-icon-group"><Icon class="lab-note-icon" size={25} strokeWidth={1.5} aria-hidden="true" /><span>{note.number}</span></div><span>{note.label}</span></div>
+                <h3>{note.title}</h3>
+                <p>{note.body}</p>
+              </article>
+            );
+          })}
         </div>
 
         {project.data.storyJourney.length > 0 && (
@@ -219,9 +224,10 @@ const watchoutIcons = [BrainCircuit, Database, ShieldCheck];
               <h2>Make the transformation visible.</h2>
             </div>
             <ol class="lab-flow-list">
-              {project.data.storyJourney.map((step, index) => (
-                <li class="banner-panel banner-panel--compact" data-banner="labs" data-banner-label={`Step ${String(index + 1).padStart(2, "0")}`}><span>{String(index + 1).padStart(2, "0")}</span><h3>{step.title}</h3><p>{step.body}</p></li>
-              ))}
+              {project.data.storyJourney.map((step, index) => {
+                const Icon = projectJourneyIcons[index] || Workflow;
+                return <li class="lab-flow-step"><div class="lab-flow-top"><Icon size={24} strokeWidth={1.5} aria-hidden="true" /><span>{String(index + 1).padStart(2, "0")}</span></div><h3>{step.title}</h3><p>{step.body}</p></li>;
+              })}
             </ol>
           </section>
         )}

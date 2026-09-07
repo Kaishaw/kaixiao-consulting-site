@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import site from "../data/site.json";
 import home from "../data/home.json";
 import { getCollection } from "astro:content";
-import { BrainCircuit, Boxes, ClipboardCheck, Database, UsersRound, Workflow } from "@lucide/astro";
+import { BrainCircuit, Boxes, ChartBar, ClipboardCheck, Database, FileText, Mail, UsersRound, Workflow } from "@lucide/astro";
 
 const featuredProjects = (await getCollection("projects", ({ data }) => data.published && data.type === "work"))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
@@ -26,6 +26,15 @@ const capabilityIcons = {
   "Power Platform": Workflow,
   "Business Analysis": ClipboardCheck,
   "CRM & ERP Transformation": Boxes,
+};
+
+const routeIcons = {
+  portfolio: UsersRound,
+  projects: Boxes,
+  insights: ChartBar,
+  labs: BrainCircuit,
+  blog: FileText,
+  contact: Mail,
 };
 
 const embeddedSystemSteps = [
@@ -173,13 +182,16 @@ const embeddedSystemSteps = [
         <h2>What you can find here.</h2>
       </div>
       <div class="route-grid">
-        {home.routes.map((route) => (
-          <a class="route-card banner-panel" href={route.href} data-banner={routeBanner(route.href)} data-banner-label={route.title}>
-            <span>{route.number}</span>
-            <h3>{route.title}</h3>
-            <p>{route.description}</p>
-          </a>
-        ))}
+        {home.routes.map((route) => {
+          const Icon = routeIcons[routeBanner(route.href) as keyof typeof routeIcons];
+          return (
+            <a class="route-card route-icon-card" href={route.href}>
+              <div class="route-card-top"><Icon class="route-card-icon" size={28} strokeWidth={1.5} aria-hidden="true" /><span>{route.number}</span></div>
+              <h3>{route.title}</h3>
+              <p>{route.description}</p>
+            </a>
+          );
+        })}
       </div>
     </section>
 

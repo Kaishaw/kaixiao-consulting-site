@@ -2,9 +2,19 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import site from "../../data/site.json";
+import { Boxes, Building2, ChartBar, Factory, Workflow } from "@lucide/astro";
 
 const projects = (await getCollection("projects", ({ data }) => data.published && data.type === "work"))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const projectIcon = (label?: string) => {
+  const normalized = (label || "").toLowerCase();
+  if (normalized.includes("public")) return Building2;
+  if (normalized.includes("food")) return Factory;
+  if (normalized.includes("sales")) return ChartBar;
+  if (normalized.includes("enterprise")) return Boxes;
+  return Workflow;
+};
 ---
 
 <BaseLayout title={`Project Stories | ${site.siteName}`} description={`${site.siteName}'s Dynamics 365, Copilot, Power Platform, ERP, and business transformation project stories.`}>
@@ -22,9 +32,12 @@ const projects = (await getCollection("projects", ({ data }) => data.published &
     </section>
 
     <section class="story-list">
-      {projects.map((project) => (
-        <article class="story-card banner-panel" data-banner="projects" data-banner-label="Project context">
+      {projects.map((project, index) => {
+        const Icon = projectIcon(project.data.label || project.data.sector);
+        return (
+        <article class="story-card story-icon-card">
           <div class="story-meta">
+            <div class="story-card-icon-row"><Icon class="story-card-icon" size={28} strokeWidth={1.5} aria-hidden="true" /><span>Project story · {String(index + 1).padStart(2, "0")}</span></div>
             <span>{project.data.sector || project.data.label}</span>
             <strong>{project.data.clientType}</strong>
           </div>
@@ -38,7 +51,8 @@ const projects = (await getCollection("projects", ({ data }) => data.published &
             <p class="story-outcome">Business outcome: {project.data.outcome}</p>
           </div>
         </article>
-      ))}
+        );
+      })}
     </section>
   </main>
 </BaseLayout>

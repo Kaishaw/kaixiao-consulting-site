@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { BrainCircuit, Building2, ChartBar, CircleAlert, ClipboardCheck, Route, ShieldCheck, UserRoundCheck, Workflow } from "@lucide/astro";
 
 interface Props {
   project: CollectionEntry<"projects">;
@@ -7,7 +8,8 @@ interface Props {
 
 const { project } = Astro.props;
 const { data } = project;
-const storyBanner = data.type === "ai" ? "labs" : "projects";
+const SettingIcon = data.type === "ai" ? BrainCircuit : Building2;
+const TriggerIcon = data.type === "ai" ? Workflow : CircleAlert;
 const hasStory = Boolean(
   data.storyHook ||
   data.storySetting ||
@@ -30,9 +32,9 @@ const hasStory = Boolean(
     </div>
 
     <div class="project-scene-grid">
-      {data.storySetting && <article class="banner-panel" data-banner={storyBanner} data-banner-label="Setting"><span>The setting</span><p>{data.storySetting}</p></article>}
-      {data.storyTrigger && <article class="banner-panel" data-banner={storyBanner} data-banner-label="Trigger"><span>Why now</span><p>{data.storyTrigger}</p></article>}
-      {data.storyTension && <article class="banner-panel" data-banner="insights" data-banner-label="Tension"><span>The tension</span><p>{data.storyTension}</p></article>}
+      {data.storySetting && <article class="project-icon-card"><div class="project-card-top"><SettingIcon size={25} strokeWidth={1.5} aria-hidden="true" /><p class="project-card-label">The setting</p></div><p>{data.storySetting}</p></article>}
+      {data.storyTrigger && <article class="project-icon-card"><div class="project-card-top"><TriggerIcon size={25} strokeWidth={1.5} aria-hidden="true" /><p class="project-card-label">Why now</p></div><p>{data.storyTrigger}</p></article>}
+      {data.storyTension && <article class="project-icon-card"><div class="project-card-top"><Route size={25} strokeWidth={1.5} aria-hidden="true" /><p class="project-card-label">The tension</p></div><p>{data.storyTension}</p></article>}
     </div>
 
     {data.storyPeople.length > 0 && (
@@ -43,7 +45,8 @@ const hasStory = Boolean(
         </div>
         <div class="project-people-grid">
           {data.storyPeople.map((person) => (
-            <article class="banner-panel" data-banner="portfolio" data-banner-label="Perspective">
+            <article class="project-icon-card">
+              <div class="project-card-top"><UserRoundCheck size={25} strokeWidth={1.5} aria-hidden="true" /><p class="project-card-label">Perspective</p></div>
               <h3>{person.role}</h3>
               <p>{person.need}</p>
             </article>
@@ -77,7 +80,7 @@ const hasStory = Boolean(
         </div>
         <div class="project-decision-grid">
           {data.storyDecisions.map((decision) => (
-            <article class="banner-panel" data-banner="projects" data-banner-label="Decision"><h3>{decision.title}</h3><p>{decision.body}</p></article>
+            <article class="project-icon-card"><div class="project-card-top"><ShieldCheck size={25} strokeWidth={1.5} aria-hidden="true" /><p class="project-card-label">Decision</p></div><h3>{decision.title}</h3><p>{decision.body}</p></article>
           ))}
         </div>
       </section>
@@ -91,7 +94,7 @@ const hasStory = Boolean(
         </div>
         <div class="project-lens-grid">
           {data.storyLenses.map((lens) => (
-            <article class="banner-panel" data-banner="insights" data-banner-label="Lens"><span>{lens.label}</span><h3>{lens.title}</h3><p>{lens.body}</p></article>
+            <article class="project-icon-card"><div class="project-card-top"><ChartBar size={25} strokeWidth={1.5} aria-hidden="true" /><p class="project-card-label">{lens.label}</p></div><h3>{lens.title}</h3><p>{lens.body}</p></article>
           ))}
         </div>
       </section>
@@ -105,7 +108,7 @@ const hasStory = Boolean(
         </div>
         <div class="project-evidence-grid">
           {data.storyEvidence.map((item) => (
-            <article class="banner-panel" data-banner="projects" data-banner-label="Evidence"><span>{item.label}</span><p>{item.body}</p></article>
+            <article class="project-icon-card"><div class="project-card-top"><ClipboardCheck size={25} strokeWidth={1.5} aria-hidden="true" /><p class="project-card-label">{item.label}</p></div><p>{item.body}</p></article>
           ))}
         </div>
       </section>
