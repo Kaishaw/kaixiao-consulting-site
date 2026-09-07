@@ -30,13 +30,15 @@ const postVisualAlt = post.data.coverImage ? `${post.data.title} cover image` : 
       </section>
       <section class="section article-layout">
         <MarkdownContent entry={post} />
-        <aside class="article-aside">
-          <strong>Topics</strong>
-          <div class="tag-list">
-            {post.data.tags.map((tag) => <span>{tag}</span>)}
+        <footer class="article-footer" aria-label="Article topics and navigation">
+          <div>
+            <strong>Topics</strong>
+            <div class="tag-list">
+              {post.data.tags.map((tag) => <span>{tag}</span>)}
+            </div>
           </div>
           <a class="secondary-link" href="/blog/">Back to Blog</a>
-        </aside>
+        </footer>
       </section>
     </article>
   </main>
