@@ -14,7 +14,13 @@ import site from "../../data/site.json";
           <a class="primary-link" href={site.linkedinUrl} rel="noopener noreferrer">Connect on LinkedIn</a>
           <a class="secondary-link" href="/work/">Read project stories</a>
         </div>
-        {site.email && <p><a href={`mailto:${site.email}`}>{site.email}</a></p>}
+        {site.email && (
+          <a class="contact-email-card" href={`mailto:${site.email}`} aria-label={`Email ${site.email}`}>
+            <span class="contact-email-label">Email</span>
+            <strong>{site.email}</strong>
+            <span class="contact-email-arrow" aria-hidden="true">→</span>
+          </a>
+        )}
       </div>
       <figure class="page-hero-visual contact-hero-visual">
         <img src={site.visuals.contact} alt="Abstract bridge connecting two glowing conversation nodes" />
