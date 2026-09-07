@@ -1,9 +1,7 @@
 {
   "eyebrow": "AI practice",
   "title": "AI that fits the way work actually runs.",
-  "lede": "A practical synthesis of enterprise patterns from the 2025-2026 AI Annual Report: start with a real workflow, ground the model in business data, and keep people in the decisions that matter.",
-  "sourceLabel": "Field guide · 2025-2026 AI Annual Report",
-  "sourceNote": "This page is a working synthesis of the report, not a reproduction or a timeless tool ranking. Vendor names and point-in-time predictions age quickly; the operating lessons travel further.",
+  "lede": "A practical guide to enterprise AI: start with a real workflow, ground the model in business data, and keep people in the decisions that matter.",
   "principles": [
     {
       "number": "01",
@@ -40,8 +38,8 @@
       "label": "Recruiting",
       "href": "/blog/ai-recruiting-workflow/",
       "title": "Close the loop from first message to human decision.",
-      "body": "The report describes an AI recruiting workflow that configures role goals, screens candidates, communicates, schedules interviews, writes back to the system, and hands off at the moments that need a person.",
-      "evidence": "Reported signal: 24/7 coverage and 70-80% interview attendance when human reminders stay in the flow.",
+      "body": "An AI recruiting workflow can configure role goals, screen candidates, communicate, schedule interviews, write back to the system, and hand off at the moments that need a person.",
+      "evidence": "24/7 coverage and 70-80% interview attendance when human reminders stay in the flow.",
       "takeaway": "Enterprise lesson: measure the whole journey, not one automated message."
     },
     {
@@ -50,7 +48,7 @@
       "href": "/blog/ai-finance-automation/",
       "title": "Standardize the source before automating the books.",
       "body": "A finance team first unified its source table and field definitions, then used AI, formulas, code, and RPA to compare, map, and route the work. The automation was built around a clearer data model.",
-      "evidence": "Reported signal: invoice preparation moved from 3 people over 3 days to 1 person for half a day; sensitive fields were masked and outputs were checked.",
+      "evidence": "Invoice preparation moved from 3 people over 3 days to 1 person for half a day; sensitive fields were masked and outputs were checked.",
       "takeaway": "Enterprise lesson: automation becomes safer when the input contract is explicit."
     },
     {
@@ -59,7 +57,7 @@
       "href": "/blog/ai-legal-operations/",
       "title": "Move from document review to process visibility.",
       "body": "The legal case followed a durable sequence: put contracts online, standardize reusable clauses, then use AI for first-pass review and drafting. Workflow timing and bottlenecks became visible alongside the text.",
-      "evidence": "Reported signal: AI reduced repetitive review work while legal review remained mandatory; process data made cycle time and late signing easier to manage.",
+      "evidence": "AI reduced repetitive review work while legal review remained mandatory; process data made cycle time and late signing easier to manage.",
       "takeaway": "Enterprise lesson: the lasting value is often the operating model around the model."
     },
     {
@@ -68,7 +66,7 @@
       "href": "/blog/ai-crm-follow-up/",
       "title": "Start with the customer record people can actually use.",
       "body": "A lightweight CRM combined a shared customer record, interaction history, voice-to-field capture, reminders, dashboards, and personalized follow-up. The design favored familiarity and adoption over technical novelty.",
-      "evidence": "Reported signal: 70-80% of routine work could be delegated, while the final customer touch and data checks stayed with people.",
+      "evidence": "70-80% of routine work could be delegated, while the final customer touch and data checks stayed with people.",
       "takeaway": "Enterprise lesson: the best AI layer is often the one users do not have to learn from scratch."
     },
     {
@@ -77,7 +75,7 @@
       "href": "/blog/ai-manufacturing-quality/",
       "title": "Turn expert judgment into a feedback loop.",
       "body": "The quality-inspection case connected consistent image capture, a labeled defect library, on-site inference, expert review, and continued model improvement. Frontline specialists became coaches rather than spectators.",
-      "evidence": "Reported signal: a shift from sampling to full inspection, with reported throughput near 50,000 parts per hour and accuracy around 95%.",
+      "evidence": "A shift from sampling to full inspection, with throughput near 50,000 parts per hour and accuracy around 95%.",
       "takeaway": "Enterprise lesson: explainability and expert participation are adoption infrastructure."
     },
     {
@@ -86,7 +84,7 @@
       "href": "/blog/ai-decision-support/",
       "title": "Build a data hub before a multi-agent layer.",
       "body": "The water-management case connected multiple data sources, a domain knowledge base, small specialist workflows, and a routing layer. The architecture made it easier to know which tool was responsible for which question.",
-      "evidence": "Reported signal: routine reporting and analysis accelerated, while high-impact warnings and public-safety decisions stayed under human review.",
+      "evidence": "Routine reporting and analysis accelerated, while high-impact warnings and public-safety decisions stayed under human review.",
       "takeaway": "Enterprise lesson: higher autonomy needs stronger routing, provenance, and escalation rules."
     }
   ],

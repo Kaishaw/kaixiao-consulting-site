@@ -39,7 +39,6 @@ const visualAlt = (project: (typeof projects)[number]) => project.data.coverImag
         <p class="eyebrow">{ai.eyebrow}</p>
         <h1>{ai.title}</h1>
         <p>{ai.lede}</p>
-        <p class="ai-source-inline">{ai.sourceLabel}</p>
       </div>
       <figure class="page-hero-visual">
         <img src={site.visuals.labs} alt="Abstract agentic workflow with connected nodes, feedback loops, and actions" />
@@ -65,8 +64,8 @@ const visualAlt = (project: (typeof projects)[number]) => project.data.coverImag
 
     <section class="section ai-cases-section">
       <div class="section-heading">
-        <p class="eyebrow">Reference cases</p>
-        <h2>What the report makes concrete.</h2>
+        <p class="eyebrow">Enterprise examples</p>
+        <h2>What these patterns make concrete.</h2>
       </div>
       <div class="ai-case-grid">
         {ai.cases.map((item) => (
@@ -113,14 +112,6 @@ const visualAlt = (project: (typeof projects)[number]) => project.data.coverImag
             <p>{item.body}</p>
           </a>
         ))}
-      </div>
-    </section>
-
-    <section class="section ai-source-section">
-      <div class="ai-source-card banner-panel" data-banner="labs" data-banner-label="Source note">
-        <p class="eyebrow">How I am using the report</p>
-        <h2>Patterns over hype.</h2>
-        <p>{ai.sourceNote}</p>
       </div>
     </section>
 

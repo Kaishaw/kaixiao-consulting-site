@@ -15,7 +15,7 @@ Legal teams often feel the cost of unclear process before anyone else does. A co
 
 ![Legal operations workflow from matter intake through classification, clause review, counsel decision, update, and audit trail](/assets/ai-legal-operations-diagram.png)
 
-The report's legal case shows a sequence that is more durable than any one model feature.
+A durable legal AI workflow follows a sequence that matters more than any one model feature.
 
 ## 1. Put the work online
 
@@ -42,5 +42,3 @@ That changes the role. The legal team becomes a designer of rules, controls, and
 ## A transferable enterprise pattern
 
 For any controlled workflow, the pattern is similar: digitize the work, define the standard path, use AI for preparation and triage, keep exceptions visible, and assign a human owner to the final decision.
-
-This article is an English synthesis of the legal operations case in the report, adapted for enterprise governance conversations.

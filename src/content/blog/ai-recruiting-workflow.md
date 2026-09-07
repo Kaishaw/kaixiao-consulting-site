@@ -19,7 +19,7 @@ High-volume roles create thousands of small actions: publish the role, find a ca
 
 ## From a point tool to a closed loop
 
-The report describes a recruiting workflow that combines three capabilities:
+A practical recruiting workflow combines three capabilities:
 
 - a language model to understand candidate responses and adapt the conversation;
 - automation to carry out repeatable platform actions; and
@@ -47,5 +47,3 @@ This is a helpful pattern for other enterprise workflows:
 Automation does not only remove tasks. It changes roles. In the case, experienced recruiters can move toward configuring the workflow, improving the decision rules, managing exceptions, and supporting the customer. The work becomes more about designing and supervising the system than repeating every action manually.
 
 The enterprise lesson is straightforward: start with the full journey, define the handoffs, and measure outcomes such as response coverage, interview attendance, quality, and exceptions. AI is most useful when the team can see where it helps and where a person remains accountable.
-
-This article is an English synthesis of the recruiting case in the report, adapted for enterprise workflow design.

@@ -13,7 +13,7 @@ tags: ["AI", "Decision support", "Data architecture", "Governance"]
 
 High-stakes decision support is where the phrase "human in the loop" needs to become a real operating design.
 
-The report's water-management case is useful because it shows both sides of the problem. The team wanted faster reporting and analysis across weather, water, geographic, and infrastructure data. At the same time, warnings and public-safety decisions could not be delegated to an unverified output.
+A water-management workflow is useful because it shows both sides of the problem. The team wanted faster reporting and analysis across weather, water, geographic, and infrastructure data. At the same time, warnings and public-safety decisions could not be delegated to an unverified output.
 
 ![Decision support workflow from live data through a data hub, specialist models, scenarios, expert escalation, and decision](/assets/ai-decision-support-diagram.png)
 
@@ -47,5 +47,3 @@ The architecture is not only a model call. It is a set of boundaries:
 - which outcomes require human approval.
 
 That is the foundation for trustworthy autonomy. The more a system can do by itself, the more important its routing, provenance, monitoring, and escalation rules become.
-
-This article is an English synthesis of the decision-support case in the report, adapted for enterprise architecture and responsible automation.

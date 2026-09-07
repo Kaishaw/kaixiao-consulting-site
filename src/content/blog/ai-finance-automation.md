@@ -13,7 +13,7 @@ tags: ["AI", "Finance", "Data quality", "Automation"]
 
 Finance is where the difference between fluent output and trustworthy output becomes obvious.
 
-The report includes several finance workflows: extracting structured fields from invoices, reconciling intercompany records, and creating consistent posting files. The common thread is not a particular tool. It is the decision to repair the data path before adding more automation.
+Finance workflows often include extracting structured fields from invoices, reconciling intercompany records, and creating consistent posting files. The common thread is not a particular tool. It is the decision to repair the data path before adding more automation.
 
 ![Finance automation workflow from source records through normalization, reconciliation, controls, approval, and ledger update](/assets/ai-finance-automation-diagram.png)
 
@@ -38,7 +38,7 @@ For reconciliation, a script can compare thousands of records, isolate the excep
 
 ## Privacy is part of the design
 
-Finance data often includes bank details, vendors, employees, and transaction values. The report's practical advice is appropriately cautious: mask sensitive fields where possible, understand where data is processed, consider local deployment for higher-risk workloads, and keep a human check before a result becomes an official record.
+Finance data often includes bank details, vendors, employees, and transaction values. A practical approach is appropriately cautious: mask sensitive fields where possible, understand where data is processed, consider local deployment for higher-risk workloads, and keep a human check before a result becomes an official record.
 
 The controls do not need to be abstract. A useful implementation can define which fields may be sent to a model, which fields must be masked, which outputs require review, and how the source and final result can be compared later.
 
@@ -47,5 +47,3 @@ The controls do not need to be abstract. A useful implementation can define whic
 The right question is not "Can AI post the books?" It is "Which part of the finance workflow can be accelerated while preserving an auditable path from source data to approved result?"
 
 That framing leads to smaller pilots, clearer controls, and a better chance that automation will survive the first exception.
-
-This article is an English synthesis of the finance cases in the report, adapted for enterprise data and process design.

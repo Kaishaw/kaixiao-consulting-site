@@ -11,7 +11,7 @@ coverImage: "/assets/ai-enterprise-workflow-diagram.png"
 tags: ["AI", "Workflow design", "Governance", "Business systems"]
 ---
 
-The most useful idea in the 2025-2026 AI Annual Report is not a particular model or vendor. It is a change in the unit of design.
+The most useful way to think about enterprise AI is not by a particular model or vendor. It is by the unit of design.
 
 The unit is no longer the prompt. It is the workflow.
 
@@ -21,7 +21,7 @@ The unit is no longer the prompt. It is the workflow.
 
 An enterprise team rarely needs "more AI" in the abstract. It needs a better way to receive a request, gather context, make a first judgment, produce an output, and move the work to the next owner.
 
-That is why the strongest cases in the report begin with a specific operating problem: recruiting teams cannot respond when candidates are active, finance teams spend days reconciling records, legal teams cannot see where a contract is stuck, or sales teams lose follow-up information across systems.
+That is why the strongest workflows begin with a specific operating problem: recruiting teams cannot respond when candidates are active, finance teams spend days reconciling records, legal teams cannot see where a contract is stuck, or sales teams lose follow-up information across systems.
 
 The model becomes useful because it is placed inside a sequence with a purpose.
 
@@ -49,10 +49,8 @@ Track cycle time, quality, adoption, rework, exceptions, and business impact. A 
 
 ## What I would carry into an enterprise program
 
-The report's cases point to a repeatable delivery pattern: start with one bounded use case, standardize the input, break the work into small steps, add rules and escalation paths, then expand only after the team can see the value.
+The strongest enterprise examples point to a repeatable delivery pattern: start with one bounded use case, standardize the input, break the work into small steps, add rules and escalation paths, then expand only after the team can see the value.
 
 This approach also makes adoption easier. People can see what the system is doing, where their expertise still matters, and how their feedback improves the next version.
 
 The practical question is not "Can AI do this?" It is "What is the smallest trusted workflow in which AI can help this team do better work?"
-
-This article is an English synthesis of the enterprise cases and observations in the report, adapted for business systems and delivery conversations.

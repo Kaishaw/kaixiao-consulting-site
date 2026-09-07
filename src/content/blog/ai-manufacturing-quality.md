@@ -15,7 +15,7 @@ Industrial inspection is a useful test for enterprise AI because the cost of a f
 
 ![Manufacturing quality loop from image capture through defect detection, operator review, quality action, and example library](/assets/ai-manufacturing-quality-diagram.png)
 
-The report's steel-ball inspection case describes a practical loop rather than a one-time model deployment.
+A steel-ball inspection workflow illustrates a practical loop rather than a one-time model deployment.
 
 ## Make the input consistent
 
@@ -42,5 +42,3 @@ One of the most transferable lessons is the role change for experienced inspecto
 This approach also changes the conversation with frontline teams. They are not being asked to disappear. They are being asked to help define what good looks like and to handle the cases where the system needs help.
 
 For other manufacturing workflows, the pattern is clear: stabilize the input, build the example library, expose the evidence, keep the expert in the loop, and measure both throughput and quality.
-
-This article is an English synthesis of the manufacturing quality case in the report, adapted for AI adoption on the frontline.

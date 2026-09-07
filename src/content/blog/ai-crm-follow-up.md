@@ -13,7 +13,7 @@ tags: ["AI", "CRM", "Customer operations", "Power Platform"]
 
 Many sales teams do not need another large CRM screen. They need the next customer action to be clear.
 
-The report describes a lightweight CRM workflow built around a shared customer record. It brings together contact details, relationship context, conversation history, current stage, next follow-up date, reminders, and simple dashboards.
+A lightweight CRM workflow can be built around a shared customer record. It brings together contact details, relationship context, conversation history, current stage, next follow-up date, reminders, and simple dashboards.
 
 ![AI CRM workflow from customer signal through account context, drafting, seller review, follow-up, and CRM record](/assets/ai-crm-follow-up-diagram.png)
 
@@ -41,12 +41,10 @@ If the team avoids the system, the AI layer has nothing dependable to work with.
 
 Personalized messages and customer analysis can be drafted automatically, but the final customer-facing touch still deserves review. The same applies to numbers, recommendations, and anything that could damage trust if it is wrong.
 
-The report's practical balance is useful: automate most of the routine preparation, but keep human ownership around the final interaction and the checks that matter.
+A practical balance is to automate most of the routine preparation, but keep human ownership around the final interaction and the checks that matter.
 
 ## A CRM question worth asking
 
 Before adding an AI assistant, ask: can our system reliably tell us who the customer is, what has happened, what they need, and what should happen next?
 
 If the answer is no, the first AI project may be a better customer record and a better follow-up loop.
-
-This article is an English synthesis of the CRM case in the report, adapted for customer operations and business systems.

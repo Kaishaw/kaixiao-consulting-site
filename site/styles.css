@@ -154,8 +154,7 @@ main { overflow: hidden; }
 .page-hero-art { position: relative; width: min(100%, 360px); justify-self: end; aspect-ratio: 1; overflow: hidden; border: 1px solid var(--line-strong); border-radius: 50%; }
 .page-hero-art img { width: 100%; height: 100%; object-fit: cover; }
 .page-hero-art strong { position: absolute; inset: auto 1.5rem 1.5rem; color: var(--orange); font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.7rem); font-weight: 400; line-height: 0.95; }
-.ai-source-inline { margin-top: 1.3rem; color: var(--faint) !important; font-size: 0.78rem !important; letter-spacing: 0.08em; text-transform: uppercase; }
-.ai-practice-section, .ai-cases-section, .ai-sequence-section, .ai-watchouts-section, .ai-source-section { padding-top: clamp(3.5rem, 7vw, 7rem); }
+.ai-practice-section, .ai-cases-section, .ai-sequence-section, .ai-watchouts-section { padding-top: clamp(3.5rem, 7vw, 7rem); }
 .ai-principles { grid-template-columns: repeat(4, 1fr); }
 .ai-principle-card { display: block; min-height: 310px; padding: 1.5rem; color: inherit; text-decoration: none; }
 .ai-principle-card:hover, .ai-case-card:hover, .ai-watchout-card:hover { transform: translateY(-4px); border-color: var(--orange); background: var(--surface-raised); }
@@ -177,9 +176,6 @@ main { overflow: hidden; }
 .ai-sequence-list p { margin-bottom: 0; color: var(--muted); font-size: 0.92rem; }
 .ai-watchouts { grid-template-columns: repeat(3, 1fr); }
 .ai-watchout-card { display: block; min-height: 260px; padding: 1.5rem; color: inherit; text-decoration: none; }
-.ai-source-card { max-width: 900px; margin: 0 auto; padding: clamp(1.6rem, 4vw, 3.5rem); background: linear-gradient(135deg, rgba(255, 179, 109, 0.12), transparent 62%), var(--surface); }
-.ai-source-card h2 { margin-bottom: 0.8rem; font-family: var(--serif); font-size: clamp(1.8rem, 2.8vw, 3.1rem); font-weight: 400; }
-.ai-source-card p:last-child { max-width: 720px; margin-bottom: 0; color: var(--muted); }
 .ai-labs-intro { padding-bottom: 0; }
 .ai-labs-intro .section-heading { display: block; }
 .ai-labs-intro .section-heading h2 { max-width: 760px; }
