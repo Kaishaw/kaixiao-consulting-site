@@ -47,6 +47,12 @@ content:
             options:
               media: site-assets
               path: assets
+          - name: portfolio
+            label: Portfolio visual
+            type: image
+            options:
+              media: site-assets
+              path: assets
           - name: projects
             label: Project stories visual
             type: image
@@ -61,6 +67,18 @@ content:
               path: assets
           - name: labs
             label: Labs and demos visual
+            type: image
+            options:
+              media: site-assets
+              path: assets
+          - name: blog
+            label: Blog visual
+            type: image
+            options:
+              media: site-assets
+              path: assets
+          - name: contact
+            label: Contact visual
             type: image
             options:
               media: site-assets

@@ -6,17 +6,17 @@ import timeline from "../../data/timeline.json";
 
 <BaseLayout title={`Portfolio | ${site.siteName}`} description={`${site.siteName}'s career timeline, business systems experience, CRM and ERP transformation work, and applied AI focus.`}>
   <main>
-    <section class="page-hero portrait-hero">
+    <section class="page-hero media-hero">
       <div>
         <p class="eyebrow">Portfolio</p>
         <h1>A career in business systems.</h1>
         <p>Business analysis, Dynamics 365, Power Platform, ERP-adjacent operations, and applied AI.</p>
         <a class="secondary-link timeline-jump" href="#career-timeline">View career timeline</a>
       </div>
-      <div class="page-hero-art" aria-label={`${site.siteName} CRM and AI focus`}>
-        <img src="/assets/hero-ribbons.png" alt="" aria-hidden="true" />
-        <strong>CRM<br />+ AI</strong>
-      </div>
+      <figure class="page-hero-visual">
+        <img src={site.visuals.portfolio} alt="Abstract luminous career path moving through connected business-system milestones" />
+        <figcaption>People, process, systems</figcaption>
+      </figure>
     </section>
 
     <section class="section timeline-section" id="career-timeline">

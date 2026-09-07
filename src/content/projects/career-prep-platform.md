@@ -1,18 +1,18 @@
 ---
 title: "Career Prep Platform"
-summary: "A public AI demo that turns a job description, resume, and target role into a guided interview-prep workflow."
+summary: "A product-style AI prototype that turns a job description, resume, and target role into a guided interview-prep workflow."
 published: true
 date: 2026-06-15
 tags: ["AI", "Workflow design", "Cloudflare"]
 type: "ai"
-label: "Live demo"
+label: "Prototype in revision"
 clientType: "Applied AI workflow"
 sector: "Career technology"
-scale: "Public self-serve demo · structured input · multi-step AI workflow"
+scale: "Prototype workflow · structured input · multi-step AI flow"
 businessContext: "People often have information spread across a job description, resume, company research, and personal notes, but lack a repeatable way to turn it into preparation."
 executiveSummary: "A product-style experiment in turning unstructured information into a bounded, useful AI workflow."
 rolePerspective: "Product framing, prompt structure, user flow, usage limits, deployment, and iterative refinement based on the experience of using the demo."
-outcome: "A public example of prompt design, user flow, limits, deployment, and iteration."
+outcome: "A documented experiment in prompt design, user flow, limits, deployment, and iteration."
 storyHook: "The demo started with a simple question: how can an AI workflow turn scattered career information into preparation that feels structured, useful, and still owned by the person using it?"
 storySetting: "A job seeker may have a job description, resume, target company, role context, and personal notes spread across different places. The challenge was not generating more text; it was creating a guided path from raw material to something a person could actually practice."
 storyTrigger: "I wanted a public, self-serve project that showed how an AI capability could be shaped into a bounded product experience rather than presented as an open-ended chatbot."
@@ -58,10 +58,9 @@ storyLenses:
     title: "Keep AI inside a defined boundary"
     body: "Inputs, prompts, outputs, limits, deployment, and future provider integration form a small but understandable operating model for the experiment."
 storyReflection: "A convincing AI demo is not the one that says the most. It is the one that helps someone take a better next step and understand why the result is useful."
-externalUrl: "https://ai.kaixiao.ca/career-prep/"
-demoType: "Interactive web demo"
+demoType: "Product prototype · temporarily offline"
 ---
 
 I built it as a product-style experiment: define the user journey, turn scattered information into a structured preparation flow, set sensible boundaries for usage, and make the result easy to try in public.
 
-The workflow is available at [ai.kaixiao.ca/career-prep/workflow](https://ai.kaixiao.ca/career-prep/workflow).
+The public link is paused while a revised version is being prepared.

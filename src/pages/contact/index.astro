@@ -16,10 +16,10 @@ import site from "../../data/site.json";
         </div>
         {site.email && <p><a href={`mailto:${site.email}`}>{site.email}</a></p>}
       </div>
-      <div class="contact-art" aria-label="CRM, Power Platform, and applied AI">
-        <img src="/assets/hero-ribbons.png" alt="" aria-hidden="true" />
-        <strong>Useful<br />systems.<br />Better work.</strong>
-      </div>
+      <figure class="page-hero-visual contact-hero-visual">
+        <img src={site.visuals.contact} alt="Abstract bridge connecting two glowing conversation nodes" />
+        <figcaption>Conversations into connected work</figcaption>
+      </figure>
     </section>
   </main>
 </BaseLayout>

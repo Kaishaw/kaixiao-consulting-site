@@ -4,6 +4,31 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import site from "../../data/site.json";
 
 const projects = await getCollection("projects", ({ data }) => data.published && data.type === "ai");
+
+const labNotes = (project: (typeof projects)[number]) => [
+  {
+    number: "01",
+    label: "The setting",
+    title: "From scattered input to a useful next step",
+    body: project.data.storySetting || project.data.summary,
+  },
+  {
+    number: "02",
+    label: "The tension",
+    title: "Useful without pretending",
+    body: project.data.storyTension || project.data.storyTrigger || project.data.businessContext,
+  },
+  {
+    number: "03",
+    label: "The design principle",
+    title: "A workflow, not a chatbot",
+    body: project.data.storyDecisions[0]?.body || project.data.rolePerspective,
+  },
+].filter((note) => note.body);
+
+const visualAlt = (project: (typeof projects)[number]) => project.data.coverImage
+  ? `${project.data.title} cover image`
+  : "Abstract agentic workflow with connected nodes, feedback loops, and actions";
 ---
 
 <BaseLayout title={`Labs & Demos | ${site.siteName}`} description={`${site.siteName}'s prototypes, demos, and applied experiments across AI, automation, CRM, and business systems.`}>
@@ -12,7 +37,7 @@ const projects = await getCollection("projects", ({ data }) => data.published &&
       <div>
         <p class="eyebrow">Labs & demos</p>
         <h1>Prototypes for real work.</h1>
-        <p>Working demos and experiments across AI, CRM, automation, and business systems.</p>
+        <p>Working demos and experiments across AI, CRM, automation, and business systems. Each project makes the journey from a business question to a useful next action visible.</p>
       </div>
       <figure class="page-hero-visual">
         <img src={site.visuals.labs} alt="Abstract agentic workflow with connected nodes, feedback loops, and actions" />
@@ -21,21 +46,61 @@ const projects = await getCollection("projects", ({ data }) => data.published &&
     </section>
 
     {projects.map((project) => (
-      <section class="section">
-        <article class="featured-case">
-          <div>
-            <p class="eyebrow">{project.data.label}</p>
+      <section class="section labs-section">
+        <article class="featured-case ai-project-case">
+          <div class="ai-project-copy">
+            <div class="ai-project-heading">
+              <p class="eyebrow">{project.data.label}</p>
+              <span class={`status-chip ${project.data.externalUrl ? "is-live" : "is-revision"}`}>
+                {project.data.externalUrl ? "Available to try" : "In revision"}
+              </span>
+            </div>
             <h2>{project.data.title}</h2>
-            <p>{project.data.executiveSummary || project.data.summary}</p>
-            {project.data.demoType && <p class="story-scale">Format: {project.data.demoType}</p>}
+            <p class="ai-project-hook">{project.data.storyHook || project.data.executiveSummary || project.data.summary}</p>
+            <p>{project.data.summary}</p>
+            <div class="ai-project-facts">
+              {project.data.demoType && <span><strong>Format</strong>{project.data.demoType}</span>}
+              {project.data.scale && <span><strong>Scope</strong>{project.data.scale}</span>}
+            </div>
             <p class="story-outcome">Outcome: {project.data.outcome}</p>
+            <div class="case-actions">
+              {project.data.externalUrl && <a class="primary-link" href={project.data.externalUrl} rel="noopener noreferrer">Open project</a>}
+              {project.data.videoUrl && <a class="secondary-link" href={project.data.videoUrl} rel="noopener noreferrer">Watch demo</a>}
+              <a class="secondary-link" href={`/projects/${project.id}/`}>Project details</a>
+              {!project.data.externalUrl && <span class="project-status-note">Public link paused while the next version is being prepared.</span>}
+            </div>
           </div>
-          <div class="case-actions">
-            {project.data.externalUrl && <a class="primary-link" href={project.data.externalUrl} rel="noopener noreferrer">Project overview</a>}
-            {project.data.videoUrl && <a class="secondary-link" href={project.data.videoUrl} rel="noopener noreferrer">Watch demo</a>}
-            <a class="secondary-link" href={`/projects/${project.id}/`}>Project details</a>
-          </div>
+          <figure class="ai-project-visual">
+            <img src={project.data.coverImage || site.visuals.labs} alt={visualAlt(project)} />
+            <figcaption>
+              <span>01</span><strong>Context</strong><i>→</i><strong>Reasoning</strong><i>→</i><strong>Action</strong>
+            </figcaption>
+          </figure>
         </article>
+
+        <div class="lab-notes-grid">
+          {labNotes(project).map((note, index) => (
+            <article class={`lab-note lab-note-${index + 1}`}>
+              <div class="lab-note-top"><span>{note.number}</span><span>{note.label}</span></div>
+              <h3>{note.title}</h3>
+              <p>{note.body}</p>
+            </article>
+          ))}
+        </div>
+
+        {project.data.storyJourney.length > 0 && (
+          <section class="lab-flow">
+            <div class="section-heading">
+              <p class="eyebrow">Workflow in view</p>
+              <h2>Make the transformation visible.</h2>
+            </div>
+            <ol class="lab-flow-list">
+              {project.data.storyJourney.map((step, index) => (
+                <li><span>{String(index + 1).padStart(2, "0")}</span><h3>{step.title}</h3><p>{step.body}</p></li>
+              ))}
+            </ol>
+          </section>
+        )}
       </section>
     ))}
   </main>

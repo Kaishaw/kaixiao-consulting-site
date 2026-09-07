@@ -8,9 +8,12 @@
   "defaultOgImage": "/assets/home-systems.png",
   "visuals": {
     "home": "/assets/home-systems.png",
+    "portfolio": "/assets/portfolio-journey.png",
     "projects": "/assets/projects-operations.png",
     "insights": "/assets/insights-signal.png",
-    "labs": "/assets/labs-agentic.png"
+    "labs": "/assets/labs-agentic.png",
+    "blog": "/assets/blog-knowledge.png",
+    "contact": "/assets/contact-bridge.png"
   },
   "favicon": "",
   "email": "kaixiaocan@gmail.com",
