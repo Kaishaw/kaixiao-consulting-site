@@ -23,7 +23,7 @@ const projects = (await getCollection("projects", ({ data }) => data.published &
 
     <section class="story-list">
       {projects.map((project) => (
-        <article class="story-card banner-panel" data-banner="projects" data-banner-label={project.data.sector || "Project story"}>
+        <article class="story-card banner-panel" data-banner="projects" data-banner-label="Project context">
           <div class="story-meta">
             <span>{project.data.sector || project.data.label}</span>
             <strong>{project.data.clientType}</strong>

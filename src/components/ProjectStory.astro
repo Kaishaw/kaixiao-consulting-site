@@ -30,9 +30,9 @@ const hasStory = Boolean(
     </div>
 
     <div class="project-scene-grid">
-      {data.storySetting && <article class="banner-panel" data-banner={storyBanner} data-banner-label="The setting"><span>The setting</span><p>{data.storySetting}</p></article>}
-      {data.storyTrigger && <article class="banner-panel" data-banner={storyBanner} data-banner-label="Why now"><span>Why now</span><p>{data.storyTrigger}</p></article>}
-      {data.storyTension && <article class="banner-panel" data-banner="insights" data-banner-label="The tension"><span>The tension</span><p>{data.storyTension}</p></article>}
+      {data.storySetting && <article class="banner-panel" data-banner={storyBanner} data-banner-label="Setting"><span>The setting</span><p>{data.storySetting}</p></article>}
+      {data.storyTrigger && <article class="banner-panel" data-banner={storyBanner} data-banner-label="Trigger"><span>Why now</span><p>{data.storyTrigger}</p></article>}
+      {data.storyTension && <article class="banner-panel" data-banner="insights" data-banner-label="Tension"><span>The tension</span><p>{data.storyTension}</p></article>}
     </div>
 
     {data.storyPeople.length > 0 && (
@@ -91,7 +91,7 @@ const hasStory = Boolean(
         </div>
         <div class="project-lens-grid">
           {data.storyLenses.map((lens) => (
-            <article class="banner-panel" data-banner="insights" data-banner-label={lens.label}><span>{lens.label}</span><h3>{lens.title}</h3><p>{lens.body}</p></article>
+            <article class="banner-panel" data-banner="insights" data-banner-label="Lens"><span>{lens.label}</span><h3>{lens.title}</h3><p>{lens.body}</p></article>
           ))}
         </div>
       </section>
@@ -105,7 +105,7 @@ const hasStory = Boolean(
         </div>
         <div class="project-evidence-grid">
           {data.storyEvidence.map((item) => (
-            <article class="banner-panel" data-banner="projects" data-banner-label={item.label}><span>{item.label}</span><p>{item.body}</p></article>
+            <article class="banner-panel" data-banner="projects" data-banner-label="Evidence"><span>{item.label}</span><p>{item.body}</p></article>
           ))}
         </div>
       </section>
