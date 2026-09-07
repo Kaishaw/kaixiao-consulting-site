@@ -9,6 +9,15 @@ const featuredProjects = (await getCollection("projects", ({ data }) => data.pub
   .slice(0, 2);
 const latestPost = (await getCollection("blog", ({ data }) => data.published))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())[0];
+
+const routeBanner = (href: string) => {
+  if (href.includes("portfolio")) return "portfolio";
+  if (href.includes("work")) return "projects";
+  if (href.includes("insights")) return "insights";
+  if (href.includes("ai-projects")) return "labs";
+  if (href.includes("blog")) return "blog";
+  return "contact";
+};
 ---
 
 <BaseLayout title={`${site.siteName} | CRM, ERP & Applied AI`}>
@@ -48,7 +57,7 @@ const latestPost = (await getCollection("blog", ({ data }) => data.published))
       <div class="selected-work-grid">
         <div class="selected-projects">
           {featuredProjects.map((project) => (
-            <article class="selected-project-card">
+            <article class="selected-project-card banner-panel banner-panel--compact" data-banner="projects" data-banner-label="Project story">
               <div class="selected-project-meta">
                 <span>{project.data.label}</span>
                 <strong>{project.data.clientType}</strong>
@@ -61,7 +70,7 @@ const latestPost = (await getCollection("blog", ({ data }) => data.published))
             </article>
           ))}
         </div>
-        <aside class="blog-teaser">
+        <aside class="blog-teaser banner-panel banner-panel--compact" data-banner="insights" data-banner-label="Field notes">
           <p class="eyebrow">Ideas, lessons, and field notes</p>
           <h2>Thoughts from the journey.</h2>
           <p>Notes on CRM strategy, Power Platform, applied AI, and making digital change useful in real teams.</p>
@@ -110,7 +119,7 @@ const latestPost = (await getCollection("blog", ({ data }) => data.published))
       </div>
       <div class="route-grid">
         {home.routes.map((route) => (
-          <a class="route-card" href={route.href}>
+          <a class="route-card banner-panel" href={route.href} data-banner={routeBanner(route.href)} data-banner-label={route.title}>
             <span>{route.number}</span>
             <h3>{route.title}</h3>
             <p>{route.description}</p>

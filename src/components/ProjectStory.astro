@@ -7,6 +7,7 @@ interface Props {
 
 const { project } = Astro.props;
 const { data } = project;
+const storyBanner = data.type === "ai" ? "labs" : "projects";
 const hasStory = Boolean(
   data.storyHook ||
   data.storySetting ||
@@ -29,9 +30,9 @@ const hasStory = Boolean(
     </div>
 
     <div class="project-scene-grid">
-      {data.storySetting && <article><span>The setting</span><p>{data.storySetting}</p></article>}
-      {data.storyTrigger && <article><span>Why now</span><p>{data.storyTrigger}</p></article>}
-      {data.storyTension && <article><span>The tension</span><p>{data.storyTension}</p></article>}
+      {data.storySetting && <article class="banner-panel" data-banner={storyBanner} data-banner-label="The setting"><span>The setting</span><p>{data.storySetting}</p></article>}
+      {data.storyTrigger && <article class="banner-panel" data-banner={storyBanner} data-banner-label="Why now"><span>Why now</span><p>{data.storyTrigger}</p></article>}
+      {data.storyTension && <article class="banner-panel" data-banner="insights" data-banner-label="The tension"><span>The tension</span><p>{data.storyTension}</p></article>}
     </div>
 
     {data.storyPeople.length > 0 && (
@@ -42,7 +43,7 @@ const hasStory = Boolean(
         </div>
         <div class="project-people-grid">
           {data.storyPeople.map((person) => (
-            <article>
+            <article class="banner-panel" data-banner="portfolio" data-banner-label="Perspective">
               <h3>{person.role}</h3>
               <p>{person.need}</p>
             </article>
@@ -76,7 +77,7 @@ const hasStory = Boolean(
         </div>
         <div class="project-decision-grid">
           {data.storyDecisions.map((decision) => (
-            <article><h3>{decision.title}</h3><p>{decision.body}</p></article>
+            <article class="banner-panel" data-banner="projects" data-banner-label="Decision"><h3>{decision.title}</h3><p>{decision.body}</p></article>
           ))}
         </div>
       </section>
@@ -90,7 +91,7 @@ const hasStory = Boolean(
         </div>
         <div class="project-lens-grid">
           {data.storyLenses.map((lens) => (
-            <article><span>{lens.label}</span><h3>{lens.title}</h3><p>{lens.body}</p></article>
+            <article class="banner-panel" data-banner="insights" data-banner-label={lens.label}><span>{lens.label}</span><h3>{lens.title}</h3><p>{lens.body}</p></article>
           ))}
         </div>
       </section>
@@ -104,7 +105,7 @@ const hasStory = Boolean(
         </div>
         <div class="project-evidence-grid">
           {data.storyEvidence.map((item) => (
-            <article><span>{item.label}</span><p>{item.body}</p></article>
+            <article class="banner-panel" data-banner="projects" data-banner-label={item.label}><span>{item.label}</span><p>{item.body}</p></article>
           ))}
         </div>
       </section>

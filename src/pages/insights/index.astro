@@ -9,6 +9,11 @@ const posts = (await getCollection("blog", ({ data }) => data.published))
 const featuredPosts = posts.filter((post) => post.data.featuredInsight);
 const insightPosts = featuredPosts.length ? featuredPosts : posts.slice(0, 3);
 const featuredInsight = insightPosts[0];
+const contentTypeLabel = (contentType?: string) => {
+  if (!contentType) return "Article";
+  if (contentType === "case-note") return "Case note";
+  return contentType.charAt(0).toUpperCase() + contentType.slice(1);
+};
 ---
 
 <BaseLayout title={`Insights | ${site.siteName}`} description={`${site.siteName}'s perspective on CRM, ERP, Power Platform, contact centers, and applied AI.`}>
@@ -27,7 +32,7 @@ const featuredInsight = insightPosts[0];
 
     {featuredInsight && (
       <section class="section featured-insight-section">
-        <article class="featured-case featured-insight">
+        <article class="featured-case featured-insight banner-panel" data-banner="insights" data-banner-label="Featured insight">
           <div>
             <p class="eyebrow">Featured insight · {featuredInsight.data.insightTopic || featuredInsight.data.category}</p>
             <h2>{featuredInsight.data.title}</h2>
@@ -44,7 +49,7 @@ const featuredInsight = insightPosts[0];
 
     <section class="section detail-grid insight-pillars">
       {insights.pillars.map((pillar) => (
-        <article>
+        <article class="banner-panel" data-banner="insights" data-banner-label={pillar.label}>
           <span>{pillar.label}</span>
           <h3>{pillar.title}</h3>
           <p>{pillar.description}</p>
@@ -55,7 +60,7 @@ const featuredInsight = insightPosts[0];
     <section class="note-list">
       <div class="section-heading"><p class="eyebrow">Latest notes</p><a class="secondary-link" href="/blog/">Open the Blog</a></div>
       {insightPosts.map((post, index) => (
-        <article>
+        <article class="banner-panel" data-banner={post.data.contentType === "case-note" ? "projects" : post.data.contentType === "tutorial" ? "labs" : "insights"} data-banner-label={contentTypeLabel(post.data.contentType)}>
           <span>{post.data.insightTopic || post.data.category} · {String(index + 1).padStart(2, "0")}</span>
           <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
           <p>{post.data.insightSummary || post.data.summary}</p>
@@ -66,10 +71,10 @@ const featuredInsight = insightPosts[0];
     <section class="section source-section">
       <div><p class="eyebrow">Reading list</p><h2>Public sources I am watching.</h2><p class="source-note">{insights.sourceNote}</p></div>
       <div class="source-grid">
-        <a href="https://www.microsoft.com/en-us/dynamics-365/products/contact-center" rel="noopener noreferrer">Dynamics 365 Contact Center</a>
-        <a href="https://www.microsoft.com/en-us/power-platform" rel="noopener noreferrer">Microsoft Power Platform</a>
-        <a href="https://www.microsoft.com/en-us/dynamics-365/products/sales" rel="noopener noreferrer">Dynamics 365 Sales</a>
-        <a href="https://www.microsoft.com/en-us/dynamics-365/products/customer-service" rel="noopener noreferrer">Dynamics 365 Customer Service</a>
+        <a class="banner-panel banner-panel--compact" data-banner="insights" data-banner-label="Public source" href="https://www.microsoft.com/en-us/dynamics-365/products/contact-center" rel="noopener noreferrer">Dynamics 365 Contact Center</a>
+        <a class="banner-panel banner-panel--compact" data-banner="insights" data-banner-label="Public source" href="https://www.microsoft.com/en-us/power-platform" rel="noopener noreferrer">Microsoft Power Platform</a>
+        <a class="banner-panel banner-panel--compact" data-banner="insights" data-banner-label="Public source" href="https://www.microsoft.com/en-us/dynamics-365/products/sales" rel="noopener noreferrer">Dynamics 365 Sales</a>
+        <a class="banner-panel banner-panel--compact" data-banner="insights" data-banner-label="Public source" href="https://www.microsoft.com/en-us/dynamics-365/products/customer-service" rel="noopener noreferrer">Dynamics 365 Customer Service</a>
       </div>
     </section>
   </main>

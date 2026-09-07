@@ -80,7 +80,7 @@ const visualAlt = (project: (typeof projects)[number]) => project.data.coverImag
 
         <div class="lab-notes-grid">
           {labNotes(project).map((note, index) => (
-            <article class={`lab-note lab-note-${index + 1}`}>
+            <article class={`lab-note lab-note-${index + 1} banner-panel`} data-banner="labs">
               <div class="lab-note-top"><span>{note.number}</span><span>{note.label}</span></div>
               <h3>{note.title}</h3>
               <p>{note.body}</p>
@@ -96,7 +96,7 @@ const visualAlt = (project: (typeof projects)[number]) => project.data.coverImag
             </div>
             <ol class="lab-flow-list">
               {project.data.storyJourney.map((step, index) => (
-                <li><span>{String(index + 1).padStart(2, "0")}</span><h3>{step.title}</h3><p>{step.body}</p></li>
+                <li class="banner-panel banner-panel--compact" data-banner="labs" data-banner-label={`Step ${String(index + 1).padStart(2, "0")}`}><span>{String(index + 1).padStart(2, "0")}</span><h3>{step.title}</h3><p>{step.body}</p></li>
               ))}
             </ol>
           </section>

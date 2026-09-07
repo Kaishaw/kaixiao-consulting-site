@@ -37,7 +37,7 @@ const projectVisualAlt = project.data.coverImage ? `${project.data.title} cover 
         </div>
         <MarkdownContent entry={project} />
       </div>
-      <aside class="article-aside">
+      <aside class="article-aside banner-panel banner-panel--compact" data-banner={project.data.type === "ai" ? "labs" : "projects"} data-banner-label="Project context">
         {project.data.businessContext && <><strong>Business context</strong><p>{project.data.businessContext}</p></>}
         {project.data.scale && <><strong>Scale</strong><p>{project.data.scale}</p></>}
         {project.data.rolePerspective && <><strong>Role perspective</strong><p>{project.data.rolePerspective}</p></>}

@@ -108,6 +108,30 @@ main { overflow: hidden; }
 
 .route-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
 .route-card, .soft-card-grid article, .detail-grid article, .source-grid a, .note-list article, .featured-case, .story-card, .contact-hero { background: var(--surface); border: 1px solid var(--line); transition: border-color 180ms ease, background 180ms ease, transform 180ms ease; }
+.banner-panel { --banner-image: url("/assets/home-systems.png"); --banner-height: 5.25rem; position: relative; overflow: hidden; border-radius: 1.25rem; }
+.banner-panel::before { position: absolute; inset: 0 0 auto; z-index: 0; height: var(--banner-height); content: ""; background-image: linear-gradient(90deg, rgba(12, 7, 21, 0.88), rgba(31, 18, 53, 0.32) 52%, rgba(12, 7, 21, 0.84)), var(--banner-image); background-position: center; background-size: cover; border-bottom: 1px solid rgba(247, 242, 255, 0.2); }
+.banner-panel::after { position: absolute; top: 1.1rem; left: 1.5rem; z-index: 2; content: attr(data-banner-label); color: var(--orange); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+.banner-panel > :not(.teaser-art) { position: relative; z-index: 1; }
+.banner-panel[data-banner="home"] { --banner-image: url("/assets/home-systems.png"); }
+.banner-panel[data-banner="portfolio"] { --banner-image: url("/assets/portfolio-journey.png"); }
+.banner-panel[data-banner="projects"] { --banner-image: url("/assets/projects-operations.png"); }
+.banner-panel[data-banner="insights"] { --banner-image: url("/assets/insights-signal.png"); }
+.banner-panel[data-banner="labs"] { --banner-image: url("/assets/labs-agentic.png"); }
+.banner-panel[data-banner="blog"] { --banner-image: url("/assets/blog-knowledge.png"); }
+.banner-panel[data-banner="contact"] { --banner-image: url("/assets/contact-bridge.png"); }
+.banner-panel--compact { --banner-height: 4.25rem; }
+.route-card.banner-panel { padding-top: 6.15rem; }
+.selected-project-card.banner-panel { padding: 5.15rem 1.4rem 1.8rem; }
+.blog-teaser.banner-panel { padding-top: 5.15rem; }
+.detail-grid article.banner-panel, .soft-card-grid article.banner-panel { padding-top: 5.95rem; }
+.story-card.banner-panel { padding-top: clamp(6rem, 8vw, 8rem); }
+.note-list article.banner-panel { padding-top: 5.95rem; }
+.source-grid a.banner-panel { padding-top: 5.15rem; }
+.featured-case.banner-panel { padding-top: clamp(6rem, 8vw, 8rem); }
+.contact-hero.banner-panel { padding-top: clamp(6rem, 8vw, 8rem); }
+.article-aside.banner-panel { padding-top: 5.15rem; }
+.project-scene-grid article.banner-panel, .project-people-grid article.banner-panel, .project-decision-grid article.banner-panel, .project-lens-grid article.banner-panel, .project-evidence-grid article.banner-panel { padding-top: 5.55rem; border-radius: 1.2rem; }
+.lab-flow-list li.banner-panel { padding-top: 5rem; border-top: 0; }
 .route-card { min-height: 285px; padding: 1.5rem; }
 .route-card:hover, .soft-card-grid article:hover, .detail-grid article:hover, .source-grid a:hover, .note-list article:hover, .story-card:hover { transform: translateY(-4px); border-color: var(--orange); background: var(--surface-raised); }
 .route-card > span { color: var(--orange); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; }
