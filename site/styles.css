@@ -69,11 +69,10 @@ main { overflow: hidden; }
 
 .profile-card { position: relative; min-height: 540px; isolation: isolate; overflow: hidden; background: var(--surface); border: 1px solid var(--line-strong); border-radius: 1.5rem; }
 .hero-ribbon-art { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: cover; }
-.profile-monogram { position: absolute; inset: 14% 16% 20% 22%; display: grid; place-content: center; gap: 0.1rem; color: var(--ink); border: 1px solid rgba(247, 242, 255, 0.35); border-radius: 50%; background: rgba(18, 11, 31, 0.48); font-size: clamp(3.8rem, 8vw, 7.5rem); font-weight: 700; letter-spacing: -0.12em; line-height: 0.82; text-align: center; }
-.profile-monogram span:last-child { padding-left: 1.7rem; color: var(--orange); }
+.profile-ai-mark { position: absolute; top: 18%; left: 12%; z-index: 1; display: grid; width: 64%; aspect-ratio: 1; place-items: center; color: var(--orange); font-size: clamp(5rem, 11vw, 9.5rem); font-weight: 700; letter-spacing: -0.12em; line-height: 0.8; text-align: center; text-shadow: 0 12px 38px rgba(255, 174, 103, 0.28); }
 .profile-caption { position: absolute; right: 1.5rem; bottom: 1.25rem; left: 1.5rem; display: grid; gap: 0.25rem; }
 .profile-caption strong { color: var(--orange); font-family: var(--serif); font-size: clamp(1.6rem, 2.4vw, 2.4rem); font-weight: 400; }
-.profile-caption span { max-width: 320px; color: var(--muted); font-size: 0.83rem; }
+.profile-caption span { max-width: 360px; color: var(--muted); font-size: 0.83rem; }
 
 .topic-strip { display: grid; grid-template-columns: repeat(5, 1fr); max-width: var(--max); margin: 0 auto; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .topic-strip span { padding: 1.3rem 1.1rem; color: var(--muted); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-align: center; text-transform: uppercase; border-right: 1px solid var(--line); }
