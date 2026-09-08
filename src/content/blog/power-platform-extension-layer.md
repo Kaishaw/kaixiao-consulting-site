@@ -3,7 +3,7 @@ title: "Power Platform as the business extension layer"
 summary: "Low-code tools are useful when they sit close to a real business pain, but governance and simple design standards still matter."
 published: true
 date: 2026-06-05
-category: "Technology perspective"
+category: "Power Platform & automation"
 contentType: "article"
 tags: ["Power Platform", "Governance", "Automation"]
 ---

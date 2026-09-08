@@ -17,7 +17,7 @@ const blog = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
   schema: z.object({
     ...sharedFields,
-    category: z.string().default("Insight"),
+    category: z.string().default("Industry insights"),
     contentType: z.enum(["article", "opinion", "case-note", "tutorial"]).default("article"),
     featuredInsight: z.boolean().default(false),
     insightSummary: z.string().optional(),

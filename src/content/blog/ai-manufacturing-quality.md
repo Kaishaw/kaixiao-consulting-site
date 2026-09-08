@@ -3,7 +3,7 @@ title: "In manufacturing, trust is part of the model"
 summary: "An AI inspection system becomes useful when image quality, labeled examples, expert feedback, and visible evidence are designed as one loop."
 published: true
 date: 2026-09-01
-category: "AI practice"
+category: "Case studies"
 contentType: "case-note"
 insightTopic: "AI + manufacturing"
 insightSummary: "The human expert is not removed from quality work; their judgment becomes training data, review, and the quality bar the system must meet."

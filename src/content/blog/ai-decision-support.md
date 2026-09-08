@@ -3,7 +3,7 @@ title: "Decision support needs a data hub and an escalation path"
 summary: "The water-management case shows how multiple data sources, domain knowledge, specialist agents, and human review can work together without hiding responsibility."
 published: true
 date: 2026-08-31
-category: "AI practice"
+category: "Data & governance"
 contentType: "case-note"
 insightTopic: "AI + decision support"
 insightSummary: "As AI becomes more autonomous, routing, provenance, data quality, and escalation become more important - not less."

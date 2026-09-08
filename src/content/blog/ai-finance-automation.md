@@ -3,7 +3,7 @@ title: "Finance automation begins with a reliable source table"
 summary: "The finance cases show why standard fields, clean records, and controlled checks matter more than asking AI to solve an undefined accounting problem."
 published: true
 date: 2026-09-04
-category: "AI practice"
+category: "ERP & operations"
 contentType: "case-note"
 insightTopic: "AI + finance"
 insightSummary: "Before automating reconciliation or posting, make the input consistent enough that a person and a system can agree on what each field means."

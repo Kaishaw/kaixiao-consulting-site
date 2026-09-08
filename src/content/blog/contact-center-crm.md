@@ -3,7 +3,7 @@ title: "Contact centers are becoming part of CRM"
 summary: "Service work connects case history, customer profile, knowledge, channels, and follow-up in one flow."
 published: true
 date: 2026-06-12
-category: "Industry insight"
+category: "Industry insights"
 contentType: "article"
 tags: ["Customer service", "Contact center", "Dynamics 365"]
 ---

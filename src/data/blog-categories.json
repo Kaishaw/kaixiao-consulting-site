@@ -1,0 +1,57 @@
+[
+  {
+    "slug": "project-analysis",
+    "label": "Project analysis",
+    "description": "Breakdowns of the decisions, workflows, and outcomes behind a project."
+  },
+  {
+    "slug": "case-studies",
+    "label": "Case studies",
+    "description": "Concrete examples of AI, systems, and business process work."
+  },
+  {
+    "slug": "personal-notes",
+    "label": "Personal notes",
+    "description": "Working reflections, lessons learned, and points of view from practice."
+  },
+  {
+    "slug": "industry-insights",
+    "label": "Industry insights",
+    "description": "Signals and shifts across CRM, AI, business systems, and operations."
+  },
+  {
+    "slug": "ai-practice",
+    "label": "AI practice",
+    "description": "Practical patterns for putting AI inside a trusted business workflow."
+  },
+  {
+    "slug": "crm-customer-operations",
+    "label": "CRM & customer operations",
+    "description": "Customer records, service journeys, sales operations, and follow-up."
+  },
+  {
+    "slug": "erp-operations",
+    "label": "ERP & operations",
+    "description": "Inventory, finance, fulfillment, supply chain, and operational control."
+  },
+  {
+    "slug": "power-platform-automation",
+    "label": "Power Platform & automation",
+    "description": "Power Apps, Power Automate, low-code delivery, and workflow automation."
+  },
+  {
+    "slug": "data-governance",
+    "label": "Data & governance",
+    "description": "Data quality, source-of-truth design, controls, risk, and responsible AI."
+  },
+  {
+    "slug": "delivery-adoption",
+    "label": "Delivery & adoption",
+    "description": "Business analysis, functional design, testing, rollout, and change adoption."
+  },
+  {
+    "slug": "tools-experiments",
+    "label": "Tools & experiments",
+    "description": "Small demos, prototypes, and tools that make an idea tangible."
+  }
+]

@@ -3,7 +3,7 @@ title: "A useful AI CRM starts with the customer record"
 summary: "A lightweight customer workflow can create more value than a complex AI layer when it keeps identity, follow-up, reminders, and context together."
 published: true
 date: 2026-09-02
-category: "AI practice"
+category: "CRM & customer operations"
 contentType: "case-note"
 insightTopic: "AI + CRM"
 insightSummary: "Adoption often comes from a familiar data model and a small number of useful automations, not from adding another complicated interface."

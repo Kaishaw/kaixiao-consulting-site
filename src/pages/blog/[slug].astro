@@ -12,6 +12,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const postVisual = post.data.coverImage || site.visuals.insights;
 const postVisualAlt = post.data.coverImage ? `${post.data.title} cover image` : "Abstract field of technology signals resolving into a clear constellation";
+const categorySlug = (value: string) => value.toLowerCase().trim().replace(/&/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "uncategorized";
 ---
 
 <BaseLayout title={`${post.data.title} | ${site.siteName}`} description={post.data.summary} ogImage={post.data.coverImage || site.visuals.insights}>
@@ -31,10 +32,16 @@ const postVisualAlt = post.data.coverImage ? `${post.data.title} cover image` : 
       <section class="section article-layout">
         <MarkdownContent entry={post} />
         <footer class="article-footer" aria-label="Article topics and navigation">
-          <div>
-            <strong>Topics</strong>
-            <div class="tag-list">
-              {post.data.tags.map((tag) => <span>{tag}</span>)}
+          <div class="article-footer-meta">
+            <div>
+              <strong>Category</strong>
+              <a class="article-category-link" href={`/blog/?category=${categorySlug(post.data.category)}`}>{post.data.category}</a>
+            </div>
+            <div>
+              <strong>Topics</strong>
+              <div class="tag-list">
+                {post.data.tags.map((tag) => <span>{tag}</span>)}
+              </div>
             </div>
           </div>
           <a class="secondary-link" href="/blog/">Back to Blog</a>

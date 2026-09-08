@@ -3,7 +3,7 @@ title: "AI recruiting works when the whole journey is designed"
 summary: "A recruiting agent becomes useful when it connects role setup, candidate communication, screening, scheduling, system updates, and human follow-up."
 published: true
 date: 2026-09-05
-category: "AI practice"
+category: "Case studies"
 contentType: "case-note"
 insightTopic: "AI + recruiting"
 insightSummary: "The lesson is not to automate one message. It is to design the complete candidate journey and keep people at the points that affect trust."

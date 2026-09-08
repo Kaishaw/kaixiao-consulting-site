@@ -2,10 +2,23 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import site from "../../data/site.json";
+import blogCategories from "../../data/blog-categories.json";
 import { ArrowUpRight, ClipboardCheck, FileText, Workflow } from "@lucide/astro";
 
 const posts = (await getCollection("blog", ({ data }) => data.published))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const categorySlug = (value: string) => value.toLowerCase().trim().replace(/&/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "uncategorized";
+const categoryCounts = new Map<string, number>();
+posts.forEach((post) => categoryCounts.set(post.data.category, (categoryCounts.get(post.data.category) || 0) + 1));
+const configuredLabels = new Set(blogCategories.map((category) => category.label));
+const discoveredCategories = [...categoryCounts.keys()]
+  .filter((label) => !configuredLabels.has(label))
+  .map((label) => ({ slug: categorySlug(label), label, description: "A growing category from the published blog." }));
+const categoryItems = [...blogCategories, ...discoveredCategories].map((category) => ({
+  ...category,
+  count: categoryCounts.get(category.label) || 0,
+}));
 
 const contentTypeLabel = (contentType?: string) => {
   if (!contentType) return "Article";
@@ -38,23 +51,102 @@ const contentTypeArt = (contentType?: string) => {
       </figure>
     </section>
 
-    <section class="section blog-grid">
-      {posts.map((post) => {
-        const art = contentTypeArt(post.data.contentType);
-        const Icon = art.Icon;
-        return (
-          <article class={`route-card blog-card${post.data.featuredInsight ? " featured-blog-card" : ""}`} data-content-type={post.data.contentType || "article"}>
-            <div class="blog-card-art">
-              <img src={post.data.coverImage || art.visual} alt="" />
-              <span>{contentTypeLabel(post.data.contentType)}</span>
-              <Icon class="blog-card-icon" size={34} strokeWidth={1.4} aria-hidden="true" />
-            </div>
-            <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
-            <p>{post.data.summary}</p>
-            <small>{post.data.category} · {post.data.date.toLocaleDateString("en-CA")}</small>
-          </article>
-        );
-      })}
+    <section class="section blog-directory-section" data-blog-directory>
+      <div class="blog-directory-layout">
+        <aside class="blog-category-nav" aria-label="Blog categories">
+          <div class="blog-category-nav-inner">
+            <p class="eyebrow">Browse by category</p>
+            <h2>Blog index.</h2>
+            <p>Choose one primary category for each article. Use tags for the more specific topics.</p>
+            <nav class="blog-category-list" aria-label="Filter blog posts">
+              <a class="blog-category-link is-active" href="/blog/" data-blog-category data-category-slug="all" data-category-label="All posts" aria-current="page"><span>All posts</span><b>{posts.length}</b></a>
+              {categoryItems.map((category) => (
+                <a class:list={["blog-category-link", category.count === 0 && "is-empty"]} href={`/blog/?category=${category.slug}`} data-blog-category data-category-slug={category.slug} data-category-label={category.label} title={category.description}>
+                  <span>{category.label}</span><b>{category.count}</b>
+                </a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <div class="blog-posts-area">
+          <div class="blog-results-heading">
+            <div><p class="eyebrow">Library</p><h2 id="blog-results-title">All posts</h2></div>
+            <p id="blog-results-count" class="blog-results-count">{posts.length} articles</p>
+          </div>
+          <div class="blog-grid" id="blog-post-grid">
+            {posts.map((post) => {
+              const art = contentTypeArt(post.data.contentType);
+              const Icon = art.Icon;
+              return (
+                <article class={`route-card blog-card${post.data.featuredInsight ? " featured-blog-card" : ""}`} data-blog-card data-category-slug={categorySlug(post.data.category)} data-content-type={post.data.contentType || "article"}>
+                  <div class="blog-card-art">
+                    <img src={post.data.coverImage || art.visual} alt="" />
+                    <span>{contentTypeLabel(post.data.contentType)}</span>
+                    <Icon class="blog-card-icon" size={34} strokeWidth={1.4} aria-hidden="true" />
+                  </div>
+                  <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+                  <p>{post.data.summary}</p>
+                  <small>{post.data.category} · {post.data.date.toLocaleDateString("en-CA")}</small>
+                </article>
+              );
+            })}
+          </div>
+          <p class="blog-empty-state" id="blog-empty-state" hidden>No posts in this category yet.</p>
+        </div>
+      </div>
     </section>
   </main>
 </BaseLayout>
+
+<script>
+  const directory = document.querySelector("[data-blog-directory]");
+
+  if (directory) {
+    const cards = Array.from(directory.querySelectorAll("[data-blog-card]"));
+    const filters = Array.from(directory.querySelectorAll("[data-blog-category]"));
+    const title = directory.querySelector("#blog-results-title");
+    const count = directory.querySelector("#blog-results-count");
+    const empty = directory.querySelector("#blog-empty-state");
+    const labels = new Map(filters.map((filter) => [filter.dataset.categorySlug || "all", filter.dataset.categoryLabel || "All posts"]));
+
+    const applyFilter = (requestedSlug, updateUrl) => {
+      const selectedSlug = labels.has(requestedSlug) ? requestedSlug : "all";
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const isVisible = selectedSlug === "all" || card.dataset.categorySlug === selectedSlug;
+        card.hidden = !isVisible;
+        if (isVisible) visibleCount += 1;
+      });
+
+      filters.forEach((filter) => {
+        const isActive = (filter.dataset.categorySlug || "all") === selectedSlug;
+        filter.classList.toggle("is-active", isActive);
+        if (isActive) filter.setAttribute("aria-current", "page");
+        else filter.removeAttribute("aria-current");
+      });
+
+      if (title) title.textContent = labels.get(selectedSlug) || "All posts";
+      if (count) count.textContent = `${visibleCount} ${visibleCount === 1 ? "article" : "articles"}`;
+      if (empty) empty.hidden = visibleCount !== 0;
+
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        if (selectedSlug === "all") url.searchParams.delete("category");
+        else url.searchParams.set("category", selectedSlug);
+        window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
+      }
+    };
+
+    filters.forEach((filter) => {
+      filter.addEventListener("click", (event) => {
+        event.preventDefault();
+        applyFilter(filter.dataset.categorySlug || "all", true);
+      });
+    });
+
+    const initialSlug = new URL(window.location.href).searchParams.get("category") || "all";
+    applyFilter(initialSlug, false);
+  }
+</script>

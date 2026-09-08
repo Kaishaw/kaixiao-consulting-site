@@ -3,7 +3,7 @@ title: "AI can move legal teams from review to process management"
 summary: "The legal case is a reminder that digitization, standardization, first-pass AI, and workflow visibility need to work together."
 published: true
 date: 2026-09-03
-category: "AI practice"
+category: "Case studies"
 contentType: "case-note"
 insightTopic: "AI + legal operations"
 insightSummary: "The model improves legal work when it sits inside a governed contract process, not when it is asked to replace legal responsibility."

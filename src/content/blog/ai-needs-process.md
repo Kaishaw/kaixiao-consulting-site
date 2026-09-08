@@ -3,7 +3,7 @@ title: "Copilot works when the business process is clear"
 summary: "Copilot and AI agents help most when ownership, data, and operating rules are clear."
 published: true
 date: 2026-06-20
-category: "Industry insight"
+category: "Personal notes"
 contentType: "opinion"
 featuredInsight: true
 insightTopic: "Dynamics 365 + Copilot"
