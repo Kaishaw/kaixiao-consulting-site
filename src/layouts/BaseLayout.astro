@@ -13,9 +13,6 @@ const {
   ogImage = site.defaultOgImage,
 } = Astro.props;
 
-const brandWords = site.siteName.trim().split(/\s+/);
-const brandFirst = brandWords.slice(0, -1).join(" ") || site.siteName;
-const brandLast = brandWords.length > 1 ? brandWords.at(-1) : "";
 const showStatus = site.showSiteStatus && site.siteStatusNote && (Astro.url.pathname === "/" || site.showSiteStatusEverywhere);
 ---
 
@@ -35,14 +32,14 @@ const showStatus = site.showSiteStatus && site.siteStatusNote && (Astro.url.path
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/styles.css?v=20260907-blog-directory" />
+    <link rel="stylesheet" href="/styles.css?v=20260908-logo" />
   </head>
   <body>
     <div class="ambient-background" aria-hidden="true"></div>
     <div class="progress" id="progress"></div>
     <header class="site-nav">
       <a class="brand" href="/" aria-label={site.siteName}>
-        <span>{brandFirst}</span>{brandLast && <em>{brandLast}</em>}
+        <img class="brand-logo" src="/assets/kai-logo.svg" alt={site.siteName} />
       </a>
       <nav aria-label="Primary navigation">
         {site.navigation.map((item) => <a href={item.href}>{item.label}</a>)}
