@@ -13,6 +13,9 @@ const {
   ogImage = site.defaultOgImage,
 } = Astro.props;
 
+const brandAssetVersion = "20260909-tone";
+const versionAsset = (path: string) => `${path}${path.includes("?") ? "&" : "?"}v=${brandAssetVersion}`;
+const favicon = site.favicon ? versionAsset(site.favicon) : "";
 const showStatus = site.showSiteStatus && site.siteStatusNote && (Astro.url.pathname === "/" || site.showSiteStatusEverywhere);
 ---
 
@@ -28,7 +31,7 @@ const showStatus = site.showSiteStatus && site.siteStatusNote && (Astro.url.path
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#120b1f" />
     <title>{title}</title>
-    {site.favicon && <link rel="icon" type="image/svg+xml" href={site.favicon} />}
+    {favicon && <link rel="icon" type="image/svg+xml" href={favicon} />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
@@ -39,7 +42,7 @@ const showStatus = site.showSiteStatus && site.siteStatusNote && (Astro.url.path
     <div class="progress" id="progress"></div>
     <header class="site-nav">
       <a class="brand" href="/" aria-label={site.siteName}>
-        <img class="brand-logo" src="/assets/kai-logo.svg" alt={site.siteName} />
+        <img class="brand-logo" src={versionAsset("/assets/kai-logo.svg")} alt={site.siteName} />
       </a>
       <nav aria-label="Primary navigation">
         {site.navigation.map((item) => <a href={item.href}>{item.label}</a>)}

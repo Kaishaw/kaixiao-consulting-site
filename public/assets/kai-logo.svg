@@ -3,16 +3,16 @@
   <desc id="logo-description">Stylized KAi logo in warm orange, violet, and soft white.</desc>
   <defs>
     <linearGradient id="warm" x1="0" y1="0" x2="0.95" y2="1">
-      <stop offset="0" stop-color="#ffc58c" />
-      <stop offset="1" stop-color="#f28d7b" />
+      <stop offset="0" stop-color="#ffb36d" />
+      <stop offset="1" stop-color="#e98779" />
     </linearGradient>
     <linearGradient id="violet" x1="0.08" y1="0" x2="0.9" y2="1">
-      <stop offset="0" stop-color="#b9adff" />
-      <stop offset="1" stop-color="#775fe3" />
+      <stop offset="0" stop-color="#a895ff" />
+      <stop offset="1" stop-color="#705bc9" />
     </linearGradient>
     <linearGradient id="soft-white" x1="0" y1="0" x2="0.85" y2="1">
-      <stop offset="0" stop-color="#fff8f1" />
-      <stop offset="1" stop-color="#eee7ff" />
+      <stop offset="0" stop-color="#f7f2ff" />
+      <stop offset="1" stop-color="#e7def9" />
     </linearGradient>
   </defs>
   <g shape-rendering="geometricPrecision">
